@@ -10,12 +10,12 @@
 <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>有一个黑匣子，黑匣子里有一个关于 x 的多项式 p(x) 。我们不知道它有多少项，但已知所有的系数都是正整数。每一次，你可以给黑匣子输入一个整数，黑匣子将返回把这个整数代入多项式后的值。那么，最少需要多少次， 我们可以得到这个多项式每项的系数呢？</p>
 <h3 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h3><p>第一次，输入 1 ，于是便得到整个多项式的所有系数之和。记作 S 。</p>
 <p>第二次，输入 S + 1 ，于是黑匣子返回的是</p>
-<p><img src="../images/equation.png" alt=""></p>
+<p><img src="/images/equation.png" alt=""></p>
 <p>的值。我们要得到</p>
-<p><img src="../images/equation_1.png" alt=""></p>
+<p><img src="/images/equation_1.png" alt=""></p>
 <p>只需要把这个值换成S+1进制，然后依次读出每一位上的数。</p>
 <p>PS.第一次得到S是为了保证对于任意系数</p>
-<p><img src="../images/equation_2.png" alt=""></p>
+<p><img src="/images/equation_2.png" alt=""></p>
 <p>比如，你可能想的是直接输入10，然后返回的值的每位就直接是各个系数了，但是系数可能大于10。因此，第一步是不能少的。</p>
 <p>其实，最大系数不超过N的多项式，本来就是N进制的本质。</p>
 ]]></content>
