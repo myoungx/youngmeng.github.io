@@ -4,6 +4,70 @@
   
     
     <entry>
+      <title><![CDATA[说说Android中的touch mode]]></title>
+      <url>http://youngmeng.xyz/2016/12/14/%E8%AF%B4%E8%AF%B4Android%E4%B8%AD%E7%9A%84touch-mode/</url>
+      <content type="html"><![CDATA[<p>这段时间做项目，在解决一个小bug的过程中，碰到一个坑，花费了一大天的时间来填坑，终于排查出了原因：由于某个edittext调用了requestFocusFromTouch()方法导致的，将获取焦点的方法换成requestFocus()，则问题不再复现。这就激发了我对这两个方法的好奇，准备看看它们葫芦里到底装的什么。</p>
+<h2 id="先从touch-mode说起"><a href="#先从touch-mode说起" class="headerlink" title="先从touch mode说起"></a>先从<em>touch mode</em>说起</h2><p>顾名思义，<em>touch mode</em>就是“触摸模式”。那到底什么是触摸模式呢？先来看下Android官方对<em>touch mode</em>的定义（原文<a href="https://developer.android.com/reference/android/view/View.html#TouchMode" target="_blank" rel="external">View-Touch Mode</a>)：</p>
+<blockquote>
+<p>When a user is navigating a user interface via directional keys such as a D-pad, it is necessary to give focus to actionable items such as buttons so the user can see what will take input. If the device has touch capabilities, however, and the user begins interacting with the interface by touching it, it is no longer necessary to always highlight, or give focus to, a particular view. This motivates a mode for interaction named ‘touch mode’.</p>
+<p>For a touch capable device, once the user touches the screen, the device will enter touch mode. From this point onward, only views for which<code>isFocusableInTouchMode()</code> is true will be focusable, such as text editing widgets. Other views that are touchable, like buttons, will not take focus when touched; they will only fire the on click listeners.</p>
+<p>Any time a user hits a directional key, such as a D-pad direction, the view device will exit touch mode, and find a view to take focus, so that the user may resume interacting with the user interface without touching the screen again.</p>
+<p>The touch mode state is maintained across <code>Activity</code>s. Call <code>isInTouchMode()</code> to see whether the device is currently in touch mode.</p>
+</blockquote>
+<p>嗯？不想读官方给的英文描述？没关系，我大致表述一遍：</p>
+<ul>
+<li>Android的界面交互有<em>方向键</em>（比如智能电视的遥控器）和<em>触摸</em>两种方式。方向键操作，需要通过焦点和高亮来表示此时操作的view；如果设备具备触摸能力，就可以通过触摸而不需要view高亮，这种触摸的交互方式就是<strong>touch mode</strong>。</li>
+<li>对于具有触摸能力的设备（现在大多数智能手机貌似都是），一旦用户触摸到屏幕，设备就进入了touch mode；用户按方向键时，设备就会退出touch mode。</li>
+<li>只有当view的isFocusableInTouchMode()为true时，view才是可获得焦点的。不同view该值默认不同，例如，edit text为true，button为false。</li>
+</ul>
+<p>通过对官方描述的理解，相信大家对touch mode有一个相对清晰的认识了。</p>
+<p>那么我们在代码中怎么知道设备是不是处于touch mode状态呢，Android官方在View类中提供了以下方法</p>
+<blockquote>
+<p> boolean isInTouchMode()</p>
+</blockquote>
+<p>来判断设备当前是否处于touch mode。</p>
+<p>通过上面的了解，发现touch mode是Android设备的一种交互方式。在平时的项目开发中，经常需要获得某个控件的焦点，比如，自动获得某个edit text的焦点，以方便用户输入。</p>
+<p>那么，对于大多数智能手机（具有touch mode能力）而言，如何获取view的焦点呢？</p>
+<h2 id="再说requestFocus"><a href="#再说requestFocus" class="headerlink" title="再说requestFocus"></a>再说requestFocus</h2><p>首先要明确一点的是，view要获取焦点，就必须具备获取焦点的能力（focusable）。Android在API中提供了两个方法来更改view是否能够获得焦点</p>
+<blockquote>
+<ol>
+<li><p>void setFocusable(boolean focusable)</p>
+</li>
+<li><p>void setFocusableInTouchMode(boolean focusableInTouchMode)</p>
+</li>
+</ol>
+</blockquote>
+<p>这两个方法通过传入的参数是true或者false来控制view是否具有获得焦点的能力，在xml文件中对应同样的属性定义。要说明的一点是，方法1如果设置为了false，则isFocusable()和isFocusableInTouchMode()均为false。</p>
+<p>例如，对于一个EditText类型的view调用该方法，并传入参数<em>false</em>，此时，再点击屏幕上的edit text，则无法获取焦点。</p>
+<p>因此，在touch mode下，view要获得焦点，首先要设置其是focusable的。当然，特定view默认就是focusable的，比如edit text。</p>
+<p>具备焦点能力后，Android提供了两个方法来获得焦点：</p>
+<ul>
+<li><strong>requestFocus()</strong></li>
+<li><strong>requestFocusFromTouch()</strong></li>
+</ul>
+<p>从方法名就能看出两个方法的区别。其差异在各种博客中都提到的是：requestFocus在几种特殊情况下不能够获得焦点</p>
+<ol>
+<li>调用requestFocus获取焦点的view不支持Focus。比如，button。</li>
+<li>调用requestFocus获取焦点的view支持Focus，但不支持touch mode下的Focus。</li>
+</ol>
+<p>这个比较好理解，就不举例来说明了。值得一提的是，requestFocuFromTouch调用后，该view会从touch mode变成非touch mode。其实，从源码就能看出</p>
+<pre><code class="java">public final boolean requestFocusFromTouch() {
+     // Leave touch mode if we need to
+     if (isInTouchMode()) {
+         ViewRootImpl viewRoot = getViewRootImpl();
+         if (viewRoot != null) {
+             viewRoot.ensureTouchMode(false);
+         }
+     }
+     return requestFocus(View.FOCUS_DOWN);
+}
+</code></pre>
+<p>如果需要的话，view会离开touch mode。</p>
+<p>更多touch mode的探究后续再研究更新吧~</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[一个关于多项式和进制的有意思的算法]]></title>
       <url>http://youngmeng.xyz/2016/12/08/%E4%B8%80%E4%B8%AA%E5%85%B3%E4%BA%8E%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%92%8C%E8%BF%9B%E5%88%B6%E7%9A%84%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E7%AE%97%E6%B3%95/</url>
       <content type="html"><![CDATA[<p>今天看了Matrix67的博客，提到了一个算法。觉得挺有意思，记录一下。</p>
