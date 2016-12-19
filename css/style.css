@@ -170,8 +170,8 @@ code[class*=language-],pre[class*=language-]{color:#000;text-shadow:0 1px #fff;f
 }
 .banner-false {
   background: #4183c4;
+  color: #fff;
 }
-color: #fff,
 .site-header {
   background-color: #fff;
 }
