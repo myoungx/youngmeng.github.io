@@ -24,7 +24,7 @@
 </script>
 
 </head>
-<body>
+<body class="home">
 	<header class="site-header navfixed-false">
   <div class="container">
       <h1><a href="/" title="youngmeng"><img src="/avatar.png" width=32px;height=32px></img> youngmeng</a></h1>
@@ -34,7 +34,7 @@
               <a href="/"  class=" site-header-nav-item hvr-underline-from-center" title="首页">首页</a>
         
               
-              <a href="/categories/"  class=" selected  site-header-nav-item hvr-underline-from-center" title="分类">分类</a>
+              <a href="/categories/"  class=" site-header-nav-item hvr-underline-from-center" title="分类">分类</a>
         
               
               <a href="/tags/"  class=" site-header-nav-item hvr-underline-from-center" title="标签">标签</a>
@@ -52,71 +52,98 @@
   </div>
 </header>
 
-	
-<section class="collection-head geopattern" data-pattern-id="Android" >
-    <div class="container">
-        <div class="collection-title">
-            <h1 class="collection-header">
-                Android
-            </h1>
-            
+	<section class="banner-false">
+    <div class="collection-head">
+        <div class="container">
+            <div class="collection-title">
+                <h1 class="collection-header" id="site-description">
+                    做好每件事
+                </h1>
+                <div class="collection-info">
+                    
+                    
+                        <span class="meta-info">
+                            
+                                <span class="octicon octicon-location">
+                                   
+                                        Beijing, China
+                                    
+                                </span>
+                                
+                            
+                        </span>
+                    
+                        <span class="meta-info">
+                            
+                                <span class="octicon octicon-mark-github">
+                                   
+                                </span>
+                                
+                                    <a href="http://github.com/youngmeng" target="_blank">youngmeng</a>
+                                
+                            
+                        </span>
+                    
+                        <span class="meta-info">
+                            
+                                <span class="octicon octicon-organization">
+                                   
+                                        MT
+                                    
+                                </span>
+                                
+                            
+                        </span>
+                    
+                </div>
+            </div>
         </div>
     </div>
 </section>
-	<section class="container">
+	   <section class="container">
     <div class="columns">
-        <div class="column two-thirds" >
-            <article class="article-content markdown-body">
-                <section class="posts-content">
-                    
-                        <ol class="posts-list">
-                            
-                                
-                            
-                                
-                                    
-                                        <li class="posts-list-item">
-                                            <span class="posts-list-meta">
-                                                <time datetime="2016-12-26T15:43:34.000Z" itemprop="datePublished">2016-12-26</time>
-                                            </span>
-                                             
+        <div class="column two-thirds">
+            
+                  <article id="post-Android手势密码探索" class="repo-list">
+    <div class="repo-list-item" >
+      <h3 class="repo-list-name" itemprop="name">
+        
   
-      <a class="posts-list-name" href="/玩转Android-drawable图片适配/">玩转Android drawable图片适配</a>
+      <a class="article-title" href="/Android手势密码探索/">Android手势密码探索</a>
   
 
-                                        </li>
-                                    
-                                        <li class="posts-list-item">
-                                            <span class="posts-list-meta">
-                                                <time datetime="2016-12-14T12:44:20.000Z" itemprop="datePublished">2016-12-14</time>
-                                            </span>
-                                             
-  
-      <a class="posts-list-name" href="/说说Android中的touch-mode/">说说Android中的touch mode</a>
-  
+      </h3>
+      <div class="repo-list-description">
+        
+          
+        
+      </div>
+      <p class="repo-list-meta">
+        <span class="meta-info">
+          <span class="octicon octicon-calendar"></span>
+           <time datetime="2017-03-16T13:35:35.000Z" itemprop="datePublished">2017-03-16</time>
+        </span>
 
-                                        </li>
-                                    
-                                        <li class="posts-list-item">
-                                            <span class="posts-list-meta">
-                                                <time datetime="2017-03-16T13:35:35.000Z" itemprop="datePublished">2017-03-16</time>
-                                            </span>
-                                             
-  
-      <a class="posts-list-name" href="/Android手势密码探索/">Android手势密码探索</a>
-  
+        
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href='/categories/Android/' title=''>Android</a>
+          </span>
+        
+      
+        <!--
+          
+            <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原创，技术/">原创，技术</a></li></ul>
+          
+        -->
 
-                                        </li>
-                                    
-                                
-                            
-                        </ol>
-                    
-                </section>
-            </article>
+      </p>
+    </div>
+  </article>
+            
         </div>
         <div class="column one-third">
-            <h3>Search</h3>
+          <h3>Search</h3>
 
 <div id="site_search">
 
@@ -136,30 +163,89 @@
 	
 
 </div>
-            
-	<h3>Blog Categories</h3>
-	<div id="blog-categories">
-		<ul class="list-group">
-				<li class="list-group-item">
-					<a href="/categories/">全部</a>
-	            	<span class="badge">4</span>
-	        	</li>			
-			
-				<li class="list-group-item">
-					<a href = /categories/About/ title="">About</a> 
-	            	<span class="badge">1</span>
-	        	</li>
-	 		
-				<li class="list-group-item">
-					<a href = /categories/Android/ title="">Android</a> 
-	            	<span class="badge">3</span>
-	        	</li>
-	 		
-		</ul>
-	</div>
+<h3>Popular Repositories</h3>
+
+    
+    <div class="popular-container"></div>
+    
+    <script type="text/template" id="popular-list-template">
+        <a href="{%=clone_url%}" class="card text-center" target="_blank">
+            <div class="thumbnail">
+                <div class="card-image geopattern" data-pattern-id="{%=name%}">
+                    <div class="card-image-cell">
+                        <h3 class="card-title">
+                            {%=name%}
+                        </h3>
+                    </div>
+                </div>
+                <div class="caption">
+                    <div class="card-description">
+                        <p class="card-text">
+                            {%=description%}
+                        </p>
+                    </div>
+                    <div class="card-text">
+                        <span class="meta-info tooltipped tooltipped-n" aria-label="{%=stargazers_count%} stars">
+                            <span class="octicon octicon-star"></span> {%=stargazers_count%}
+                        </span>
+                        <span class="meta-info tooltipped tooltipped-n" aria-label="{%=forks_count%} forks">
+                            <span class="octicon octicon-git-branch"></span> {%=forks_count%}
+                        </span>
+                        <span class="meta-info tooltipped tooltipped-n" aria-label="最后更新时间：{%=updated_at%}">
+                            <span class="octicon octicon-clock"></span>
+                            <time datetime="{%=updated_at%}">{%=updated_at%}</time>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </script>
+
+    <script src="/js/baiduTemplate.js"></script>
+    <script type="text/javascript">
+        var popular_repos = function(){
+
+            var baiduTpl = new Object();
+
+            var handleTpl = function(){
+                baiduTpl.popular_list = baidu.template("popular-list-template");
+            };
+
+            var handleGithub = function(){
+                var popularContainer = $(".popular-container");
+
+                var repos = "LeetCode".split(",");
+                for(var i in repos){
+                    var name = repos[i];
+                    $.get("https://api.github.com/repos/youngmeng/"+name,handle);
+                }
+
+                function handle(result){
+                    result.updated_at = result.updated_at.split("T")[0];
+                    if(result){
+                        var html = baiduTpl.popular_list(result);
+                        popularContainer.append(html);
+                        $(".geopattern").each(function(){           
+                            $(this).geopattern($(this).data('pattern-id'));
+                        });
+                    }
+                }
+            };
+
+            return {
+                init:function(){
+                    handleTpl();
+                    handleGithub();
+                }
+            }
+        }; 
+        $(popular_repos().init);
+    </script>
 
         </div>
     </div>
+
+    
 </section>
 
 <footer class="container">
