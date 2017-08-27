@@ -1,16 +1,25 @@
-
- <!DOCTYPE HTML>
-<html lang="default">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  
-    <title>Android手势密码探索 | youngmeng</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="youngmeng">
     
 
     
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android手势密码探索 | youngmeng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="原创，技术">
     <meta name="description" content="Android &amp;#x667A;&amp;#x80FD;&amp;#x624B;&amp;#x673A;&amp;#x5728;&amp;#x5168;&amp;#x7403;&amp;#x5E02;&amp;#x573A;&amp;#x6709;&amp;#x7740;&amp;#x6781;&amp;#x9AD8;&amp;#x7684;&amp;#x5E02;&amp;#x573A;&amp;#x5360;&amp;#x6709;&amp;#x7387;&amp;#xFF0C;&amp;#x8D8A;&amp;#x6765;&amp;#x8D8A;&amp;#x53D7;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android手势密码探索">
@@ -23,82 +32,179 @@
 <meta name="twitter:title" content="Android手势密码探索">
 <meta name="twitter:description" content="Android &amp;#x667A;&amp;#x80FD;&amp;#x624B;&amp;#x673A;&amp;#x5728;&amp;#x5168;&amp;#x7403;&amp;#x5E02;&amp;#x573A;&amp;#x6709;&amp;#x7740;&amp;#x6781;&amp;#x9AD8;&amp;#x7684;&amp;#x5E02;&amp;#x573A;&amp;#x5360;&amp;#x6709;&amp;#x7387;&amp;#xFF0C;&amp;#x8D8A;&amp;#x6765;&amp;#x8D8A;&amp;#x53D7;">
 <meta name="twitter:image" content="http://youngmeng.org/Android手势密码探索/lockpattern.jpg">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
+    <!-- custom head -->
     
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css">
+
 </head>
 
-  <body>
-    <header>
-      
-<div>
-		
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="youngmeng">youngmeng</a></h1>
-				<h2 class="blog-motto"></h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">主页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:youngmeng.org">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/Android手势密码探索/" title="Android手势密码探索" itemprop="url">Android手势密码探索</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="youngmeng" target="_blank" itemprop="author">youngmeng</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-16T13:35:35.000Z" itemprop="datePublished"> Published 2017-03-16</time>
-    
-  </p>
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">youngmeng</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android手势密码探索</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android手势相关类"><span class="toc-number">1.</span> <span class="toc-text">Android手势相关类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LockPatternView"><span class="toc-number">1.1.</span> <span class="toc-text">LockPatternView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LockPatternUtils"><span class="toc-number">1.2.</span> <span class="toc-text">LockPatternUtils</span></a></li></ol></li></ol>
-		
-		</div>
-		
-		<p>Android &#x667A;&#x80FD;&#x624B;&#x673A;&#x5728;&#x5168;&#x7403;&#x5E02;&#x573A;&#x6709;&#x7740;&#x6781;&#x9AD8;&#x7684;&#x5E02;&#x573A;&#x5360;&#x6709;&#x7387;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x53D7;&#x5230;&#x5E7F;&#x5927;&#x6D88;&#x8D39;&#x8005;&#x7684;&#x9752;&#x7750;&#x3002;&#x4F46; Android &#x4F5C;&#x4E3A;&#x5F00;&#x6E90;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E14;&#x5F88;&#x5BB9;&#x6613;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x7CFB;&#x7EDF; root &#x6743;&#x9650;&#xFF0C;Android &#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x4E5F;&#x662F;&#x7528;&#x6237;&#x548C;&#x5F00;&#x53D1;&#x8005;&#x6700;&#x5173;&#x5FC3;&#x7684;&#x95EE;&#x9898;&#x4E4B;&#x4E00;&#x3002;</p>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android手势密码探索</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-16T13:35:35.000Z" itemprop="datePublished" class="page-time">
+  2017-03-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android手势相关类"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android手势相关类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LockPatternView"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">LockPatternView</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LockPatternUtils"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">LockPatternUtils</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android手势密码探索"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android手势密码探索</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-16 21:35:35" datetime="2017-03-16T13:35:35.000Z"  itemprop="datePublished">2017-03-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Android &#x667A;&#x80FD;&#x624B;&#x673A;&#x5728;&#x5168;&#x7403;&#x5E02;&#x573A;&#x6709;&#x7740;&#x6781;&#x9AD8;&#x7684;&#x5E02;&#x573A;&#x5360;&#x6709;&#x7387;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x53D7;&#x5230;&#x5E7F;&#x5927;&#x6D88;&#x8D39;&#x8005;&#x7684;&#x9752;&#x7750;&#x3002;&#x4F46; Android &#x4F5C;&#x4E3A;&#x5F00;&#x6E90;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E14;&#x5F88;&#x5BB9;&#x6613;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x7CFB;&#x7EDF; root &#x6743;&#x9650;&#xFF0C;Android &#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x4E5F;&#x662F;&#x7528;&#x6237;&#x548C;&#x5F00;&#x53D1;&#x8005;&#x6700;&#x5173;&#x5FC3;&#x7684;&#x95EE;&#x9898;&#x4E4B;&#x4E00;&#x3002;</p>
 <p>&#x624B;&#x52BF;&#x5BC6;&#x7801;&#x4F5C;&#x4E3A;&#x624B;&#x673A;&#x4E0A;&#x65B9;&#x4FBF;&#x7684;&#x4E00;&#x79CD;&#x5B89;&#x5168;&#x4FDD;&#x62A4;&#x63AA;&#x65BD;&#xFF0C;&#x53D7;&#x5230;&#x4E86;&#x4F17;&#x591A; APP &#x5F00;&#x53D1;&#x8005;&#x7684;&#x9752;&#x7750;&#xFF0C;&#x5E02;&#x573A;&#x4E0A;&#x4E00;&#x4E9B;&#x91D1;&#x878D;&#x7C7B; APP &#x57FA;&#x672C;&#x90FD;&#x914D;&#x6709;&#x624B;&#x52BF;&#x5BC6;&#x7801;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x5373;&#x4E3A;&#x624B;&#x52BF;&#x7ED8;&#x5236;&#x8FC7;&#x7A0B;&#x7684;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x3002;</p>
-<p><img src="/Android&#x624B;&#x52BF;&#x5BC6;&#x7801;&#x63A2;&#x7D22;/lockpattern.jpg" alt="&#x624B;&#x52BF;&#x5BC6;&#x7801;"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/Android&#x624B;&#x52BF;&#x5BC6;&#x7801;&#x63A2;&#x7D22;/lockpattern.jpg" alt="&#x624B;&#x52BF;&#x5BC6;&#x7801;" title="">
+                </div>
+                <div class="image-caption">&#x624B;&#x52BF;&#x5BC6;&#x7801;</div>
+            </figure>
 <p>&#x76EE;&#x524D;&#x5927;&#x591A;&#x6570; Android &#x624B;&#x673A;&#x90FD;&#x5177;&#x6709;&#x624B;&#x52BF;&#x9501;&#x5C4F;&#x529F;&#x80FD;&#xFF0C;Android &#x7CFB;&#x7EDF;&#x81EA;&#x8EAB;&#x662F;&#x5E26;&#x4E86;&#x624B;&#x52BF;&#x5BC6;&#x7801;&#x529F;&#x80FD;&#x7684;&#xFF0C;&#x4E0D;&#x540C;&#x7684; ROM &#x5382;&#x5546;&#x505A;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x5B9A;&#x5236;&#x3002;&#x672C;&#x6587;&#x901A;&#x8FC7;Android&#x81EA;&#x8EAB;&#x7684;&#x6E90;&#x7801;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x624B;&#x52BF;&#x5BC6;&#x7801;&#x7684;&#x539F;&#x7406;&#x3002;</p>
 <h1 id="Android&#x624B;&#x52BF;&#x76F8;&#x5173;&#x7C7B;"><a href="#Android&#x624B;&#x52BF;&#x76F8;&#x5173;&#x7C7B;" class="headerlink" title="Android&#x624B;&#x52BF;&#x76F8;&#x5173;&#x7C7B;"></a>Android&#x624B;&#x52BF;&#x76F8;&#x5173;&#x7C7B;</h1><p>&#x56DE;&#x5FC6;&#x6216;&#x8005;&#x5C1D;&#x8BD5;&#x4E00;&#x4E0B;&#x7528;&#x624B;&#x52BF;&#x89E3;&#x9501; Android &#x624B;&#x673A;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;&#x9996;&#x5148;&#x7528;&#x6237;&#x901A;&#x8FC7;&#x70B9;&#x51FB;&#x4E5D;&#x5BAB;&#x683C;&#x7684;&#x70B9;&#x8FDE;&#x63A5;&#x51FA;&#x4E00;&#x6761;&#x8DEF;&#x5F84;&#xFF0C;&#x5F53;&#x624B;&#x6307;&#x62AC;&#x8D77;&#x65F6;&#xFF0C;&#x4F1A;&#x5224;&#x65AD;&#x6B64;&#x6B21;&#x8FDE;&#x63A5;&#x7684;&#x70B9;&#x8DEF;&#x5F84;&#x662F;&#x5426;&#x548C;&#x8BBE;&#x7F6E;&#x7684;&#x76F8;&#x5339;&#x914D;&#x3002;</p>
 <p>&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6D89;&#x53CA;&#x5230;&#x4E24;&#x4E2A;&#x65B9;&#x9762;&#xFF08;&#x4E0D;&#x8003;&#x8651;&#x8BBE;&#x7F6E;&#x624B;&#x52BF;&#x65F6;&#x7684;&#x5B58;&#x50A8;&#xFF09;&#xFF1A;</p>
@@ -502,320 +608,290 @@ fillInGapCell = Cell.of(fillInRow, fillInColumn);
 <hr>
 <p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#xFF0C;&#x76F8;&#x4FE1;&#x5927;&#x5BB6;&#x5927;&#x81F4;&#x4E86;&#x89E3;&#x4E86;&#x624B;&#x52BF;&#x5BC6;&#x7801;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x4E0A;&#x9762;&#x5206;&#x6790;&#x7684;&#x5185;&#x5BB9;&#x4E3B;&#x8981;&#x662F;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x7684;&#xFF0C;&#x5373;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#x7684;&#x624B;&#x52BF;&#x6837;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#x4E0A;&#x9762;&#x5206;&#x6790;&#x7684;&#x5BF9;&#x5E94;&#x90E8;&#x5206;&#x3002;</p>
 <p>&#x6211;&#x4E2A;&#x4EBA;&#x57FA;&#x4E8E;Android&#x81EA;&#x5DF1;&#x7684;LockPatternView&#x8FDB;&#x884C;&#x4E86;&#x7B80;&#x5355;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x7ED8;&#x5236;&#x7684;&#x6837;&#x5F0F;&#x5982;&#x6587;&#x7AE0;&#x5F00;&#x59CB;&#x7684;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x4FEE;&#x6539;&#x7684;&#x5730;&#x65B9;&#x5982;&#x8981;&#x662F;drawCircle&#x3001;&#x56FE;&#x5C42;&#x3001;&#x753B;&#x7B14;&#x3002;&#x76F8;&#x5173;&#x4EE3;&#x7801;&#x53EF;&#x5230;<a href="https://github.com/youngmeng/LockPatternView" target="_blank" rel="external">youngmeng/LockPatternView</a>&#x67E5;&#x770B;&#x3002;</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2017-04-20T22:48:34.000Z" itemprop="dateUpdated">2017-04-21 06:48:34</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/Android手势密码探索/" target="_blank" rel="external">http://youngmeng.org/Android手势密码探索/</a>
+        
+    </div>
+    <footer>
+        <a href="http://youngmeng.org">
+            <img src="/img/avatar.jpg" alt="youngmeng">
+            youngmeng
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原创，技术/">原创，技术</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://youngmeng.org/Android手势密码探索/&title=《Android手势密码探索》 — youngmeng&pic=http://youngmeng.org/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://youngmeng.org/Android手势密码探索/&title=《Android手势密码探索》 — youngmeng&source=做好每件事" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://youngmeng.org/Android手势密码探索/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android手势密码探索》 — youngmeng&url=http://youngmeng.org/Android手势密码探索/&via=http://youngmeng.org" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://youngmeng.org/Android手势密码探索/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
-	</div>
-		<footer class="article-footer clearfix">
-<div class="article-catetags">
 
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Android/">Android</a>
-</div>
-
-
-  <div class="article-tags">
   
-  <span></span> <a href="/tags/原创，技术/">原创，技术</a>
-  </div>
-
-</div>
-
-
-
-	<div class="article-share" id="share">
-	
-	  <div data-url="http://youngmeng.org/Android手势密码探索/" data-title="Android手势密码探索 | youngmeng" data-tsina="undefined" class="share clearfix">
-	  </div>
-	
-	</div>
-
-
-</footer>
-
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
-
-<div class="next">
-<a href="/玩转Android-drawable图片适配/"  title="玩转Android drawable图片适配">
- <strong>下一篇：</strong><br/> 
- <span>玩转Android drawable图片适配
-</span>
-</a>
-</div>
-
+    <div class="waves-block waves-effect next">
+      <a href="/玩转Android-drawable图片适配/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">玩转Android drawable图片适配</h4>
+      </a>
+    </div>
+  
 </nav>
 
-	
-<section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="Android手势密码探索/" data-title="Android手势密码探索" data-url="http://youngmeng.org/Android手势密码探索/"></div>
-</section>
+
+
+    
 
 
 
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Android手势相关类"><span class="toc-number">1.</span> <span class="toc-text">Android手势相关类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LockPatternView"><span class="toc-number">1.1.</span> <span class="toc-text">LockPatternView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LockPatternUtils"><span class="toc-number">1.2.</span> <span class="toc-text">LockPatternUtils</span></a></li></ol></li></ol>
- 
-  </div>
 
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
-<aside class="clearfix">
 
-  
 
-  
 
-  
 
-  <div class="rsspart">
-	<a href="undefined" target="_blank" title="rss">RSS</a>
-</div>
 
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	
-	<div class="social-font" class="clearfix">
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	</div>
-			
-		
 
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
-		
-		<a href="/about" target="_blank" title="youngmeng">youngmeng</a>
-		
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
         
-    }
-  });
-});
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>youngmeng &copy; 2015 - 2017</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://youngmeng.org/Android手势密码探索/&title=《Android手势密码探索》 — youngmeng&pic=http://youngmeng.org/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://youngmeng.org/Android手势密码探索/&title=《Android手势密码探索》 — youngmeng&source=做好每件事" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://youngmeng.org/Android手势密码探索/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android手势密码探索》 — youngmeng&url=http://youngmeng.org/Android手势密码探索/&via=http://youngmeng.org" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://youngmeng.org/Android手势密码探索/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://youngmeng.org/Android手势密码探索/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
-
-
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"youngmeng"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
 
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 <script>
-var _hmt = _hmt || [];
 (function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?c73b4e03910c933f66eaf20d2eeaaca0";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
 })();
 </script>
 
 
 
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
-
-
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
-
-  </body>
+</body>
 </html>
