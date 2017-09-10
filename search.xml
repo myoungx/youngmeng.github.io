@@ -81,7 +81,7 @@
 <li>&#x652F;&#x6301;debug</li>
 <li>&#x76F8;&#x6BD4; Instant Run &#x652F;&#x6301;&#x8303;&#x56F4;&#x66F4;&#x5E7F;&#xFF08;<a href="https://zeroturnaround.com/rebellabs/jrebel-for-android-and-instant-run-compared/" target="_blank" rel="external">https://zeroturnaround.com/rebellabs/jrebel-for-android-and-instant-run-compared/</a>&#xFF09;</li>
 </ul>
-<p><img src="/Android-&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x96C6;/JRebel-instantrun.png" alt="Instant Run &#x914D;&#x7F6E;"></p>
+<p><img src="/Android-&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x96C6;/JRebel-instantrun.png" width="400px"></p>
 <h4 id="&#x7F3A;&#x70B9;-1"><a href="#&#x7F3A;&#x70B9;-1" class="headerlink" title="&#x7F3A;&#x70B9;"></a>&#x7F3A;&#x70B9;</h4><ul>
 <li>&#x4E2A;&#x4EBA;&#x514D;&#x8D39;&#x529F;&#x80FD;&#x6709;&#x9650;&#xFF08;&#x4F46;&#x8981;&#x6C42;&#x4E0D;&#x9AD8;&#x591F;&#x7528;&#xFF09;&#xFF0C;&#x6536;&#x8D39;&#x7248;&#x4EF7;&#x683C;&#x8F83;&#x9AD8;</li>
 <li>&#x9996;&#x6B21;&#x7F16;&#x8BD1;&#x3001;&#x5B89;&#x88C5;&#x901F;&#x5EA6;&#x6BD4;&#x8F83;&#x6162;</li>
@@ -99,7 +99,7 @@
 </ul>
 <h1 id="&#x67E5;&#x770B;&#x5305;&#x540D;&#x53CA;-Activity"><a href="#&#x67E5;&#x770B;&#x5305;&#x540D;&#x53CA;-Activity" class="headerlink" title="&#x67E5;&#x770B;&#x5305;&#x540D;&#x53CA; Activity"></a>&#x67E5;&#x770B;&#x5305;&#x540D;&#x53CA; Activity</h1><h4 id="App-&#x540D;&#x79F0;"><a href="#App-&#x540D;&#x79F0;" class="headerlink" title="App &#x540D;&#x79F0;"></a>App &#x540D;&#x79F0;</h4><p>&#x5F53;&#x524D; Activity</p>
 <h4 id="&#x4F5C;&#x7528;"><a href="#&#x4F5C;&#x7528;" class="headerlink" title="&#x4F5C;&#x7528;"></a>&#x4F5C;&#x7528;</h4><p>&#x663E;&#x793A;&#x6700;&#x524D;&#x53F0;&#x9875;&#x9762;&#x6240;&#x5728;&#x7684;&#x5E94;&#x7528;&#x7684;&#x5305;&#x540D;&#x548C; Activity&#x3002;</p>
-<p><img src="/Android-&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x96C6;/current-Activity.png" alt="Instant Run &#x914D;&#x7F6E;"></p>
+<p><img src="/Android-&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x96C6;/current-Activity.png" width="400px"></p>
 <h4 id="&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;"><a href="#&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;" class="headerlink" title="&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;"></a>&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;</h4><ul>
 <li><a href="https://play.google.com/store/apps/details?id=com.willme.topactivity" target="_blank" rel="external">&#x5F53;&#x524D;Activity - Google Play</a></li>
 <li><a href="https://github.com/109021017/android-TopActivity" target="_blank" rel="external">android-TopActivity - GitHub</a></li>
@@ -115,12 +115,12 @@
 </ol>
 <h1 id="&#x7535;&#x8111;&#x63A7;&#x5236;&#x624B;&#x673A;"><a href="#&#x7535;&#x8111;&#x63A7;&#x5236;&#x624B;&#x673A;" class="headerlink" title="&#x7535;&#x8111;&#x63A7;&#x5236;&#x624B;&#x673A;"></a>&#x7535;&#x8111;&#x63A7;&#x5236;&#x624B;&#x673A;</h1><h4 id="&#x63D2;&#x4EF6;&#x540D;&#x79F0;"><a href="#&#x63D2;&#x4EF6;&#x540D;&#x79F0;" class="headerlink" title="&#x63D2;&#x4EF6;&#x540D;&#x79F0;"></a>&#x63D2;&#x4EF6;&#x540D;&#x79F0;</h4><p>vysor</p>
 <h4 id="&#x4F5C;&#x7528;-1"><a href="#&#x4F5C;&#x7528;-1" class="headerlink" title="&#x4F5C;&#x7528;"></a>&#x4F5C;&#x7528;</h4><p>&#x5728;&#x7535;&#x8111;&#x4E0A;&#x63A7;&#x5236;&#x624B;&#x673A;&#xFF0C;&#x8F7B;&#x677E;&#x622A;&#x5C4F;&#x3001;&#x5F55;&#x5C4F;&#xFF0C;&#x65B9;&#x4FBF;&#x5FEB;&#x6377;&#x3002;</p>
-<p><img src="/Android-&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x96C6;/computer-show-phone.png" alt="Instant Run &#x914D;&#x7F6E;"></p>
+<p><img src="/Android-&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x96C6;/computer-show-phone.png" width="400px"></p>
 <h4 id="&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;-1"><a href="#&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;-1" class="headerlink" title="&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;"></a>&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;</h4><p><a href="https://chrome.google.com/webstore/search/vysor?hl=zh-CN" target="_blank" rel="external">chrome &#x63D2;&#x4EF6;</a></p>
 <h4 id="tips-1"><a href="#tips-1" class="headerlink" title="tips"></a>tips</h4><p>&#x5F55;&#x5C4F;&#x9700;&#x8981;&#x8D2D;&#x4E70; Pro &#x7248;&#x672C;&#x3002;</p>
 <h1 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x4FE1;&#x606F;"><a href="#&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x4FE1;&#x606F;" class="headerlink" title="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x4FE1;&#x606F;"></a>&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x4FE1;&#x606F;</h1><h4 id="App-&#x540D;&#x79F0;-1"><a href="#App-&#x540D;&#x79F0;-1" class="headerlink" title="App &#x540D;&#x79F0;"></a>App &#x540D;&#x79F0;</h4><p>&#x5F00;&#x53D1;&#x52A9;&#x624B;</p>
 <h4 id="&#x4F5C;&#x7528;-2"><a href="#&#x4F5C;&#x7528;-2" class="headerlink" title="&#x4F5C;&#x7528;"></a>&#x4F5C;&#x7528;</h4><p>&#x65B9;&#x4FBF;&#x67E5;&#x770B;&#x548C;&#x8BBE;&#x5907;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#x53CA;&#x8FDB;&#x884C;&#x76F8;&#x5173;&#x8BBE;&#x7F6E;&#x3002;</p>
-<p><img src="/Android-&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x96C6;/dev-helper.png" alt="Instant Run &#x914D;&#x7F6E;"></p>
+<p><img src="/Android-&#x5F00;&#x53D1;&#x5DE5;&#x5177;&#x96C6;/dev-helper.png" width="400px"></p>
 <h4 id="&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;-2"><a href="#&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;-2" class="headerlink" title="&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;"></a>&#x4E0B;&#x8F7D;&#x94FE;&#x63A5;</h4><p><a href="https://play.google.com/store/apps/details?id=cn.trinea.android.developertools" target="_blank" rel="external">&#x5F00;&#x53D1;&#x52A9;&#x624B; - Google play</a></p>
 <h4 id="tips-2"><a href="#tips-2" class="headerlink" title="tips"></a>tips</h4><p>&#x5F00;&#x53D1;&#x52A9;&#x624B;&#x7531; Trinea &#x5F00;&#x53D1;&#xFF0C;&#x5176; GitHub &#x5730;&#x5740;&#x4E3A;&#xFF1A;<a href="https://github.com/Trinea" target="_blank" rel="external">https://github.com/Trinea</a>&#x3002;</p>]]></content>
     </entry>
