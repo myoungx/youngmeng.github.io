@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="youngmeng">
 <meta property="og:description" content="&amp;#x8FD9;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x505A;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x5728;&amp;#x89E3;&amp;#x51B3;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C0F;bug&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#xFF0C;&amp;#x78B0;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x5751;&amp;#xFF">
 <meta property="og:image" content="http://youngmeng.org/说说Android中的touch-mode/list-view.jpg">
-<meta property="og:updated_time" content="2017-09-10T09:19:28.000Z">
+<meta property="og:updated_time" content="2017-09-10T13:38:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说说Android中的touch mode">
 <meta name="twitter:description" content="&amp;#x8FD9;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x505A;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x5728;&amp;#x89E3;&amp;#x51B3;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C0F;bug&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#xFF0C;&amp;#x78B0;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x5751;&amp;#xFF">
@@ -34,6 +34,9 @@
     
         <meta property="og:image" content="https://www.gravatar.com/avatar/fdd262141ddec42126ba2388dd0d4295?s=640"/>
     
+    
+        <meta property="og:image" content="http://youngmeng.org/说说Android中的touch-mode/thumbnailImage.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://youngmeng.org/说说Android中的touch-mode/thumbnailImage.jpg" />
     
     
     
@@ -235,7 +238,8 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <!-- excerpt -->
+            <p>&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x505A;&#x9879;&#x76EE;&#xFF0C;&#x5728;&#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x5C0F;bug&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x78B0;&#x5230;&#x4E00;&#x4E2A;&#x5751;&#xFF0C;&#x82B1;&#x8D39;&#x4E86;&#x4E00;&#x5927;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x6765;&#x586B;&#x5751;&#xFF0C;&#x7EC8;&#x4E8E;&#x6392;&#x67E5;&#x51FA;&#x4E86;&#x539F;&#x56E0;&#xFF1A;&#x7531;&#x4E8E;&#x67D0;&#x4E2A;Edit Text&#x8C03;&#x7528;&#x4E86;requestFocusFromTouch()&#x65B9;&#x6CD5;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x5C06;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x7684;&#x65B9;&#x6CD5;&#x6362;&#x6210;requestFocus()&#xFF0C;&#x5219;&#x95EE;&#x9898;&#x4E0D;&#x518D;&#x590D;&#x73B0;&#x3002;&#x8FD9;&#x5C31;&#x6FC0;&#x53D1;&#x4E86;&#x6211;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x597D;&#x5947;&#xFF0C;&#x51C6;&#x5907;&#x770B;&#x770B;&#x5B83;&#x4EEC;&#x846B;&#x82A6;&#x91CC;&#x5230;&#x5E95;&#x88C5;&#x7684;&#x4EC0;&#x4E48;&#x3002;</p>
+<a id="more"></a>
 <h2 id="&#x5148;&#x4ECE;touch-mode&#x8BF4;&#x8D77;"><a href="#&#x5148;&#x4ECE;touch-mode&#x8BF4;&#x8D77;" class="headerlink" title="&#x5148;&#x4ECE;touch mode&#x8BF4;&#x8D77;"></a>&#x5148;&#x4ECE;<em>touch mode</em>&#x8BF4;&#x8D77;</h2><p>&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;<em>touch mode</em>&#x5C31;&#x662F;&#x201C;&#x89E6;&#x6478;&#x6A21;&#x5F0F;&#x201D;&#x3002;&#x90A3;&#x5230;&#x5E95;&#x4EC0;&#x4E48;&#x662F;&#x89E6;&#x6478;&#x6A21;&#x5F0F;&#x5462;&#xFF1F;&#x4ECE;Android&#x5B98;&#x65B9;&#x5BF9;<em>touch mode</em>&#x7684;&#x5B9A;&#x4E49;&#xFF08;<a href="https://developer.android.com/reference/android/view/View.html#TouchMode" target="_blank" rel="external">View-Touch Mode</a>)&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF1A;</p>
 <blockquote>
 <p>Android&#x7CFB;&#x7EDF;&#x7684;&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;&#x6709;<em>&#x65B9;&#x5411;&#x952E;</em>&#x3001;<em>&#x6EDA;&#x52A8;&#x7403;</em>&#x548C;<em>&#x89E6;&#x6478;</em>&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x91C7;&#x7528;&#x65B9;&#x5411;&#x952E;&#x3001;&#x6EDA;&#x52A8;&#x7403;&#x7B49;&#x65B9;&#x5F0F;&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x7126;&#x70B9;&#x548C;&#x9AD8;&#x4EAE;&#x6765;&#x8868;&#x793A;&#x6B64;&#x65F6;&#x64CD;&#x4F5C;&#x7684;view&#xFF1B;&#x5982;&#x679C;&#x8BBE;&#x5907;&#x5177;&#x5907;&#x89E6;&#x6478;&#x80FD;&#x529B;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x89E6;&#x6478;&#x800C;&#x4E0D;&#x9700;&#x8981;view&#x9AD8;&#x4EAE;&#xFF0C;&#x8FD9;&#x79CD;&#x89E6;&#x6478;&#x7684;&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;&#x5C31;&#x662F;<strong>touch mode</strong>&#x3002;</p>
@@ -293,6 +297,7 @@
 <li><a href="https://developer.android.com/reference/android/view/View.html#TouchMode" target="_blank" rel="external">https://developer.android.com/reference/android/view/View.html#TouchMode</a></li>
 <li><a href="https://android-developers.googleblog.com/2008/12/touch-mode.html" target="_blank" rel="external">https://android-developers.googleblog.com/2008/12/touch-mode.html</a></li>
 </ol>
+
             
         </div>
     </div>
@@ -495,6 +500,12 @@
                 
                 <div class="media">
                     
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/建站/">
+                            <img class="media-image" src="http://youngmeng.org/建站/thumbnailImage.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
                     <div class="media-body">
                         <a class="link-unstyled" href="http://youngmeng.org/建站/">
                             <h3 class="media-heading">建站啦</h3>
@@ -506,13 +517,19 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x5199;&#x5728;&#x5EFA;&#x7AD9;&#x4E4B;&#x65F6;<br></div>
+                        <div class="media-content hide-xs font-merryweather"><p>&#x5199;&#x5728;&#x5EFA;&#x7AD9;&#x4E4B;&#x65F6;<br></p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
                 </div>
                 
                 <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/说说Android中的touch-mode/">
+                            <img class="media-image" src="http://youngmeng.org/说说Android中的touch-mode/thumbnailImage.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
                     
                     <div class="media-body">
                         <a class="link-unstyled" href="http://youngmeng.org/说说Android中的touch-mode/">
@@ -533,6 +550,12 @@
                 
                 <div class="media">
                     
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/玩转Android-drawable图片适配/">
+                            <img class="media-image" src="http://youngmeng.org/玩转Android-drawable图片适配/thumbnailImage.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
                     <div class="media-body">
                         <a class="link-unstyled" href="http://youngmeng.org/玩转Android-drawable图片适配/">
                             <h3 class="media-heading">玩转Android drawable图片适配</h3>
@@ -544,7 +567,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;Android&#x673A;&#x578B;&#x4F17;&#x591A;&#xFF0C;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x3001;&#x5206;&#x8FA8;&#x7387;&#x5404;&#x6709;&#x4E0D;&#x540C;&#x3002;&#x5BF9;&#x4E8E;Android&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x4F55;&#x63D0;&#x9AD8;APP&#x4E2D;&#x56FE;&#x7247;&#x5BF9;&#x5404;&#x79CD;&#x673A;&#x578B;&#x7684;&#x9002;&#x914D;&#x662F;&#x57FA;&#x672C;&#x6280;&#x80FD;&#x4E4B;&#x4E00;&#x3002;&#x501F;&#x7740;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x56FE;&#x7247;&#x9002;&#x914D;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x603B;&#x7ED3;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x5C31;&#x60F3;&#x7740;&#x987A;&#x5E26;&#x628A;&#x8FD9;&#x90E8;&#x5206;&#x597D;&#x597D;&#x634B;&#x4E00;&#x634B;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x4E3A;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x4EBA;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x3002;<br></div>
+                        <div class="media-content hide-xs font-merryweather"><p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;Android&#x673A;&#x578B;&#x4F17;&#x591A;&#xFF0C;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x3001;&#x5206;&#x8FA8;&#x7387;&#x5404;&#x6709;&#x4E0D;&#x540C;&#x3002;&#x5BF9;&#x4E8E;Android&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x4F55;&#x63D0;&#x9AD8;APP&#x4E2D;&#x56FE;&#x7247;&#x5BF9;&#x5404;&#x79CD;&#x673A;&#x578B;&#x7684;&#x9002;&#x914D;&#x662F;&#x57FA;&#x672C;&#x6280;&#x80FD;&#x4E4B;&#x4E00;&#x3002;&#x501F;&#x7740;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x56FE;&#x7247;&#x9002;&#x914D;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x603B;&#x7ED3;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x5C31;&#x60F3;&#x7740;&#x987A;&#x5E26;&#x628A;&#x8FD9;&#x90E8;&#x5206;&#x597D;&#x597D;&#x634B;&#x4E00;&#x634B;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x4E3A;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x4EBA;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x3002;<br></p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
