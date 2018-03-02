@@ -486,7 +486,7 @@ blockquote {
     color: #88909a; }
   #header .header-title {
     text-align: center;
-    font-size: 2.6rem;
+    font-size: 1.6rem;
     line-height: 55px;
     margin: 0; }
     #header .header-title .header-title-link {
@@ -660,7 +660,7 @@ blockquote {
       display: block;
       margin: 0 auto; }
     #sidebar .sidebar-profile .sidebar-profile-name {
-      font-size: 1.1em;
+      font-size: 3.1em;
       color: #ebebeb; }
   #sidebar ul.sidebar-buttons {
     padding: 0;
