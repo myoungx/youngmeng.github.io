@@ -875,7 +875,7 @@ blockquote {
         border-radius: 90px;
         margin-bottom: 5px; }
       #sidebar[data-behavior="1"] .sidebar-profile .sidebar-profile-name, #sidebar[data-behavior="2"] .sidebar-profile .sidebar-profile-name {
-        font-size: 1.6rem; }
+        font-size: 3.6rem; }
     #sidebar[data-behavior="1"] ul.sidebar-buttons li.sidebar-button, #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button {
       text-align: left; }
       #sidebar[data-behavior="1"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link, #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
@@ -1093,7 +1093,7 @@ blockquote {
         border-radius: 90px;
         margin-bottom: 5px; }
       #sidebar[data-behavior="2"] .sidebar-profile .sidebar-profile-name {
-        font-size: 1.6rem; }
+        font-size: 3.6rem; }
     #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button {
       text-align: left; }
       #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
