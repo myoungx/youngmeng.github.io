@@ -660,7 +660,7 @@ blockquote {
       display: block;
       margin: 0 auto; }
     #sidebar .sidebar-profile .sidebar-profile-name {
-      font-size: 5.1em;
+      font-size: 1.1em;
       color: #ebebeb; }
   #sidebar ul.sidebar-buttons {
     padding: 0;
@@ -694,7 +694,7 @@ blockquote {
         border-radius: 90px;
         margin-bottom: 5px; }
       #sidebar[data-behavior="1"] .sidebar-profile .sidebar-profile-name, #sidebar[data-behavior="2"] .sidebar-profile .sidebar-profile-name, #sidebar[data-behavior="4"] .sidebar-profile .sidebar-profile-name, #sidebar[data-behavior="5"] .sidebar-profile .sidebar-profile-name {
-        font-size: 3.6rem; }
+        font-size: 1.6rem; }
     #sidebar[data-behavior="1"] ul.sidebar-buttons li.sidebar-button, #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button, #sidebar[data-behavior="4"] ul.sidebar-buttons li.sidebar-button, #sidebar[data-behavior="5"] ul.sidebar-buttons li.sidebar-button {
       text-align: left; }
       #sidebar[data-behavior="1"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link, #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link, #sidebar[data-behavior="4"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link, #sidebar[data-behavior="5"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
@@ -800,7 +800,7 @@ blockquote {
         border-radius: 90px;
         margin-bottom: 5px; }
       #sidebar[data-behavior="4"] .sidebar-profile .sidebar-profile-name, #sidebar[data-behavior="5"] .sidebar-profile .sidebar-profile-name {
-        font-size: 3.6rem; }
+        font-size: 1.6rem; }
     #sidebar[data-behavior="4"] ul.sidebar-buttons li.sidebar-button, #sidebar[data-behavior="5"] ul.sidebar-buttons li.sidebar-button {
       text-align: left; }
       #sidebar[data-behavior="4"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link, #sidebar[data-behavior="5"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
@@ -875,7 +875,7 @@ blockquote {
         border-radius: 90px;
         margin-bottom: 5px; }
       #sidebar[data-behavior="1"] .sidebar-profile .sidebar-profile-name, #sidebar[data-behavior="2"] .sidebar-profile .sidebar-profile-name {
-        font-size: 3.6rem; }
+        font-size: 1.6rem; }
     #sidebar[data-behavior="1"] ul.sidebar-buttons li.sidebar-button, #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button {
       text-align: left; }
       #sidebar[data-behavior="1"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link, #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
@@ -948,7 +948,7 @@ blockquote {
         border-radius: 90px;
         margin-bottom: 5px; }
       #sidebar[data-behavior="4"] .sidebar-profile .sidebar-profile-name, #sidebar[data-behavior="5"] .sidebar-profile .sidebar-profile-name {
-        font-size: 3.6rem; }
+        font-size: 1.6rem; }
     #sidebar[data-behavior="4"] ul.sidebar-buttons li.sidebar-button, #sidebar[data-behavior="5"] ul.sidebar-buttons li.sidebar-button {
       text-align: left; }
       #sidebar[data-behavior="4"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link, #sidebar[data-behavior="5"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
@@ -1093,7 +1093,7 @@ blockquote {
         border-radius: 90px;
         margin-bottom: 5px; }
       #sidebar[data-behavior="2"] .sidebar-profile .sidebar-profile-name {
-        font-size: 3.6rem; }
+        font-size: 1.6rem; }
     #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button {
       text-align: left; }
       #sidebar[data-behavior="2"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
@@ -1237,7 +1237,7 @@ blockquote {
         border-radius: 90px;
         margin-bottom: 5px; }
       #sidebar[data-behavior="5"] .sidebar-profile .sidebar-profile-name {
-        font-size: 3.6rem; }
+        font-size: 1.6rem; }
     #sidebar[data-behavior="5"] ul.sidebar-buttons li.sidebar-button {
       text-align: left; }
       #sidebar[data-behavior="5"] ul.sidebar-buttons li.sidebar-button .sidebar-button-link {
