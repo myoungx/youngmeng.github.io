@@ -15,17 +15,17 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="&amp;#x8FD9;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x505A;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x5728;&amp;#x89E3;&amp;#x51B3;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C0F;bug&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#xFF0C;&amp;#x78B0;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x5751;&amp;#xFF">
+    <meta name="description" content="这段时间做项目，在解决一个小bug的过程中，碰到一个坑，花费了一大天的时间来填坑，终于排查出了原因：由于某个Edit Text调用了requestFocusFromTouch()方法导致的，将获取焦点的方法换成requestFocus()，则问题不再复现。这就激发了我对这两个方法的好奇，准备看看它们葫芦里到底装的什么。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="说说Android中的touch mode">
 <meta property="og:url" content="http://youngmeng.org/说说Android中的touch-mode/index.html">
 <meta property="og:site_name" content="youngmeng">
-<meta property="og:description" content="&amp;#x8FD9;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x505A;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x5728;&amp;#x89E3;&amp;#x51B3;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C0F;bug&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#xFF0C;&amp;#x78B0;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x5751;&amp;#xFF">
+<meta property="og:description" content="这段时间做项目，在解决一个小bug的过程中，碰到一个坑，花费了一大天的时间来填坑，终于排查出了原因：由于某个Edit Text调用了requestFocusFromTouch()方法导致的，将获取焦点的方法换成requestFocus()，则问题不再复现。这就激发了我对这两个方法的好奇，准备看看它们葫芦里到底装的什么。">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fp4njgw0t6j30oo0iujs0.jpg">
 <meta property="og:updated_time" content="2018-03-07T15:30:20.370Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="说说Android中的touch mode">
-<meta name="twitter:description" content="&amp;#x8FD9;&amp;#x6BB5;&amp;#x65F6;&amp;#x95F4;&amp;#x505A;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x5728;&amp;#x89E3;&amp;#x51B3;&amp;#x4E00;&amp;#x4E2A;&amp;#x5C0F;bug&amp;#x7684;&amp;#x8FC7;&amp;#x7A0B;&amp;#x4E2D;&amp;#xFF0C;&amp;#x78B0;&amp;#x5230;&amp;#x4E00;&amp;#x4E2A;&amp;#x5751;&amp;#xFF">
+<meta name="twitter:description" content="这段时间做项目，在解决一个小bug的过程中，碰到一个坑，花费了一大天的时间来填坑，终于排查出了原因：由于某个Edit Text调用了requestFocusFromTouch()方法导致的，将获取焦点的方法换成requestFocus()，则问题不再复现。这就激发了我对这两个方法的好奇，准备看看它们葫芦里到底装的什么。">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fp4njgw0t6j30oo0iujs0.jpg">
     
     
@@ -242,33 +242,33 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x505A;&#x9879;&#x76EE;&#xFF0C;&#x5728;&#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x5C0F;bug&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x78B0;&#x5230;&#x4E00;&#x4E2A;&#x5751;&#xFF0C;&#x82B1;&#x8D39;&#x4E86;&#x4E00;&#x5927;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x6765;&#x586B;&#x5751;&#xFF0C;&#x7EC8;&#x4E8E;&#x6392;&#x67E5;&#x51FA;&#x4E86;&#x539F;&#x56E0;&#xFF1A;&#x7531;&#x4E8E;&#x67D0;&#x4E2A;Edit Text&#x8C03;&#x7528;&#x4E86;requestFocusFromTouch()&#x65B9;&#x6CD5;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x5C06;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x7684;&#x65B9;&#x6CD5;&#x6362;&#x6210;requestFocus()&#xFF0C;&#x5219;&#x95EE;&#x9898;&#x4E0D;&#x518D;&#x590D;&#x73B0;&#x3002;&#x8FD9;&#x5C31;&#x6FC0;&#x53D1;&#x4E86;&#x6211;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x597D;&#x5947;&#xFF0C;&#x51C6;&#x5907;&#x770B;&#x770B;&#x5B83;&#x4EEC;&#x846B;&#x82A6;&#x91CC;&#x5230;&#x5E95;&#x88C5;&#x7684;&#x4EC0;&#x4E48;&#x3002;</p>
+            <p>这段时间做项目，在解决一个小bug的过程中，碰到一个坑，花费了一大天的时间来填坑，终于排查出了原因：由于某个Edit Text调用了requestFocusFromTouch()方法导致的，将获取焦点的方法换成requestFocus()，则问题不再复现。这就激发了我对这两个方法的好奇，准备看看它们葫芦里到底装的什么。</p>
 <a id="more"></a>
-<h2 id="&#x5148;&#x4ECE;touch-mode&#x8BF4;&#x8D77;"><a href="#&#x5148;&#x4ECE;touch-mode&#x8BF4;&#x8D77;" class="headerlink" title="&#x5148;&#x4ECE;touch mode&#x8BF4;&#x8D77;"></a>&#x5148;&#x4ECE;<em>touch mode</em>&#x8BF4;&#x8D77;</h2><p>&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;<em>touch mode</em>&#x5C31;&#x662F;&#x201C;&#x89E6;&#x6478;&#x6A21;&#x5F0F;&#x201D;&#x3002;&#x90A3;&#x5230;&#x5E95;&#x4EC0;&#x4E48;&#x662F;&#x89E6;&#x6478;&#x6A21;&#x5F0F;&#x5462;&#xFF1F;&#x4ECE;Android&#x5B98;&#x65B9;&#x5BF9;<em>touch mode</em>&#x7684;&#x5B9A;&#x4E49;&#xFF08;<a href="https://developer.android.com/reference/android/view/View.html#TouchMode" target="_blank" rel="external">View-Touch Mode</a>)&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF1A;</p>
+<h2 id="先从touch-mode说起"><a href="#先从touch-mode说起" class="headerlink" title="先从touch mode说起"></a>先从<em>touch mode</em>说起</h2><p>顾名思义，<em>touch mode</em>就是“触摸模式”。那到底什么是触摸模式呢？从Android官方对<em>touch mode</em>的定义（<a href="https://developer.android.com/reference/android/view/View.html#TouchMode" target="_blank" rel="external">View-Touch Mode</a>)可以知道：</p>
 <blockquote>
-<p>Android&#x7CFB;&#x7EDF;&#x7684;&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;&#x6709;<em>&#x65B9;&#x5411;&#x952E;</em>&#x3001;<em>&#x6EDA;&#x52A8;&#x7403;</em>&#x548C;<em>&#x89E6;&#x6478;</em>&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x91C7;&#x7528;&#x65B9;&#x5411;&#x952E;&#x3001;&#x6EDA;&#x52A8;&#x7403;&#x7B49;&#x65B9;&#x5F0F;&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x7126;&#x70B9;&#x548C;&#x9AD8;&#x4EAE;&#x6765;&#x8868;&#x793A;&#x6B64;&#x65F6;&#x64CD;&#x4F5C;&#x7684;view&#xFF1B;&#x5982;&#x679C;&#x8BBE;&#x5907;&#x5177;&#x5907;&#x89E6;&#x6478;&#x80FD;&#x529B;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x89E6;&#x6478;&#x800C;&#x4E0D;&#x9700;&#x8981;view&#x9AD8;&#x4EAE;&#xFF0C;&#x8FD9;&#x79CD;&#x89E6;&#x6478;&#x7684;&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;&#x5C31;&#x662F;<strong>touch mode</strong>&#x3002;</p>
+<p>Android系统的交互方式有<em>方向键</em>、<em>滚动球</em>和<em>触摸</em>几种方式。采用方向键、滚动球等方式操作，需要通过焦点和高亮来表示此时操作的view；如果设备具备触摸能力，就可以通过触摸而不需要view高亮，这种触摸的交互方式就是<strong>touch mode</strong>。</p>
 </blockquote>
-<p>&#x7531;&#x4E8E;&#x73B0;&#x5728;&#x5927;&#x591A;&#x6570;Android&#x667A;&#x80FD;&#x624B;&#x673A;&#x8BBE;&#x5907;&#x90FD;&#x652F;&#x6301;&#x89E6;&#x6478;&#x80FD;&#x529B;&#xFF0C;&#x4EE5;&#x81F4;&#x4E8E;&#x5F88;&#x5BB9;&#x6613;&#x8BA9;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5FFD;&#x7565;&#x6389;touch mode&#x53EA;&#x662F;Android&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;&#x7684;&#x4E00;&#x79CD;&#x3002;&#x800C;&#x8FD9;&#x79CD;&#x89E6;&#x6478;&#x7684;&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#x4E8E;&#x65B9;&#x5411;&#x952E;&#x548C;&#x6EDA;&#x52A8;&#x7403;&#xFF1A;&#x5728;&#x540E;&#x8005;&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;&#x4E0B;&#xFF0C;Android&#x5FC5;&#x987B;&#x5148;&#x8BA9;&#x63A7;&#x4EF6;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#xFF08;&#x6BD4;&#x5982;&#x9AD8;&#x4EAE;&#x3001;&#x8FB9;&#x6846;&#x7B49;&#xFF09;&#xFF0C;&#x7528;&#x6237;&#x624D;&#x77E5;&#x9053;&#x76EE;&#x524D;&#x6B63;&#x5728;&#x64CD;&#x4F5C;&#x7684;&#x662F;&#x54EA;&#x4E00;&#x4E2A;&#x63A7;&#x4EF6;&#xFF1B;&#x524D;&#x8005;&#x7684;&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;&#x5219;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x624B;&#x6307;&#x76F4;&#x63A5;&#x89E6;&#x6478;&#x70B9;&#x51FB;&#x9700;&#x8981;&#x64CD;&#x4F5C;&#x7684;&#x63A7;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x81EA;&#x7136;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x9AD8;&#x4EAE;&#x663E;&#x793A;&#x7126;&#x70B9;&#x4E86;&#x3002;</p>
-<p>&#x90A3;Android&#x8BBE;&#x5907;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x5904;&#x4E8E;touch mode&#x5462;&#xFF1F;</p>
+<p>由于现在大多数Android智能手机设备都支持触摸能力，以致于很容易让开发人员忽略掉touch mode只是Android交互方式的一种。而这种触摸的交互方式不同于方向键和滚动球：在后者交互方式下，Android必须先让控件获得焦点（比如高亮、边框等），用户才知道目前正在操作的是哪一个控件；前者的交互方式则可以通过手指直接触摸点击需要操作的控件，这个时候自然不需要再高亮显示焦点了。</p>
+<p>那Android设备什么时候处于touch mode呢？</p>
 <blockquote>
-<p>&#x5BF9;&#x4E8E;&#x5177;&#x6709;&#x89E6;&#x6478;&#x80FD;&#x529B;&#x7684;&#x8BBE;&#x5907;&#xFF0C;&#x4E00;&#x65E6;&#x7528;&#x6237;&#x89E6;&#x6478;&#x5230;&#x5C4F;&#x5E55;&#xFF0C;&#x8BBE;&#x5907;&#x5C31;&#x8FDB;&#x5165;&#x4E86;touch mode&#xFF1B;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x65B9;&#x5411;&#x952E;&#x6216;&#x8005;&#x6EDA;&#x52A8;&#x7403;&#x65F6;&#xFF0C;&#x8BBE;&#x5907;&#x5C31;&#x4F1A;&#x9000;&#x51FA;touch mode&#x3002;</p>
+<p>对于具有触摸能力的设备，一旦用户触摸到屏幕，设备就进入了touch mode；用户使用方向键或者滚动球时，设备就会退出touch mode。</p>
 </blockquote>
-<p>touch mode&#x662F;&#x8DE8;Activitys&#x7684;&#xFF08;across Activitys&#xFF09;&#xFF0C;&#x4EFB;&#x4F55;&#x65F6;&#x5019;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x7528;isInTouchMode()&#x65B9;&#x6CD5;&#x6765;&#x5224;&#x65AD;&#x8BBE;&#x5907;&#x5F53;&#x524D;&#x662F;&#x5426;&#x5904;&#x4E8E;touch mode&#x72B6;&#x6001;&#x3002;&#x800C;&#x4E14;&#xFF0C;&#x8BBE;&#x5907;&#x4E00;&#x65E6;&#x8FDB;&#x5165;touch mode&#x72B6;&#x6001;&#xFF0C;&#x5C31;&#x4F1A;&#x5931;&#x53BB;&#x63A7;&#x4EF6;&#x7684;selection&#x72B6;&#x6001;&#x548C;focus&#x72B6;&#x6001;&#xFF08;In touch mode, there is no focus and no selection&#xFF09;&#x3002;</p>
-<p>&#x770B;&#x5B8C;&#x4E0A;&#x9762;&#x7684;&#x4ECB;&#x7ECD;&#xFF0C;&#x4E0D;&#x514D;&#x4EA7;&#x751F;&#x7591;&#x95EE;&#xFF1A;&#x901A;&#x8FC7;&#x89E6;&#x6478;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x89E6;&#x6478;&#x4EFB;&#x4F55;&#x63A7;&#x4EF6;&#x662F;&#x4E0D;&#x662F;&#x90FD;&#x4F1A;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x5462;&#xFF1F;&#x5BF9;&#x4E8E;&#x67D0;&#x4E9B;&#x63A7;&#x4EF6;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x7528;&#x6237;&#x89E6;&#x6478;&#x540E;&#x4F1A;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x5E76;&#x53EF;&#x4EE5;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x5462;&#xFF1F;</p>
-<p>&#x7B54;&#x6848;&#x663E;&#x7136;&#x662F;&#x5426;&#x5B9A;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;&#x4E9B;&#x63A7;&#x4EF6;&#x662F;&#x4E0D;&#x9700;&#x8981;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x7684;&#xFF0C;&#x6BD4;&#x5982;Button&#x3002;Android&#x662F;&#x8003;&#x8651;&#x8FD9;&#x4E00;&#x70B9;&#x7684;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;API&#x6765;&#x5224;&#x65AD;&#xFF1A;</p>
+<p>touch mode是跨Activitys的（across Activitys），任何时候都可以通过调用isInTouchMode()方法来判断设备当前是否处于touch mode状态。而且，设备一旦进入touch mode状态，就会失去控件的selection状态和focus状态（In touch mode, there is no focus and no selection）。</p>
+<p>看完上面的介绍，不免产生疑问：通过触摸的方式，触摸任何控件是不是都会获得焦点呢？对于某些控件，为什么用户触摸后会获得焦点并可以输入内容呢？</p>
+<p>答案显然是否定的，因为有些控件是不需要获得焦点的，比如Button。Android是考虑这一点的，并提供了API来判断：</p>
 <blockquote>
-<p>&#x53EA;&#x6709;&#x5F53;view&#x7684;isFocusableInTouchMode()&#x4E3A;true&#x65F6;&#xFF0C;view&#x624D;&#x662F;&#x53EF;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x7684;&#x3002;&#x4E0D;&#x540C;view&#x8BE5;&#x503C;&#x9ED8;&#x8BA4;&#x4E0D;&#x540C;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;Edit Text&#x4E3A;true&#xFF0C;Button&#x4E3A;false&#x3002;</p>
+<p>只有当view的isFocusableInTouchMode()为true时，view才是可获得焦点的。不同view该值默认不同，例如，Edit Text为true，Button为false。</p>
 </blockquote>
-<p>Focusable&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;&#x63A7;&#x4EF6;&#x662F;&#x5426;&#x5177;&#x6709;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#xFF08;Focus&#xFF09;&#x7684;&#x80FD;&#x529B;&#xFF0C;focusable in touch mode&#x662F;touch mode&#x4E0B;&#x7126;&#x70B9;&#x5B58;&#x5728;&#x7684;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x5F62;&#x5F0F;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5728;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x53D1;&#x751F;&#xFF1A;&#x4E00;&#x662F;Edit Text&#x63A5;&#x6536;&#x8F93;&#x5165;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E8C;&#x662F;List View&#x7684;&#x8FC7;&#x6EE4;&#x6253;&#x5F00;&#x65F6;&#x3002;</p>
-<p>&#x5728;touch mode&#x4E0B;&#xFF0C;&#x5982;&#x679C;isFocusableInTouchMode()&#x4E3A;false&#xFF0C;&#x7528;&#x6237;&#x5728;&#x89E6;&#x6478;&#x5C4F;&#x5E55;&#x65F6;&#x662F;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;focus&#x7684;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x70B9;&#x51FB;&#xFF0C;&#x5728;ACTION_UP&#x4E8B;&#x4EF6;&#x5230;&#x6765;&#x65F6;&#xFF0C;&#x4F1A;&#x89E6;&#x53D1;onClickListener&#xFF1B;&#x800C;&#x5982;&#x679C;isFocusableInTouchMode()&#x4E3A;true&#xFF0C;&#x7528;&#x6237;&#x901A;&#x8FC7;&#x89E6;&#x6478;&#x6765;&#x70B9;&#x51FB;&#x63A7;&#x4EF6;&#xFF0C;&#x63A7;&#x4EF6;&#x9996;&#x5148;&#x4F1A;&#x83B7;&#x5F97;focus&#xFF0C;&#x5982;&#x679C;&#x83B7;&#x53D6;focus&#x6210;&#x529F;&#x5C31;&#x4E0D;&#x4F1A;&#x518D;&#x89E6;&#x53D1;onClickListener&#x3002;</p>
-<p>&#x76F8;&#x4FE1;&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x5E94;&#x8BE5;&#x5BF9;touch mode&#x6709;&#x4E00;&#x4E2A;&#x76F8;&#x5BF9;&#x6E05;&#x6670;&#x7684;&#x8BA4;&#x8BC6;&#x4E86;&#x3002;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x600E;&#x4E48;&#x77E5;&#x9053;&#x8BBE;&#x5907;&#x662F;&#x4E0D;&#x662F;&#x5904;&#x4E8E;touch mode&#x72B6;&#x6001;&#x5462;&#xFF0C;Android&#x5B98;&#x65B9;&#x5728;View&#x7C7B;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;</p>
+<p>Focusable可以理解为控件是否具有获得焦点（Focus）的能力，focusable in touch mode是touch mode下焦点存在的一种特殊形式，这种方式在两种情况下会发生：一是Edit Text接收输入的时候，二是List View的过滤打开时。</p>
+<p>在touch mode下，如果isFocusableInTouchMode()为false，用户在触摸屏幕时是无法获取focus的，如果是点击，在ACTION_UP事件到来时，会触发onClickListener；而如果isFocusableInTouchMode()为true，用户通过触摸来点击控件，控件首先会获得focus，如果获取focus成功就不会再触发onClickListener。</p>
+<p>相信到这里，应该对touch mode有一个相对清晰的认识了。那么我们在代码中怎么知道设备是不是处于touch mode状态呢，Android官方在View类中提供了以下方法</p>
 <blockquote>
 <p> boolean isInTouchMode()</p>
 </blockquote>
-<p>&#x6765;&#x5224;&#x65AD;&#x8BBE;&#x5907;&#x5F53;&#x524D;&#x662F;&#x5426;&#x5904;&#x4E8E;touch mode&#x3002;</p>
-<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x7684;&#x4E86;&#x89E3;&#xFF0C;&#x53D1;&#x73B0;touch mode&#x662F;Android&#x8BBE;&#x5907;&#x7684;&#x4E00;&#x79CD;&#x4EA4;&#x4E92;&#x65B9;&#x5F0F;&#x3002;&#x5728;&#x5E73;&#x65F6;&#x7684;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x83B7;&#x5F97;&#x67D0;&#x4E2A;&#x63A7;&#x4EF6;&#x7684;&#x7126;&#x70B9;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x81EA;&#x52A8;&#x83B7;&#x5F97;&#x67D0;&#x4E2A;edit text&#x7684;&#x7126;&#x70B9;&#xFF0C;&#x4EE5;&#x65B9;&#x4FBF;&#x7528;&#x6237;&#x8F93;&#x5165;&#x3002;</p>
-<p>&#x90A3;&#x4E48;&#xFF0C;&#x5BF9;&#x4E8E;&#x5927;&#x591A;&#x6570;&#x667A;&#x80FD;&#x624B;&#x673A;&#xFF08;&#x5177;&#x6709;touch mode&#x80FD;&#x529B;&#xFF09;&#x800C;&#x8A00;&#xFF0C;&#x5982;&#x4F55;&#x83B7;&#x53D6;view&#x7684;&#x7126;&#x70B9;&#x5462;&#xFF1F;</p>
-<h2 id="&#x518D;&#x8BF4;requestFocus"><a href="#&#x518D;&#x8BF4;requestFocus" class="headerlink" title="&#x518D;&#x8BF4;requestFocus"></a>&#x518D;&#x8BF4;requestFocus</h2><p>&#x9996;&#x5148;&#x8981;&#x660E;&#x786E;&#x4E00;&#x70B9;&#x7684;&#x662F;&#xFF0C;view&#x8981;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x5177;&#x5907;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x7684;&#x80FD;&#x529B;&#xFF08;focusable&#xFF09;&#x3002;Android&#x5728;API&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x66F4;&#x6539;view&#x662F;&#x5426;&#x80FD;&#x591F;&#x83B7;&#x5F97;&#x7126;&#x70B9;</p>
+<p>来判断设备当前是否处于touch mode。</p>
+<p>通过上面的了解，发现touch mode是Android设备的一种交互方式。在平时的项目开发中，经常需要获得某个控件的焦点，比如，自动获得某个edit text的焦点，以方便用户输入。</p>
+<p>那么，对于大多数智能手机（具有touch mode能力）而言，如何获取view的焦点呢？</p>
+<h2 id="再说requestFocus"><a href="#再说requestFocus" class="headerlink" title="再说requestFocus"></a>再说requestFocus</h2><p>首先要明确一点的是，view要获取焦点，就必须具备获取焦点的能力（focusable）。Android在API中提供了两个方法来更改view是否能够获得焦点</p>
 <blockquote>
 <ol>
 <li><p>void setFocusable(boolean focusable)</p>
@@ -277,28 +277,28 @@
 </li>
 </ol>
 </blockquote>
-<p>&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x662F;true&#x6216;&#x8005;false&#x6765;&#x63A7;&#x5236;view&#x662F;&#x5426;&#x5177;&#x6709;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x5728;xml&#x6587;&#x4EF6;&#x4E2D;&#x5BF9;&#x5E94;&#x540C;&#x6837;&#x7684;&#x5C5E;&#x6027;&#x5B9A;&#x4E49;&#x3002;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;&#x65B9;&#x6CD5;1&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E86;false&#xFF0C;&#x5219;isFocusable()&#x548C;isFocusableInTouchMode()&#x5747;&#x4E3A;false&#x3002;</p>
-<p>&#x4F8B;&#x5982;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;EditText&#x7C7B;&#x578B;&#x7684;view&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x53C2;&#x6570;<em>false</em>&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x518D;&#x70B9;&#x51FB;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;edit text&#xFF0C;&#x5219;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x3002;</p>
-<p>&#x56E0;&#x6B64;&#xFF0C;&#x5728;touch mode&#x4E0B;&#xFF0C;view&#x8981;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x8BBE;&#x7F6E;&#x5176;&#x662F;focusable&#x7684;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x7279;&#x5B9A;view&#x9ED8;&#x8BA4;&#x5C31;&#x662F;focusable&#x7684;&#xFF0C;&#x6BD4;&#x5982;edit text&#x3002;</p>
-<p>&#x5177;&#x5907;&#x7126;&#x70B9;&#x80FD;&#x529B;&#x540E;&#xFF0C;Android&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#xFF1A;</p>
+<p>这两个方法通过传入的参数是true或者false来控制view是否具有获得焦点的能力，在xml文件中对应同样的属性定义。要说明的一点是，方法1如果设置为了false，则isFocusable()和isFocusableInTouchMode()均为false。</p>
+<p>例如，对于一个EditText类型的view调用该方法，并传入参数<em>false</em>，此时，再点击屏幕上的edit text，则无法获取焦点。</p>
+<p>因此，在touch mode下，view要获得焦点，首先要设置其是focusable的。当然，特定view默认就是focusable的，比如edit text。</p>
+<p>具备焦点能力后，Android提供了两个方法来获得焦点：</p>
 <ul>
 <li><strong>requestFocus()</strong></li>
 <li><strong>requestFocusFromTouch()</strong></li>
 </ul>
-<p>&#x4ECE;&#x65B9;&#x6CD5;&#x540D;&#x5C31;&#x80FD;&#x770B;&#x51FA;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x533A;&#x522B;&#x3002;&#x5176;&#x5DEE;&#x5F02;&#x5728;&#x5404;&#x79CD;&#x535A;&#x5BA2;&#x4E2D;&#x90FD;&#x63D0;&#x5230;&#x7684;&#x662F;&#xFF1A;requestFocus&#x5728;&#x51E0;&#x79CD;&#x7279;&#x6B8A;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x80FD;&#x591F;&#x83B7;&#x5F97;&#x7126;&#x70B9;</p>
+<p>从方法名就能看出两个方法的区别。其差异在各种博客中都提到的是：requestFocus在几种特殊情况下不能够获得焦点</p>
 <ol>
-<li>&#x8C03;&#x7528;requestFocus&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x7684;view&#x4E0D;&#x652F;&#x6301;Focus&#x3002;&#x6BD4;&#x5982;&#xFF0C;button&#x3002;</li>
-<li>&#x8C03;&#x7528;requestFocus&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x7684;view&#x652F;&#x6301;Focus&#xFF0C;&#x4F46;&#x4E0D;&#x652F;&#x6301;touch mode&#x4E0B;&#x7684;Focus&#x3002;</li>
+<li>调用requestFocus获取焦点的view不支持Focus。比如，button。</li>
+<li>调用requestFocus获取焦点的view支持Focus，但不支持touch mode下的Focus。</li>
 </ol>
-<p>&#x8FD9;&#x4E2A;&#x6BD4;&#x8F83;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x5C31;&#x4E0D;&#x4E3E;&#x4F8B;&#x6765;&#x8BF4;&#x660E;&#x4E86;&#x3002;&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#xFF0C;requestFocuFromTouch&#x8C03;&#x7528;&#x540E;&#xFF0C;&#x8BE5;view&#x4F1A;&#x4ECE;touch mode&#x53D8;&#x6210;&#x975E;touch mode&#x3002;&#x5176;&#x5B9E;&#xFF0C;&#x4ECE;&#x6E90;&#x7801;&#x5C31;&#x80FD;&#x770B;&#x51FA;</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">requestFocusFromTouch</span><span class="params">()</span> </span>{</div><div class="line">     <span class="comment">// Leave touch mode if we need to</span></div><div class="line">     <span class="keyword">if</span> (isInTouchMode()) {</div><div class="line">         ViewRootImpl viewRoot = getViewRootImpl();</div><div class="line">         <span class="keyword">if</span> (viewRoot != <span class="keyword">null</span>) {</div><div class="line">             viewRoot.ensureTouchMode(<span class="keyword">false</span>);</div><div class="line">         }</div><div class="line">     }</div><div class="line">     <span class="keyword">return</span> requestFocus(View.FOCUS_DOWN);</div><div class="line">}</div></pre></td></tr></table></figure>
-<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x7684;&#x8BDD;&#xFF0C;view&#x4F1A;&#x79BB;&#x5F00;touch mode&#x3002;</p>
-<h2 id="&#x8C08;&#x8C08;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"><a href="#&#x8C08;&#x8C08;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;" class="headerlink" title="&#x8C08;&#x8C08;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;"></a>&#x8C08;&#x8C08;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</h2><p>&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x518D;&#x6765;&#x770B;&#x9879;&#x76EE;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x5C31;&#x5F88;&#x597D;&#x7406;&#x89E3;&#x4E86;&#x3002;</p>
-<p>&#x5F53;&#x65F6;&#x7684;&#x95EE;&#x9898;&#x662F;&#xFF1A;&#x70B9;&#x51FB;activity&#x4E2D;&#x7684;&#x4E00;&#x4E2A;button&#x5F39;&#x51FA;&#x4E00;&#x4E2A;&#x5BF9;&#x8BDD;&#x6846;&#xFF0C;&#x5BF9;&#x8BDD;&#x6846;&#x4E2D;&#x662F;List View&#x7684;&#x4E00;&#x4E2A;&#x5217;&#x8868;&#xFF0C;&#x70B9;&#x51FB;&#x4EFB;&#x4E00;item&#xFF0C;&#x5BF9;&#x8BDD;&#x6846;&#x5173;&#x95ED;&#xFF0C;&#x5E76;&#x8BA9;activity&#x4E2D;&#x7684;&#x4E00;&#x4E2A;Text View&#x83B7;&#x5F97;&#x8F93;&#x5165;&#x7126;&#x70B9;&#x3002;&#x7531;&#x4E8E;&#x56E2;&#x961F;&#x5176;&#x4ED6;&#x4EBA;&#x5458;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x4F7F;&#x7528;&#x7684;&#x662F;requestFocusFromTouch&#xFF0C;&#x5BFC;&#x81F4;&#x6BCF;&#x6B21;&#x70B9;&#x51FB;&#x9009;&#x62E9;item&#x540E;&#xFF0C;List View&#x90FD;&#x4F1A;&#x4ECE;touch mode&#x8F6C;&#x53D8;&#x4E3A;&#x975E;touch mode&#x72B6;&#x6001;&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x679C;&#x8FD9;&#x65F6;&#x518D;&#x663E;&#x793A;&#x5BF9;&#x8BDD;&#x6846;&#xFF0C;List View&#x5C31;&#x4F1A;&#x5904;&#x4E8E;selection&#x72B6;&#x6001;&#xFF0C;&#x9ED8;&#x8BA4;&#x9009;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;item&#x3002;&#x800C;&#x8FD9;&#x79CD;&#x72B6;&#x6001;&#x662F;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x8981;&#x7684;&#x3002;</p>
-<div align="center"><br><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fp4njgw0t6j30oo0iujs0.jpg" alt="List View&#x9ED8;&#x8BA4;&#x5C06;&#x7B2C;&#x4E00;&#x4E2A;item&#x8BBE;&#x4E3A;selection" width="100px"><br><br></div>
+<p>这个比较好理解，就不举例来说明了。值得一提的是，requestFocuFromTouch调用后，该view会从touch mode变成非touch mode。其实，从源码就能看出</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">requestFocusFromTouch</span><span class="params">()</span> </span>&#123;</div><div class="line">     <span class="comment">// Leave touch mode if we need to</span></div><div class="line">     <span class="keyword">if</span> (isInTouchMode()) &#123;</div><div class="line">         ViewRootImpl viewRoot = getViewRootImpl();</div><div class="line">         <span class="keyword">if</span> (viewRoot != <span class="keyword">null</span>) &#123;</div><div class="line">             viewRoot.ensureTouchMode(<span class="keyword">false</span>);</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> requestFocus(View.FOCUS_DOWN);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果需要的话，view会离开touch mode。</p>
+<h2 id="谈谈项目中遇到的问题"><a href="#谈谈项目中遇到的问题" class="headerlink" title="谈谈项目中遇到的问题"></a>谈谈项目中遇到的问题</h2><p>这个时候再来看项目遇到的问题，就很好理解了。</p>
+<p>当时的问题是：点击activity中的一个button弹出一个对话框，对话框中是List View的一个列表，点击任一item，对话框关闭，并让activity中的一个Text View获得输入焦点。由于团队其他人员获取焦点使用的是requestFocusFromTouch，导致每次点击选择item后，List View都会从touch mode转变为非touch mode状态，那么如果这时再显示对话框，List View就会处于selection状态，默认选中第一个item。而这种状态是我们不想要的。</p>
+<div align="center"><br><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fp4njgw0t6j30oo0iujs0.jpg" alt="List View默认将第一个item设为selection" width="100px"><br><br></div>
 
-<p>&#x77E5;&#x9053;&#x4E86;&#x95EE;&#x9898;&#x6240;&#x5728;&#xFF0C;&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#x4E5F;&#x5C31;&#x5F88;&#x5BB9;&#x6613;&#x4E86;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x628A;requestFocusFromTouch&#x66FF;&#x6362;&#x4E3A;requestFrocus&#x5373;&#x53EF;&#xFF0C;&#x8FD9;&#x6837;&#x4FDD;&#x8BC1;List View&#x59CB;&#x7EC8;&#x90FD;&#x662F;touch mode&#x72B6;&#x6001;&#x3002;</p>
-<h2 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2><ol>
+<p>知道了问题所在，解决方法也就很容易了，只需要把requestFocusFromTouch替换为requestFrocus即可，这样保证List View始终都是touch mode状态。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
 <li><a href="https://developer.android.com/reference/android/view/View.html#TouchMode" target="_blank" rel="external">https://developer.android.com/reference/android/view/View.html#TouchMode</a></li>
 <li><a href="https://android-developers.googleblog.com/2008/12/touch-mode.html" target="_blank" rel="external">https://android-developers.googleblog.com/2008/12/touch-mode.html</a></li>
 </ol>
@@ -524,7 +524,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x5199;&#x5728;&#x5EFA;&#x7AD9;&#x4E4B;&#x65F6;<br></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>写在建站之时<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -549,7 +549,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x505A;&#x9879;&#x76EE;&#xFF0C;&#x5728;&#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x5C0F;bug&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x78B0;&#x5230;&#x4E00;&#x4E2A;&#x5751;&#xFF0C;&#x82B1;&#x8D39;&#x4E86;&#x4E00;&#x5927;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x6765;&#x586B;&#x5751;&#xFF0C;&#x7EC8;&#x4E8E;&#x6392;&#x67E5;&#x51FA;&#x4E86;&#x539F;&#x56E0;&#xFF1A;&#x7531;&#x4E8E;&#x67D0;&#x4E2A;Edit Text&#x8C03;&#x7528;&#x4E86;requestFocusFromTouch()&#x65B9;&#x6CD5;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x5C06;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x7684;&#x65B9;&#x6CD5;&#x6362;&#x6210;requestFocus()&#xFF0C;&#x5219;&#x95EE;&#x9898;&#x4E0D;&#x518D;&#x590D;&#x73B0;&#x3002;&#x8FD9;&#x5C31;&#x6FC0;&#x53D1;&#x4E86;&#x6211;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x597D;&#x5947;&#xFF0C;&#x51C6;&#x5907;&#x770B;&#x770B;&#x5B83;&#x4EEC;&#x846B;&#x82A6;&#x91CC;&#x5230;&#x5E95;&#x88C5;&#x7684;&#x4EC0;&#x4E48;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>这段时间做项目，在解决一个小bug的过程中，碰到一个坑，花费了一大天的时间来填坑，终于排查出了原因：由于某个Edit Text调用了requestFocusFromTouch()方法导致的，将获取焦点的方法换成requestFocus()，则问题不再复现。这就激发了我对这两个方法的好奇，准备看看它们葫芦里到底装的什么。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -574,7 +574,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;Android&#x673A;&#x578B;&#x4F17;&#x591A;&#xFF0C;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x3001;&#x5206;&#x8FA8;&#x7387;&#x5404;&#x6709;&#x4E0D;&#x540C;&#x3002;&#x5BF9;&#x4E8E;Android&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x4F55;&#x63D0;&#x9AD8;APP&#x4E2D;&#x56FE;&#x7247;&#x5BF9;&#x5404;&#x79CD;&#x673A;&#x578B;&#x7684;&#x9002;&#x914D;&#x662F;&#x57FA;&#x672C;&#x6280;&#x80FD;&#x4E4B;&#x4E00;&#x3002;&#x501F;&#x7740;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x56FE;&#x7247;&#x9002;&#x914D;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x603B;&#x7ED3;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x5C31;&#x60F3;&#x7740;&#x987A;&#x5E26;&#x628A;&#x8FD9;&#x90E8;&#x5206;&#x597D;&#x597D;&#x634B;&#x4E00;&#x634B;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x4E3A;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x4EBA;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x3002;<br></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>众所周知，Android机型众多，屏幕尺寸、分辨率各有不同。对于Android开发人员来说，如何提高APP中图片对各种机型的适配是基本技能之一。借着项目中遇到的图片适配问题，在总结项目时，就想着顺带把这部分好好捋一捋，作为一个记录，也为不是很清楚这部分的人提供一个参考。<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -599,7 +599,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>Android &#x667A;&#x80FD;&#x624B;&#x673A;&#x5728;&#x5168;&#x7403;&#x5E02;&#x573A;&#x6709;&#x7740;&#x6781;&#x9AD8;&#x7684;&#x5E02;&#x573A;&#x5360;&#x6709;&#x7387;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x53D7;&#x5230;&#x5E7F;&#x5927;&#x6D88;&#x8D39;&#x8005;&#x7684;&#x9752;&#x7750;&#x3002;&#x4F46; Android &#x4F5C;&#x4E3A;&#x5F00;&#x6E90;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E14;&#x5F88;&#x5BB9;&#x6613;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x7CFB;&#x7EDF; root &#x6743;&#x9650;&#xFF0C;Android &#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x4E5F;&#x662F;&#x7528;&#x6237;&#x548C;&#x5F00;&#x53D1;&#x8005;&#x6700;&#x5173;&#x5FC3;&#x7684;&#x95EE;&#x9898;&#x4E4B;&#x4E00;&#x3002;<br></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>Android 智能手机在全球市场有着极高的市场占有率，越来越受到广大消费者的青睐。但 Android 作为开源操作系统，且很容易可以获得系统 root 权限，Android 系统的安全问题也是用户和开发者最关心的问题之一。<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -624,7 +624,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B; Android &#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x63D0;&#x5347; Android &#x5F00;&#x53D1;&#x7684;&#x6548;&#x7387;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x589E;&#x52A0;&#x4E00;&#x4E9B;&#x4E50;&#x8DA3;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>本文主要介绍一些 Android 开发过程中使用到的一些工具，用于提升 Android 开发的效率，同时也增加一些乐趣。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -643,7 +643,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>LeetCode &#x5F88;&#x7ECF;&#x5178;&#x7684;&#x4E00;&#x9053;&#x7B97;&#x6CD5;&#x9898;&#xFF0C;&#x6C42;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x4E2D;&#x4F4D;&#x6570;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>LeetCode 很经典的一道算法题，求两个有序数组的中位数。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -668,8 +668,8 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x672C;&#x6587;&#x9996;&#x53D1;&#x4E8E;&#x533A;&#x5757;&#x94FE;&#x516C;&#x4F17;&#x53F7;&#x300C;&#x94FE;&#x7AD9;&#x300D;&#xFF0C;ID&#xFF1A;ChainStation&#x3002;</p>
-<font size="3"><strong>&#x201C;</strong> &#x76F8;&#x4FE1;&#x770B;&#x5230;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x90FD;&#x662F;&#x542C;&#x8BF4;&#x8FC7;&#x6216;&#x4E86;&#x89E3;&#x6BD4;&#x7279;&#x5E01;&#x548C;&#x533A;&#x5757;&#x94FE;&#x7684;&#x4EBA;&#xFF0C;&#x90A3;&#x5230;&#x5E95;&#x4EC0;&#x4E48;&#x662F;&#x6BD4;&#x7279;&#x5E01;&#x548C;&#x533A;&#x5757;&#x94FE;&#x5462;&#xFF1F;&#x8FD9;&#x91CC;&#x51C6;&#x5907;&#x5199;&#x4E2A;&#x7B80;&#x6613;&#x533A;&#x5757;&#x94FE;&#x7CFB;&#x5217;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x9488;&#x5BF9;&#x4E00;&#x4E9B;&#x5165;&#x95E8;&#x7EA7;&#x522B;&#x7684;&#x4EBA;&#x3002;&#x6587;&#x7AE0;&#x5C3D;&#x53EF;&#x80FD;&#x629B;&#x5F00;&#x4E00;&#x4E9B;&#x592A;&#x4E13;&#x4E1A;&#x7684;&#x672F;&#x8BED;&#xFF0C;&#x7528;&#x5927;&#x5BB6;&#x90FD;&#x80FD;&#x7406;&#x89E3;&#x7684;&#x5F62;&#x5F0F;&#x8BB2;&#x89E3;&#x7ED3;&#x3002;<strong>&#x201D;</strong></font></div>
+                        <div class="media-content hide-xs font-merryweather"><p>本文首发于区块链公众号「链站」，ID：ChainStation。</p>
+<font size=3><strong>“</strong> 相信看到这篇文章的都是听说过或了解比特币和区块链的人，那到底什么是比特币和区块链呢？这里准备写个简易区块链系列简单介绍一下，主要是针对一些入门级别的人。文章尽可能抛开一些太专业的术语，用大家都能理解的形式讲解结。<strong>”</strong></font></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -694,7 +694,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x8BB2;&#x4E00;&#x4E0B;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x53D1;&#x884C;&#x548C;&#x6D41;&#x901A;&#x673A;&#x5236;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>本篇主要讲一下比特币的发行和流通机制。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>

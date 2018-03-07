@@ -15,12 +15,12 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="&amp;#x4F17;&amp;#x6240;&amp;#x5468;&amp;#x77E5;&amp;#xFF0C;Android&amp;#x673A;&amp;#x578B;&amp;#x4F17;&amp;#x591A;&amp;#xFF0C;&amp;#x5C4F;&amp;#x5E55;&amp;#x5C3A;&amp;#x5BF8;&amp;#x3001;&amp;#x5206;&amp;#x8FA8;&amp;#x7387;&amp;#x5404;&amp;#x6709;&amp;#x4E0D;&amp;#x540C;&amp;#x3002;&amp;#x5BF9;&amp;">
+    <meta name="description" content="众所周知，Android机型众多，屏幕尺寸、分辨率各有不同。对于Android开发人员来说，如何提高APP中图片对各种机型的适配是基本技能之一。借着项目中遇到的图片适配问题，在总结项目时，就想着顺带把这部分好好捋一捋，作为一个记录，也为不是很清楚这部分的人提供一个参考。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="玩转Android drawable图片适配">
 <meta property="og:url" content="http://youngmeng.org/玩转Android-drawable图片适配/index.html">
 <meta property="og:site_name" content="youngmeng">
-<meta property="og:description" content="&amp;#x4F17;&amp;#x6240;&amp;#x5468;&amp;#x77E5;&amp;#xFF0C;Android&amp;#x673A;&amp;#x578B;&amp;#x4F17;&amp;#x591A;&amp;#xFF0C;&amp;#x5C4F;&amp;#x5E55;&amp;#x5C3A;&amp;#x5BF8;&amp;#x3001;&amp;#x5206;&amp;#x8FA8;&amp;#x7387;&amp;#x5404;&amp;#x6709;&amp;#x4E0D;&amp;#x540C;&amp;#x3002;&amp;#x5BF9;&amp;">
+<meta property="og:description" content="众所周知，Android机型众多，屏幕尺寸、分辨率各有不同。对于Android开发人员来说，如何提高APP中图片对各种机型的适配是基本技能之一。借着项目中遇到的图片适配问题，在总结项目时，就想着顺带把这部分好好捋一捋，作为一个记录，也为不是很清楚这部分的人提供一个参考。">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp4nmzdinuj308q05it8x.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp4no4v8aaj30ux13j77w.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp4npoaguaj317c06sq4a.jpg">
@@ -31,7 +31,7 @@
 <meta property="og:updated_time" content="2018-03-07T15:16:18.719Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="玩转Android drawable图片适配">
-<meta name="twitter:description" content="&amp;#x4F17;&amp;#x6240;&amp;#x5468;&amp;#x77E5;&amp;#xFF0C;Android&amp;#x673A;&amp;#x578B;&amp;#x4F17;&amp;#x591A;&amp;#xFF0C;&amp;#x5C4F;&amp;#x5E55;&amp;#x5C3A;&amp;#x5BF8;&amp;#x3001;&amp;#x5206;&amp;#x8FA8;&amp;#x7387;&amp;#x5404;&amp;#x6709;&amp;#x4E0D;&amp;#x540C;&amp;#x3002;&amp;#x5BF9;&amp;">
+<meta name="twitter:description" content="众所周知，Android机型众多，屏幕尺寸、分辨率各有不同。对于Android开发人员来说，如何提高APP中图片对各种机型的适配是基本技能之一。借着项目中遇到的图片适配问题，在总结项目时，就想着顺带把这部分好好捋一捋，作为一个记录，也为不是很清楚这部分的人提供一个参考。">
 <meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp4nmzdinuj308q05it8x.jpg">
     
     
@@ -248,17 +248,17 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;Android&#x673A;&#x578B;&#x4F17;&#x591A;&#xFF0C;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x3001;&#x5206;&#x8FA8;&#x7387;&#x5404;&#x6709;&#x4E0D;&#x540C;&#x3002;&#x5BF9;&#x4E8E;Android&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x4F55;&#x63D0;&#x9AD8;APP&#x4E2D;&#x56FE;&#x7247;&#x5BF9;&#x5404;&#x79CD;&#x673A;&#x578B;&#x7684;&#x9002;&#x914D;&#x662F;&#x57FA;&#x672C;&#x6280;&#x80FD;&#x4E4B;&#x4E00;&#x3002;&#x501F;&#x7740;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x56FE;&#x7247;&#x9002;&#x914D;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x603B;&#x7ED3;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x5C31;&#x60F3;&#x7740;&#x987A;&#x5E26;&#x628A;&#x8FD9;&#x90E8;&#x5206;&#x597D;&#x597D;&#x634B;&#x4E00;&#x634B;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x4E3A;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x4EBA;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x3002;<br><a id="more"></a></p>
-<p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;Android&#x673A;&#x578B;&#x4F17;&#x591A;&#xFF0C;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x3001;&#x5206;&#x8FA8;&#x7387;&#x5404;&#x6709;&#x4E0D;&#x540C;&#x3002;&#x5BF9;&#x4E8E;Android&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x4F55;&#x63D0;&#x9AD8;APP&#x4E2D;&#x56FE;&#x7247;&#x5BF9;&#x5404;&#x79CD;&#x673A;&#x578B;&#x7684;&#x9002;&#x914D;&#x662F;&#x57FA;&#x672C;&#x6280;&#x80FD;&#x4E4B;&#x4E00;&#x3002;&#x501F;&#x7740;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x56FE;&#x7247;&#x9002;&#x914D;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x603B;&#x7ED3;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x5C31;&#x60F3;&#x7740;&#x987A;&#x5E26;&#x628A;&#x8FD9;&#x90E8;&#x5206;&#x597D;&#x597D;&#x634B;&#x4E00;&#x634B;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x4E3A;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x4EBA;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x3002;</p>
-<h1 id="&#x5148;&#x8BF4;mipmap"><a href="#&#x5148;&#x8BF4;mipmap" class="headerlink" title="&#x5148;&#x8BF4;mipmap"></a>&#x5148;&#x8BF4;mipmap</h1><p>&#x91C7;&#x7528;Android Studio&#x5F00;&#x53D1;Android APP&#xFF0C;&#x5728;&#x9879;&#x76EE;&#x7684;res&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x4F1A;&#x591A;&#x51FA;&#x51E0;&#x4E2A;&#x4EE5;mipmap&#x5F00;&#x5934;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x3002;</p>
-<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4nmzdinuj308q05it8x.jpg" alt="mipmap&#x6587;&#x4EF6;&#x5939;" width="100px"><br><br></div>
+            <p>众所周知，Android机型众多，屏幕尺寸、分辨率各有不同。对于Android开发人员来说，如何提高APP中图片对各种机型的适配是基本技能之一。借着项目中遇到的图片适配问题，在总结项目时，就想着顺带把这部分好好捋一捋，作为一个记录，也为不是很清楚这部分的人提供一个参考。<br><a id="more"></a></p>
+<p>众所周知，Android机型众多，屏幕尺寸、分辨率各有不同。对于Android开发人员来说，如何提高APP中图片对各种机型的适配是基本技能之一。借着项目中遇到的图片适配问题，在总结项目时，就想着顺带把这部分好好捋一捋，作为一个记录，也为不是很清楚这部分的人提供一个参考。</p>
+<h1 id="先说mipmap"><a href="#先说mipmap" class="headerlink" title="先说mipmap"></a>先说mipmap</h1><p>采用Android Studio开发Android APP，在项目的res目录下，会多出几个以mipmap开头的文件夹。</p>
+<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4nmzdinuj308q05it8x.jpg" alt="mipmap文件夹" width="100px"><br><br></div>
 
-<p>&#x6839;&#x636E;Android&#x5B98;&#x65B9;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;mipmap&#x4EC5;&#x4EC5;&#x7528;&#x4E8E;&#x5B58;&#x653E;APP&#x542F;&#x52A8;&#x56FE;&#x6807;&#xFF0C;&#x53EF;&#x7531;Image Asset Studio&#x751F;&#x6210;&#x3002;Image Asset Studio&#x4F1A;&#x751F;&#x6210;mdpi&#x3001;hdpi&#x3001;xhdpi&#x3001;xxhdpi&#x3001;xxxhdpi&#x4E94;&#x79CD;&#x5C3A;&#x5BF8;&#x7684;&#x56FE;&#x6807;&#x3002;&#x56FE;&#x6807;&#x6700;&#x597D;&#x4E0D;&#x8981;&#x968F;&#x610F;&#x5B9A;&#x4E49;&#x5C3A;&#x5BF8;&#xFF0C;&#x5206;&#x8FA8;&#x7387;&#x8FC7;&#x4F4E;&#x4F1A;&#x6A21;&#x7CCA;&#xFF0C;&#x8FC7;&#x9AD8;&#x5F92;&#x589E;APK&#x5305;&#x5927;&#x5C0F;&#x3002;&#x5404;&#x79CD;&#x5BC6;&#x5EA6;&#x4E0B;&#x7684;&#x56FE;&#x6807;&#x5EFA;&#x8BAE;&#x5C3A;&#x5BF8;&#x4E3A;</p>
+<p>根据Android官方的描述，mipmap仅仅用于存放APP启动图标，可由Image Asset Studio生成。Image Asset Studio会生成mdpi、hdpi、xhdpi、xxhdpi、xxxhdpi五种尺寸的图标。图标最好不要随意定义尺寸，分辨率过低会模糊，过高徒增APK包大小。各种密度下的图标建议尺寸为</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">&#x5BC6;&#x5EA6;</th>
-<th style="text-align:center">&#x5EFA;&#x8BAE;&#x5C3A;&#x5BF8;</th>
+<th style="text-align:center">密度</th>
+<th style="text-align:center">建议尺寸</th>
 </tr>
 </thead>
 <tbody>
@@ -284,88 +284,88 @@
 </tr>
 </tbody>
 </table>
-<p>&#x5982;&#x679C;&#x8981;&#x4E0A;&#x4F20;&#x5230;Google Play&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x5F20;512*512&#x7684;&#x56FE;&#x7247;&#x7528;&#x4E8E;Google Play Store&#x3002;</p>
-<h1 id="&#x518D;&#x8BF4;drawable&#x56FE;&#x7247;&#x9002;&#x914D;"><a href="#&#x518D;&#x8BF4;drawable&#x56FE;&#x7247;&#x9002;&#x914D;" class="headerlink" title="&#x518D;&#x8BF4;drawable&#x56FE;&#x7247;&#x9002;&#x914D;"></a>&#x518D;&#x8BF4;drawable&#x56FE;&#x7247;&#x9002;&#x914D;</h1><p>Android&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x5728;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x548C;&#x5BC6;&#x5EA6;&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x5E76;&#x5C06;&#x6BCF;&#x4E2A;&#x5E94;&#x7528;&#x7684;&#x7528;&#x6237;&#x754C;&#x9762;&#x8C03;&#x6574;&#x4E3A;&#x9002;&#x5E94;&#x5176;&#x663E;&#x793A;&#x7684;&#x5C4F;&#x5E55;&#xFF0C;&#x4F1A;&#x8FDB;&#x884C;&#x7F29;&#x653E;&#x548C;&#x5927;&#x5C0F;&#x8C03;&#x6574;&#x3002;&#x4E3A;&#x4E86;&#x6700;&#x5927;&#x7A0B;&#x5E8F;&#x4F18;&#x5316;&#x66F4;&#x591A;&#x8BBE;&#x5907;&#x4E0A;&#x7684;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x9700;&#x8981;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x548C;&#x5BC6;&#x5EA6;&#x4F18;&#x5316;&#x5E94;&#x7528;&#x3002;&#x5BF9;&#x4E8E;Android&#x667A;&#x80FD;&#x624B;&#x673A;&#x6765;&#x8BF4;&#xFF0C;&#x5C4F;&#x5E55;&#x5927;&#x5C0F;&#x3001;&#x5206;&#x8FA8;&#x7387;&#x3001;&#x5BC6;&#x5EA6;&#x5747;&#x4E0D;&#x5C3D;&#x76F8;&#x540C;&#xFF0C;&#x90A3;&#x4E48;&#x56FE;&#x7247;&#x9002;&#x914D;&#x5C31;&#x6210;&#x4E86;Android&#x4E2D;&#x4F18;&#x5316;&#x5E94;&#x7528;&#x5FC5;&#x4E0D;&#x53EF;&#x5C11;&#x7684;&#x73AF;&#x8282;&#x4E4B;&#x4E00;&#x3002;</p>
-<h2 id="&#x76F8;&#x5173;&#x6982;&#x5FF5;"><a href="#&#x76F8;&#x5173;&#x6982;&#x5FF5;" class="headerlink" title="&#x76F8;&#x5173;&#x6982;&#x5FF5;"></a>&#x76F8;&#x5173;&#x6982;&#x5FF5;</h2><ul>
+<p>如果要上传到Google Play，还需要一张512*512的图片用于Google Play Store。</p>
+<h1 id="再说drawable图片适配"><a href="#再说drawable图片适配" class="headerlink" title="再说drawable图片适配"></a>再说drawable图片适配</h1><p>Android系统可以在具有不同屏幕尺寸和密度的设备上运行，并将每个应用的用户界面调整为适应其显示的屏幕，会进行缩放和大小调整。为了最大程序优化更多设备上的用户体验，开发者需要针对不同的屏幕尺寸和密度优化应用。对于Android智能手机来说，屏幕大小、分辨率、密度均不尽相同，那么图片适配就成了Android中优化应用必不可少的环节之一。</p>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><ul>
 <li><p>dpi</p>
-<p>&#x6BCF;&#x82F1;&#x5BF8;&#x70B9;&#x6570;&#xFF0C;&#x5168;&#x79F0;dots per inch&#x3002;&#x7528;&#x6765;&#x8868;&#x793A;&#x5C4F;&#x5E55;&#x5BC6;&#x5EA6;&#xFF0C;&#x5373;&#x5C4F;&#x5E55;&#x7269;&#x7406;&#x533A;&#x57DF;&#x4E2D;&#x7684;&#x50CF;&#x7D20;&#x91CF;&#x3002;&#x9AD8;&#x5BC6;&#x5EA6;&#x5C4F;&#x5E55;&#x6BD4;&#x4F4E;&#x5BC6;&#x5EA6;&#x5C4F;&#x5E55;&#x5728;&#x7ED9;&#x5B9A;&#x7269;&#x7406;&#x533A;&#x57DF;&#x7684;&#x50CF;&#x7D20;&#x8981;&#x591A;&#x3002;</p>
+<p>每英寸点数，全称dots per inch。用来表示屏幕密度，即屏幕物理区域中的像素量。高密度屏幕比低密度屏幕在给定物理区域的像素要多。</p>
 </li>
 <li><p>dp</p>
-<p>&#x5373;dip&#xFF0C;&#x5168;&#x79F0;device independent pixel&#x3002;&#x8BBE;&#x5907;&#x72EC;&#x7ACB;&#x50CF;&#x7D20;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x865A;&#x62DF;&#x50CF;&#x7D20;&#x5355;&#x4F4D;&#xFF0C;&#x7528;&#x4E8E;&#x4EE5;&#x5BC6;&#x5EA6;&#x65E0;&#x5173;&#x65B9;&#x5F0F;&#x8868;&#x793A;&#x5E03;&#x5C40;&#x7EF4;&#x5EA6;&#x6216;&#x4F4D;&#x7F6E;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x5728;&#x4E0D;&#x540C;&#x5BC6;&#x5EA6;&#x7684;&#x5C4F;&#x5E55;&#x4E0A;&#x6B63;&#x5E38;&#x663E;&#x793A;UI&#x3002;&#x5728;160dpi&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#xFF0C;1dp=1px&#x3002;</p>
+<p>即dip，全称device independent pixel。设备独立像素，是一种虚拟像素单位，用于以密度无关方式表示布局维度或位置，以确保在不同密度的屏幕上正常显示UI。在160dpi的设备上，1dp=1px。</p>
 </li>
 <li><p>density</p>
-<p>&#x8BBE;&#x5907;&#x7684;&#x903B;&#x8F91;&#x5BC6;&#x5EA6;&#xFF0C;&#x662F;dip&#x7684;&#x7F29;&#x653E;&#x56E0;&#x5B50;&#x3002;&#x4EE5;160dpi&#x7684;&#x5C4F;&#x5E55;&#x4E3A;&#x57FA;&#x7EBF;&#xFF0C;density=dpi/160&#x3002;</p>
+<p>设备的逻辑密度，是dip的缩放因子。以160dpi的屏幕为基线，density=dpi/160。</p>
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; getResources().getDisplayMetrics().density</div><div class="line">&gt;</div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p>sp</p>
-<p>&#x7F29;&#x653E;&#x72EC;&#x7ACB;&#x50CF;&#x7D20;&#xFF0C;&#x5168;&#x79F0;scale independent pixel&#x3002;&#x7C7B;&#x4F3C;&#x4E8E;dp&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x7684;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x504F;&#x597D;&#x6765;&#x7F29;&#x653E;&#x3002;</p>
+<p>缩放独立像素，全称scale independent pixel。类似于dp，一般用于设置字体大小，可以根据用户设置的字体大小偏好来缩放。</p>
 </li>
 </ul>
-<h2 id="&#x516D;&#x79CD;&#x901A;&#x7528;&#x5BC6;&#x5EA6;"><a href="#&#x516D;&#x79CD;&#x901A;&#x7528;&#x5BC6;&#x5EA6;" class="headerlink" title="&#x516D;&#x79CD;&#x901A;&#x7528;&#x5BC6;&#x5EA6;"></a>&#x516D;&#x79CD;&#x901A;&#x7528;&#x5BC6;&#x5EA6;</h2><p>Android&#x7CFB;&#x7EDF;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#x5F00;&#x53D1;&#x8005;&#x4E3A;&#x591A;&#x79CD;&#x5C4F;&#x5E55;&#x8BBE;&#x8BA1;&#x7528;&#x6237;&#x754C;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;Android&#x5C06;&#x5B9E;&#x9645;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x548C;&#x8303;&#x56F4;&#x4F5C;&#x4E86;&#x901A;&#x7528;&#x89C4;&#x5B9A;&#xFF0C;&#x79F0;&#x4F5C;&#x201C;&#x6839;&#x636E;&#x53EF;&#x7528;&#x5C4F;&#x5E55;&#x5BBD;&#x5EA6;&#x7BA1;&#x7406;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x7684;&#x65B0;&#x6280;&#x672F;&#x201D;&#x3002;&#x516D;&#x79CD;&#x901A;&#x7528;&#x5BC6;&#x5EA6;&#x4E3A;</p>
+<h2 id="六种通用密度"><a href="#六种通用密度" class="headerlink" title="六种通用密度"></a>六种通用密度</h2><p>Android系统为了简化开发者为多种屏幕设计用户界面的方式，Android将实际屏幕尺寸和范围作了通用规定，称作“根据可用屏幕宽度管理屏幕尺寸的新技术”。六种通用密度为</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">&#x5BC6;&#x5EA6;</th>
-<th style="text-align:center">dpi&#x8303;&#x56F4;</th>
+<th style="text-align:center">密度</th>
+<th style="text-align:center">dpi范围</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">ldpi&#xFF08;&#x4F4E;&#xFF09;</td>
+<td style="text-align:center">ldpi（低）</td>
 <td style="text-align:center">~120dpi</td>
 </tr>
 <tr>
-<td style="text-align:center">mdpi&#xFF08;&#x4E2D;&#xFF09;</td>
+<td style="text-align:center">mdpi（中）</td>
 <td style="text-align:center">~160dpi</td>
 </tr>
 <tr>
-<td style="text-align:center">hdpi&#xFF08;&#x9AD8;&#xFF09;</td>
+<td style="text-align:center">hdpi（高）</td>
 <td style="text-align:center">~240dpi</td>
 </tr>
 <tr>
-<td style="text-align:center">xhdpi&#xFF08;&#x8D85;&#x9AD8;&#xFF09;</td>
+<td style="text-align:center">xhdpi（超高）</td>
 <td style="text-align:center">~320dpi</td>
 </tr>
 <tr>
-<td style="text-align:center">xxhdpi&#xFF08;&#x8D85;&#x8D85;&#x9AD8;&#xFF09;</td>
+<td style="text-align:center">xxhdpi（超超高）</td>
 <td style="text-align:center">~480dpi</td>
 </tr>
 <tr>
-<td style="text-align:center">xxxhdpi&#xFF08;&#x8D85;&#x8D85;&#x8D85;&#x9AD8;&#xFF09;</td>
+<td style="text-align:center">xxxhdpi（超超超高）</td>
 <td style="text-align:center">~640dpi</td>
 </tr>
 </tbody>
 </table>
-<p>&#x901A;&#x7528;&#x5BC6;&#x5EA6;&#x662F;&#x4EE5;mdpi&#xFF08;&#x4E2D;&#xFF09;&#x4E3A;&#x57FA;&#x7EBF;&#x914D;&#x7F6E;&#x7684;&#xFF0C;&#x6B64;&#x57FA;&#x7EBF;&#x57FA;&#x4E8E;&#x7B2C;&#x4E00;&#x4EE3;Android&#x8BBE;&#x5907;&#xFF08;T-Mobile G1&#xFF09;&#x7684;&#x5C4F;&#x5E55;&#x914D;&#x7F6E;&#x3002;</p>
-<h2 id="Android&#x7CFB;&#x7EDF;&#x9002;&#x914D;&#x539F;&#x5219;"><a href="#Android&#x7CFB;&#x7EDF;&#x9002;&#x914D;&#x539F;&#x5219;" class="headerlink" title="Android&#x7CFB;&#x7EDF;&#x9002;&#x914D;&#x539F;&#x5219;"></a>Android&#x7CFB;&#x7EDF;&#x9002;&#x914D;&#x539F;&#x5219;</h2><p>Android&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x5730;&#x4F18;&#x5316;&#x5E94;&#x7528;&#x5728;&#x4E0D;&#x540C;&#x5C4F;&#x5E55;&#x5BC6;&#x5EA6;&#x4E0B;&#x7684;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#xFF0C;&#x5728;&#x9879;&#x76EE;&#x7684;res&#x76EE;&#x5F55;&#x4E0B;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;drawab-[density]&#xFF08;density&#x4E3A;6&#x79CD;&#x901A;&#x7528;&#x5BC6;&#x5EA6;&#x540D;&#xFF09;&#x76EE;&#x5F55;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x5728;&#x8FDB;&#x884C;APP&#x5F00;&#x53D1;&#x65F6;&#xFF0C;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x5C4F;&#x5E55;&#x5BC6;&#x5EA6;&#xFF0C;&#x5C06;&#x56FE;&#x7247;&#x653E;&#x7F6E;&#x4E8E;&#x5BF9;&#x5E94;&#x7684;drawable-[density]&#x76EE;&#x5F55;&#xFF0C;Android&#x7CFB;&#x7EDF;&#x4F1A;&#x4F9D;&#x636E;&#x7279;&#x5B9A;&#x7684;&#x539F;&#x5219;&#x6765;&#x67E5;&#x627E;&#x5404;drawable&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x56FE;&#x7247;&#x3002;&#x67E5;&#x627E;&#x6D41;&#x7A0B;&#x4E3A;&#xFF1A;</p>
+<p>通用密度是以mdpi（中）为基线配置的，此基线基于第一代Android设备（T-Mobile G1）的屏幕配置。</p>
+<h2 id="Android系统适配原则"><a href="#Android系统适配原则" class="headerlink" title="Android系统适配原则"></a>Android系统适配原则</h2><p>Android为了更好地优化应用在不同屏幕密度下的用户体验，在项目的res目录下可以创建drawab-[density]（density为6种通用密度名）目录，开发者在进行APP开发时，针对不同的屏幕密度，将图片放置于对应的drawable-[density]目录，Android系统会依据特定的原则来查找各drawable目录下的图片。查找流程为：</p>
 <ol>
-<li>&#x5148;&#x67E5;&#x627E;&#x548C;&#x5C4F;&#x5E55;&#x5BC6;&#x5EA6;&#x6700;&#x5339;&#x914D;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x3002;&#x5982;&#x5F53;&#x524D;&#x8BBE;&#x5907;&#x5C4F;&#x5E55;&#x5BC6;&#x5EA6;dpi&#x4E3A;160&#xFF0C;&#x5219;&#x4F1A;&#x4F18;&#x5148;&#x67E5;&#x627E;drawable-mdpi&#x76EE;&#x5F55;&#xFF1B;&#x5982;&#x679C;&#x8BBE;&#x5907;&#x5C4F;&#x5E55;&#x5BC6;&#x5EA6;dpi&#x4E3A;420&#xFF0C;&#x5219;&#x4F1A;&#x4F18;&#x5148;&#x67E5;&#x627E;drawable-xxhdpi&#x76EE;&#x5F55;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x5728;&#x6700;&#x5339;&#x914D;&#x7684;&#x76EE;&#x5F55;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x56FE;&#x7247;&#xFF0C;&#x5C31;&#x4F1A;&#x5411;&#x66F4;&#x9AD8;&#x5BC6;&#x5EA6;&#x7684;&#x76EE;&#x5F55;&#x67E5;&#x627E;&#xFF0C;&#x76F4;&#x5230;&#x6CA1;&#x6709;&#x66F4;&#x9AD8;&#x5BC6;&#x5EA6;&#x7684;&#x76EE;&#x5F55;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x6700;&#x5339;&#x914D;&#x7684;&#x76EE;&#x5F55;drawable-mdpi&#x4E2D;&#x6CA1;&#x6709;&#x67E5;&#x627E;&#x5230;&#xFF0C;&#x5C31;&#x4F1A;&#x67E5;&#x627E;drawable-hdpi&#x76EE;&#x5F55;&#xFF0C;&#x5982;&#x679C;&#x8FD8;&#x6CA1;&#x6709;&#x67E5;&#x627E;&#x5230;&#xFF0C;&#x5C31;&#x4F1A;&#x67E5;&#x627E;drawable-xhdpi&#x76EE;&#x5F55;&#xFF0C;&#x76F4;&#x5230;&#x6CA1;&#x6709;&#x66F4;&#x9AD8;&#x5BC6;&#x5EA6;&#x7684;drawable-[density]&#x76EE;&#x5F55;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x4E00;&#x76F4;&#x5F80;&#x9AD8;&#x5BC6;&#x5EA6;&#x76EE;&#x5F55;&#x5747;&#x6CA1;&#x6709;&#x67E5;&#x627E;&#xFF0C;Android&#x5C31;&#x4F1A;&#x67E5;&#x627E;drawable-nodpi&#x76EE;&#x5F55;&#x3002;drawable-nodpi&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x8D44;&#x6E90;&#x9002;&#x7528;&#x4E8E;&#x6240;&#x6709;&#x5BC6;&#x5EA6;&#x7684;&#x8BBE;&#x5907;&#xFF0C;&#x4E0D;&#x7BA1;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#x7684;&#x5BC6;&#x5EA6;&#x5982;&#x4F55;&#xFF0C;&#x7CFB;&#x7EDF;&#x90FD;&#x4E0D;&#x4F1A;&#x7F29;&#x653E;&#x6B64;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x8D44;&#x6E90;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5BF9;&#x4E8E;&#x6C38;&#x8FDC;&#x4E0D;&#x5E0C;&#x671B;&#x7CFB;&#x7EDF;&#x7F29;&#x653E;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x653E;&#x5728;&#x6B64;&#x76EE;&#x5F55;&#x4E2D;&#xFF1B;&#x540C;&#x65F6;&#xFF0C;&#x653E;&#x5728;&#x8BE5;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x8D44;&#x6E90;&#x6700;&#x597D;&#x4E0D;&#x8981;&#x518D;&#x653E;&#x5230;&#x5176;&#x4ED6;drawable&#x76EE;&#x5F55;&#x4E0B;&#x4E86;&#xFF0C;&#x907F;&#x514D;&#x5F97;&#x5230;&#x975E;&#x9884;&#x671F;&#x7684;&#x6548;&#x679C;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x5728;drawable-nodpi&#x76EE;&#x5F55;&#x4E5F;&#x6CA1;&#x6709;&#x67E5;&#x627E;&#x5230;&#xFF0C;&#x7CFB;&#x7EDF;&#x5C31;&#x4F1A;&#x5411;&#x6BD4;&#x6700;&#x5339;&#x914D;&#x76EE;&#x5F55;&#x5BC6;&#x5EA6;&#x4F4E;&#x7684;&#x76EE;&#x5F55;&#x4F9D;&#x6B21;&#x67E5;&#x627E;&#xFF0C;&#x76F4;&#x5230;&#x6CA1;&#x6709;&#x66F4;&#x4F4E;&#x5BC6;&#x5EA6;&#x7684;&#x76EE;&#x5F55;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6700;&#x5339;&#x914D;&#x76EE;&#x5F55;&#x662F;xxhdpi&#xFF0C;&#x66F4;&#x9AD8;&#x5BC6;&#x5EA6;&#x7684;&#x76EE;&#x5F55;&#x548C;nodpi&#x76EE;&#x5F55;&#x67E5;&#x627E;&#x4E0D;&#x5230;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x4F9D;&#x6B21;&#x67E5;&#x627E;drawable-xhdp&#x3001;drawable-hdpi&#x3001;drawable-mdpi&#x3001;drawable-ldpi&#x3002;</li>
+<li>先查找和屏幕密度最匹配的文件夹。如当前设备屏幕密度dpi为160，则会优先查找drawable-mdpi目录；如果设备屏幕密度dpi为420，则会优先查找drawable-xxhdpi目录。</li>
+<li>如果在最匹配的目录没有找到对应图片，就会向更高密度的目录查找，直到没有更高密度的目录。例如，在最匹配的目录drawable-mdpi中没有查找到，就会查找drawable-hdpi目录，如果还没有查找到，就会查找drawable-xhdpi目录，直到没有更高密度的drawable-[density]目录。</li>
+<li>如果一直往高密度目录均没有查找，Android就会查找drawable-nodpi目录。drawable-nodpi目录中的资源适用于所有密度的设备，不管当前屏幕的密度如何，系统都不会缩放此目录中的资源。因此，对于永远不希望系统缩放的资源，最简单的方法就是放在此目录中；同时，放在该目录中的资源最好不要再放到其他drawable目录下了，避免得到非预期的效果。</li>
+<li>如果在drawable-nodpi目录也没有查找到，系统就会向比最匹配目录密度低的目录依次查找，直到没有更低密度的目录。例如，最匹配目录是xxhdpi，更高密度的目录和nodpi目录查找不到后，就会依次查找drawable-xhdp、drawable-hdpi、drawable-mdpi、drawable-ldpi。</li>
 </ol>
-<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5047;&#x5982;&#x5F53;&#x524D;&#x8BBE;&#x5907;&#x7684;dpi&#x662F;320&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x4F18;&#x5148;&#x53BB;drawable-xhdpi&#x76EE;&#x5F55;&#x67E5;&#x627E;&#xFF0C;&#x5982;&#x679C;&#x627E;&#x4E0D;&#x5230;&#xFF0C;&#x4F1A;&#x4F9D;&#x6B21;&#x67E5;&#x627E;xxhdpi &#x2192; xxxhdpi &#x2192; hdpi &#x2192; mdpi &#x2192; ldpi&#x3002;&#x5BF9;&#x4E8E;&#x4E0D;&#x5B58;&#x5728;&#x7684;drawable-[density]&#x76EE;&#x5F55;&#x76F4;&#x63A5;&#x8DF3;&#x8FC7;&#xFF0C;&#x4E2D;&#x95F4;&#x4EFB;&#x4E00;&#x76EE;&#x5F55;&#x67E5;&#x627E;&#x5230;&#x8D44;&#x6E90;&#xFF0C;&#x5219;&#x505C;&#x6B62;&#x672C;&#x6B21;&#x67E5;&#x627E;&#x3002;</p>
-<p>&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#x56FE;&#x7247;&#x67E5;&#x627E;&#x8FC7;&#x7A0B;&#xFF1A;&#x4F18;&#x5148;&#x5339;&#x914D;&#x6700;&#x9002;&#x5408;&#x7684;&#x56FE;&#x7247;&#x2192;&#x67E5;&#x627E;&#x5BC6;&#x5EA6;&#x9AD8;&#x7684;&#x76EE;&#x5F55;&#xFF08;&#x5347;&#x5E8F;&#xFF09;&#x2192;&#x67E5;&#x627E;&#x5BC6;&#x5EA6;&#x4F4E;&#x7684;&#x76EE;&#x5F55;&#xFF08;&#x964D;&#x5E8F;&#xFF09;&#x3002;</p>
-<p>&#x8D44;&#x6E90;&#x9002;&#x914D;&#x6D41;&#x7A0B;&#x7B80;&#x5355;&#x5F52;&#x7EB3;&#x5982;&#x4E0B;</p>
-<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4no4v8aaj30ux13j77w.jpg" alt="Android&#x56FE;&#x7247;&#x67E5;&#x627E;&#x6D41;&#x7A0B;" width="100px"><br><br></div>
+<p>举个例子，假如当前设备的dpi是320，系统会优先去drawable-xhdpi目录查找，如果找不到，会依次查找xxhdpi → xxxhdpi → hdpi → mdpi → ldpi。对于不存在的drawable-[density]目录直接跳过，中间任一目录查找到资源，则停止本次查找。</p>
+<p>总结一下图片查找过程：优先匹配最适合的图片→查找密度高的目录（升序）→查找密度低的目录（降序）。</p>
+<p>资源适配流程简单归纳如下</p>
+<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4no4v8aaj30ux13j77w.jpg" alt="Android图片查找流程" width="100px"><br><br></div>
 
-<p>&#x5173;&#x4E8E;Android&#x9002;&#x914D;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4ECB;&#x7ECD;&#x53EF;&#x4EE5;&#x53C2;&#x89C1;<a href="https://developer.android.com/guide/topics/resources/providing-resources.html#BestMatch" target="_blank" rel="external">Android &#x5982;&#x4F55;&#x67E5;&#x627E;&#x6700;&#x4F73;&#x5339;&#x914D;&#x8D44;&#x6E90;</a>&#xFF0C;&#x5F53;&#x7136;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x642D;&#x4E2A;&#x68AF;&#x5B50;&#xFF08;&#x4E0D;&#x8FC7;&#xFF0C;Google&#x5DF2;&#x7ECF;&#x53D1;&#x5E03;&#x4E86;&#x9488;&#x5BF9;&#x4E2D;&#x56FD;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x7F51;&#x7AD9;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;Android&#x4E2D;&#x56FD;&#x5F00;&#x53D1;&#x8005;&#x7F51;&#x7AD9;&#x4E3A;&#xFF1A;<a href="https://developer.android.google.cn" target="_blank" rel="external">developer.android.google.cn</a>&#xFF0C;&#x53EF;&#x4EE5;&#x514D;&#x68AF;&#x5B50;&#xFF09;&#x3002;</p>
-<h2 id="&#x56FE;&#x7247;&#x7684;&#x653E;&#x5927;&#x548C;&#x7F29;&#x5C0F;"><a href="#&#x56FE;&#x7247;&#x7684;&#x653E;&#x5927;&#x548C;&#x7F29;&#x5C0F;" class="headerlink" title="&#x56FE;&#x7247;&#x7684;&#x653E;&#x5927;&#x548C;&#x7F29;&#x5C0F;"></a>&#x56FE;&#x7247;&#x7684;&#x653E;&#x5927;&#x548C;&#x7F29;&#x5C0F;</h2><p>&#x524D;&#x8FF0;&#x8BF4;&#x5230;Android&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x66F4;&#x597D;&#x5730;&#x9002;&#x914D;&#x5404;&#x79CD;&#x5C4F;&#x5E55;&#xFF0C;&#x4F1A;&#x4F9D;&#x636E;&#x5F53;&#x524D;&#x8BBE;&#x5907;&#x7684;dpi&#x5BF9;drawable-[density]&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x56FE;&#x7247;&#x8FDB;&#x884C;&#x7F29;&#x653E;&#xFF0C;&#x90A3;&#x4E48;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x56FE;&#x7247;&#x88AB;&#x653E;&#x5927;&#xFF0C;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x56FE;&#x7247;&#x88AB;&#x7F29;&#x5C0F;&#x5462;&#xFF1F;</p>
-<p>&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x628A;&#x201C;&#x7B26;&#x5408;&#x5F53;&#x524D;&#x8BBE;&#x5907;dpi&#x7684;drawable&#x76EE;&#x5F55;&#x201D;&#x8868;&#x793A;&#x4E3A;&#x201D;&#x5339;&#x914D;&#x76EE;&#x5F55;&#x201C;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x8BBE;&#x5907;&#x7684;dpi&#x4E3A;320&#xFF0C;&#x8FD9;&#x5339;&#x914D;&#x76EE;&#x5F55;&#x4E3A;drawable-xhdpi&#xFF1B;&#x8BBE;&#x5907;&#x7684;dpi&#x4E3A;150&#xFF0C;&#x5219;&#x5339;&#x914D;&#x76EE;&#x5F55;&#x4E3A;drawable-mdpi&#x3002;&#x56FE;&#x7247;&#x7684;&#x653E;&#x5927;&#x548C;&#x7F29;&#x5C0F;&#x9075;&#x5FAA;&#x4EE5;&#x4E0B;&#x89C4;&#x5F8B;&#xFF1A;</p>
+<p>关于Android适配更详细的介绍可以参见<a href="https://developer.android.com/guide/topics/resources/providing-resources.html#BestMatch" target="_blank" rel="external">Android 如何查找最佳匹配资源</a>，当然你可能需要搭个梯子（不过，Google已经发布了针对中国的开发者网站，对应的Android中国开发者网站为：<a href="https://developer.android.google.cn" target="_blank" rel="external">developer.android.google.cn</a>，可以免梯子）。</p>
+<h2 id="图片的放大和缩小"><a href="#图片的放大和缩小" class="headerlink" title="图片的放大和缩小"></a>图片的放大和缩小</h2><p>前述说到Android为了能够更好地适配各种屏幕，会依据当前设备的dpi对drawable-[density]目录中的图片进行缩放，那么什么情况下图片被放大，什么情况下图片被缩小呢？</p>
+<p>为了更好的描述，把“符合当前设备dpi的drawable目录”表示为”匹配目录“。比如，设备的dpi为320，这匹配目录为drawable-xhdpi；设备的dpi为150，则匹配目录为drawable-mdpi。图片的放大和缩小遵循以下规律：</p>
 <ul>
-<li>&#x5982;&#x679C;&#x56FE;&#x7247;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x4E3A;&#x5339;&#x914D;&#x76EE;&#x5F55;&#xFF0C;&#x5219;&#x56FE;&#x7247;&#x4F1A;&#x6839;&#x636E;&#x8BBE;&#x5907;dpi&#x505A;&#x9002;&#x5F53;&#x7684;&#x7F29;&#x653E;&#x8C03;&#x6574;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x56FE;&#x7247;&#x6240;&#x5728;&#x76EE;&#x5F55;dpi&#x4F4E;&#x4E8E;&#x5339;&#x914D;&#x76EE;&#x5F55;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x56FE;&#x7247;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x4E3A;&#x4F4E;&#x5BC6;&#x5EA6;&#x8BBE;&#x5907;&#x9700;&#x8981;&#x7684;&#xFF0C;&#x73B0;&#x5728;&#x8981;&#x663E;&#x793A;&#x5728;&#x9AD8;&#x5BC6;&#x5EA6;&#x8BBE;&#x5907;&#x4E0A;&#xFF0C;&#x56FE;&#x7247;&#x4F1A;&#x88AB;&#x653E;&#x5927;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x56FE;&#x7247;&#x6240;&#x5728;&#x76EE;&#x5F55;dpi&#x9AD8;&#x4E8E;&#x5339;&#x914D;&#x76EE;&#x5F55;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x56FE;&#x7247;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x4E3A;&#x9AD8;&#x5BC6;&#x5EA6;&#x8BBE;&#x5907;&#x9700;&#x8981;&#x7684;&#xFF0C;&#x73B0;&#x5728;&#x8981;&#x663E;&#x793A;&#x5728;&#x4F4E;&#x5BC6;&#x5EA6;&#x8BBE;&#x5907;&#x4E0A;&#xFF0C;&#x56FE;&#x7247;&#x4F1A;&#x88AB;&#x7F29;&#x5C0F;&#x3002;</li>
-<li>&#x5982;&#x679C;&#x56FE;&#x7247;&#x6240;&#x5728;&#x76EE;&#x5F55;&#x4E3A;drawable-nodpi&#xFF0C;&#x5219;&#x65E0;&#x8BBA;&#x8BBE;&#x5907;dpi&#x4E3A;&#x591A;&#x5C11;&#xFF0C;&#x4FDD;&#x7559;&#x539F;&#x56FE;&#x7247;&#x5927;&#x5C0F;&#xFF0C;&#x4E0D;&#x8FDB;&#x884C;&#x7F29;&#x653E;&#x3002;</li>
+<li>如果图片所在目录为匹配目录，则图片会根据设备dpi做适当的缩放调整。</li>
+<li>如果图片所在目录dpi低于匹配目录，那么该图片被认为是为低密度设备需要的，现在要显示在高密度设备上，图片会被放大。</li>
+<li>如果图片所在目录dpi高于匹配目录，那么该图片被认为是为高密度设备需要的，现在要显示在低密度设备上，图片会被缩小。</li>
+<li>如果图片所在目录为drawable-nodpi，则无论设备dpi为多少，保留原图片大小，不进行缩放。</li>
 </ul>
-<p>&#x90A3;&#x4E48;&#x516D;&#x79CD;&#x901A;&#x7528;&#x5BC6;&#x5EA6;&#x4E0B;&#x7684;&#x7F29;&#x653E;&#x500D;&#x6570;&#x662F;&#x591A;&#x5C11;&#x5462;&#xFF1F;&#x4EE5;mdpi&#x4E3A;&#x57FA;&#x7EBF;&#xFF0C;&#x5404;&#x5BC6;&#x5EA6;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x653E;&#x5927;&#x500D;&#x6570;&#xFF08;&#x5373;&#x7F29;&#x653E;&#x56E0;&#x5B50;density&#xFF09;&#x5982;&#x4E0B;</p>
+<p>那么六种通用密度下的缩放倍数是多少呢？以mdpi为基线，各密度目录下的放大倍数（即缩放因子density）如下</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">&#x5BC6;&#x5EA6;</th>
-<th style="text-align:center">&#x653E;&#x5927;&#x500D;&#x6570;</th>
+<th style="text-align:center">密度</th>
+<th style="text-align:center">放大倍数</th>
 </tr>
 </thead>
 <tbody>
@@ -395,53 +395,53 @@
 </tr>
 </tbody>
 </table>
-<p>&#x4F8B;&#x5982;&#xFF0C;&#x5F53;&#x524D;&#x8BBE;&#x5907;&#x7684;dpi&#x662F;480&#xFF08;&#x5373;xxhdpi&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#x5BF9;&#x4E8E;&#x5B58;&#x653E;&#x4E8E;mdpi&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x56FE;&#x7247;&#x4F1A;&#x88AB;&#x653E;&#x5927;&#x4E09;&#x500D;&#x3002;&#x5BF9;&#x4E8E;&#x5F88;&#x591A;&#x8BBE;&#x5907;&#xFF0C;&#x5176;dpi&#x5E76;&#x4E0D;&#x521A;&#x597D;&#x662F;&#x516D;&#x79CD;&#x901A;&#x7528;&#x5BC6;&#x5EA6;&#x6700;&#x5927;dpi&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x56FE;&#x7247;&#x7684;&#x7F29;&#x653E;&#x500D;&#x6570;&#x5982;&#x4F55;&#x8BA1;&#x7B97;&#x5462;&#xFF1F;</p>
-<p>&#x7A0D;&#x5FAE;&#x601D;&#x8003;&#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x901A;&#x7528;&#x7684;&#x7F29;&#x653E;&#x500D;&#x6570;&#xFF08;&#x7F29;&#x653E;&#x56E0;&#x5B50;&#xFF09;&#x8BA1;&#x7B97;&#x65B9;&#x6CD5;&#xFF1A;&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x8BBE;&#x5907;&#xFF0C;&#x5404;drawable-[density]&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x56FE;&#x7247;&#x653E;&#x5927;&#x500D;&#x6570;&#x7684;&#x8BA1;&#x7B97;&#x516C;&#x5F0F;</p>
-<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4npoaguaj317c06sq4a.jpg" alt="&#x7F29;&#x653E;&#x56E0;&#x5B50;&#x8BA1;&#x7B97;&#x516C;&#x5F0F;" width="100px"><br><br></div>
+<p>例如，当前设备的dpi是480（即xxhdpi），那么对于存放于mdpi目录中的图片会被放大三倍。对于很多设备，其dpi并不刚好是六种通用密度最大dpi，这种情况下，图片的缩放倍数如何计算呢？</p>
+<p>稍微思考一下，我们就可以得到通用的缩放倍数（缩放因子）计算方法：对于任意设备，各drawable-[density]目录下的图片放大倍数的计算公式</p>
+<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4npoaguaj317c06sq4a.jpg" alt="缩放因子计算公式" width="100px"><br><br></div>
 
-<p>&#x90A3;&#x4E48;&#xFF0C;&#x56FE;&#x7247;&#x7684;&#x5B9E;&#x73B0;&#x663E;&#x793A;&#x5C3A;&#x5BF8;&#x901A;&#x8FC7;&#x56FE;&#x7247;&#x5C3A;&#x5BF8;&#x4E58;&#x4EE5;&#x7F29;&#x653E;&#x500D;&#x6570;&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E86;&#x3002;</p>
-<h2 id="&#x5B9E;&#x4F8B;&#x9A8C;&#x8BC1;"><a href="#&#x5B9E;&#x4F8B;&#x9A8C;&#x8BC1;" class="headerlink" title="&#x5B9E;&#x4F8B;&#x9A8C;&#x8BC1;"></a>&#x5B9E;&#x4F8B;&#x9A8C;&#x8BC1;</h2><ul>
-<li><p>&#x9A8C;&#x8BC1;&#x56FE;&#x7247;&#x7684;&#x653E;&#x5927;&#x548C;&#x7F29;&#x5C0F;</p>
-<p>&#x5728;&#x914D;&#x7F6E;&#x4E3A;1080&#xD7;1920 - 420dpi&#x7684;&#x6A21;&#x62DF;&#x5668;&#x4E0A;&#xFF0C;&#x4ECE;&#x7F51;&#x4E0A;&#x627E;&#x4E00;&#x5F20;Android logo&#x56FE;&#x7247;&#x5206;&#x522B;&#x653E;&#x5728;drawable-mdpi&#x3001;drawable-xxhdpi&#x3001;drawable-xxxhdpi&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#xFF0C;&#x67E5;&#x770B;&#x56FE;&#x7247;&#x7684;&#x663E;&#x793A;&#x6548;&#x679C;&#xFF08;&#x5982;&#x4E0B;&#xFF09;&#x3002;&#x4ECE;&#x56FE;&#x4E2D;&#x53EF;&#x4EE5;&#x660E;&#x663E;&#x770B;&#x5230;&#x56FE;&#x7247;&#x7684;&#x653E;&#x5927;&#x548C;&#x7F29;&#x5C0F;&#xFF0C;&#x4E14;&#x6BD4;&#x8BBE;&#x5907;&#x5C4F;&#x5E55;&#x5BC6;&#x5EA6;&#x4F4E;&#x7684;drawable-mdpi&#x76EE;&#x5F55;&#x56FE;&#x7247;&#x88AB;&#x653E;&#x5927;&#xFF0C;&#x6BD4;&#x8BBE;&#x5907;&#x5C4F;&#x5E55;&#x5BC6;&#x5EA6;&#x9AD8;&#x7684;drawable-xxxhdpi&#x76EE;&#x5F55;&#x56FE;&#x7247;&#x88AB;&#x7F29;&#x5C0F;&#x3002;</p>
-<div align="center"><br><br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fp4nrcgrakj30zb0ho75t.jpg" alt="&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x5BC6;&#x5EA6;&#x4E0B;&#x7684;&#x56FE;&#x7247;&#x663E;&#x793A;&#x6548;&#x679C;" width="100px"><br><br></div>
+<p>那么，图片的实现显示尺寸通过图片尺寸乘以缩放倍数就可以得到了。</p>
+<h2 id="实例验证"><a href="#实例验证" class="headerlink" title="实例验证"></a>实例验证</h2><ul>
+<li><p>验证图片的放大和缩小</p>
+<p>在配置为1080×1920 - 420dpi的模拟器上，从网上找一张Android logo图片分别放在drawable-mdpi、drawable-xxhdpi、drawable-xxxhdpi文件夹下，查看图片的显示效果（如下）。从图中可以明显看到图片的放大和缩小，且比设备屏幕密度低的drawable-mdpi目录图片被放大，比设备屏幕密度高的drawable-xxxhdpi目录图片被缩小。</p>
+<div align="center"><br><br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fp4nrcgrakj30zb0ho75t.jpg" alt="三种不同密度下的图片显示效果" width="100px"><br><br></div>
 </li>
-<li><p>&#x9A8C;&#x8BC1;&#x7F29;&#x653E;&#x500D;&#x6570;</p>
-<p>&#x5728;Sketch&#x91CC;&#x7B80;&#x5355;&#x7ED8;&#x5236;&#x4E00;&#x5F20;&#x56FE;&#xFF0C;&#x5206;&#x522B;&#x5BFC;&#x51FA;&#x4E00;&#x500D;&#x56FE;&#xFF08;1x&#xFF09;&#x548C;&#x4E09;&#x500D;&#x56FE;&#xFF08;3x&#xFF09;&#xFF0C;&#x5E76;&#x5047;&#x8BBE;&#x5B9E;&#x9645;&#x6807;&#x6CE8;&#x4E3A;&#x4E00;&#x500D;&#x56FE;&#x7684;&#x5C3A;&#x5BF8;&#x3002;&#x8868;&#x793A;&#x5982;&#x4E0B;</p>
-<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4nsbot81j310a0d877a.jpg" alt="&#x6807;&#x6CE8;&#x5C3A;&#x5BF8;&#x53CA;&#x4E00;&#x500D;&#x56FE;&#x548C;&#x4E09;&#x500D;&#x56FE;&#x50CF;&#x7D20;" width="100px"><br><br></div>
+<li><p>验证缩放倍数</p>
+<p>在Sketch里简单绘制一张图，分别导出一倍图（1x）和三倍图（3x），并假设实际标注为一倍图的尺寸。表示如下</p>
+<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4nsbot81j310a0d877a.jpg" alt="标注尺寸及一倍图和三倍图像素" width="100px"><br><br></div>
 
-<p>&#x5728;&#x914D;&#x7F6E;&#x4E3A;1080&#xD7;1920 - 420dpi&#x7684;&#x6A21;&#x62DF;&#x5668;&#x4E0A;&#xFF0C;1&#x500D;&#x56FE;&#x548C;3&#x500D;&#x56FE;&#x5728;wrap_content&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5BBD;&#x9AD8;&#x5E94;&#x8BE5;&#x7B26;&#x5408;&#x4E0A;&#x8868;&#x3002;&#x6309;&#x7167;&#x4E0A;&#x9762;&#x5BF9;&#x653E;&#x5927;&#x500D;&#x6570;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x5206;&#x522B;&#x628A;1&#x500D;&#x56FE;&#x548C;3&#x500D;&#x56FE;&#x7F6E;&#x4E8E;drawable-mdpi&#x548C;drawable-xxhdpi&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x67E5;&#x770B;&#x56FE;&#x7247;&#x5BBD;&#x9AD8;&#x3002;</p>
-<div align="center"><br><br><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fp4ntagwtdj310a0qntc2.jpg" alt="1&#x500D;&#x56FE;&#x548C;3&#x500D;&#x56FE;&#x5728;&#x5206;&#x522B;&#x5728;drawable-mdpi&#x548C;drawable-xxhdpi&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x663E;&#x793A;&#x6548;&#x679C;&#x53CA;&#x5BBD;&#x9AD8;" width="100px"><br><br></div>
+<p>在配置为1080×1920 - 420dpi的模拟器上，1倍图和3倍图在wrap_content的情况下，宽高应该符合上表。按照上面对放大倍数的分析，分别把1倍图和3倍图置于drawable-mdpi和drawable-xxhdpi目录下，查看图片宽高。</p>
+<div align="center"><br><br><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fp4ntagwtdj310a0qntc2.jpg" alt="1倍图和3倍图在分别在drawable-mdpi和drawable-xxhdpi目录下的显示效果及宽高" width="100px"><br><br></div>
 
-<p>&#x8BE5;&#x6A21;&#x62DF;&#x5668;&#x5C4F;&#x5E55;dpi&#x6A2A;&#x7EB5;&#x65B9;&#x5411;&#x5747;&#x4E3A;420&#xFF0C;drawable-mdpi&#x76EE;&#x5F55;&#x6700;&#x5927;dpi&#x503C;&#x4E3A;160&#xFF0C;drawable-xxhdpi&#x76EE;&#x5F55;&#x6700;&#x5927;dpi&#x503C;&#x4E3A;480&#x3002;&#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x5206;&#x6790;&#x7684;&#x8BA1;&#x7B97;&#x516C;&#x5F0F;&#xFF0C;&#x53EF;&#x8BA1;&#x7B97;&#x56FE;&#x7247;&#x9884;&#x671F;&#x5BBD;&#x9AD8;&#xFF1A;</p>
+<p>该模拟器屏幕dpi横纵方向均为420，drawable-mdpi目录最大dpi值为160，drawable-xxhdpi目录最大dpi值为480。通过上述分析的计算公式，可计算图片预期宽高：</p>
 <ul>
 <li><p>drawable-mdpi</p>
 <p>scale = 420/160</p>
-<p>1x&#xFF1A;98 &#xD7; scale = 98 &#xD7; 420/160 = 257</p>
-<p>3x&#xFF1A;294 &#xD7; scale = 294 &#xD7; 420/160 = 772</p>
+<p>1x：98 × scale = 98 × 420/160 = 257</p>
+<p>3x：294 × scale = 294 × 420/160 = 772</p>
 </li>
 <li><p>drawable-xxhdpi</p>
 <p>scale = 420/480</p>
-<p>1x&#xFF1A;98 &#xD7; scale = 98 &#xD7; 420/480 = 86</p>
-<p>3x&#xFF1A;294 &#xD7; scale = 294 &#xD7; 420/480 = 257</p>
+<p>1x：98 × scale = 98 × 420/480 = 86</p>
+<p>3x：294 × scale = 294 × 420/480 = 257</p>
 </li>
 </ul>
-<p>&#x7531;&#x4E8E;&#x50CF;&#x7D20;&#x6CA1;&#x6709;&#x5C0F;&#x6570;&#xFF0C;&#x4E0A;&#x8FF0;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x4E86;&#x56DB;&#x820D;&#x4E94;&#x5165;&#x3002;&#x4ECE;&#x7ED3;&#x679C;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x516C;&#x5F0F;&#x8BA1;&#x7B97;&#x7ED3;&#x679C;&#x548C;&#x5B9E;&#x9645;&#x663E;&#x793A;&#x6548;&#x679C;&#x4E00;&#x81F4;&#x3002;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x5728;&#x8BE5;dpi&#x4E0B;&#xFF0C;&#x56FE;&#x7247;&#x653E;&#x7F6E;&#x4E8E;drawable-xxhdpi&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x56FE;&#x7247;&#x7684;&#x663E;&#x793A;&#x5BBD;&#x9AD8;&#x66F4;&#x63A5;&#x8FD1;&#x4E8E;&#x56FE;&#x7247;&#x5B9E;&#x9645;&#x5927;&#x5C0F;&#x3002;</p>
-<p>&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x9A8C;&#x8BC1;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x6D4B;&#x8BD5;&#x4E00;&#x4E0B;&#xFF0C;&#x57FA;&#x672C;&#x89C4;&#x5F8B;&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;</p>
+<p>由于像素没有小数，上述计算结果进行了四舍五入。从结果可以看出，公式计算结果和实际显示效果一致。另一方面，在该dpi下，图片放置于drawable-xxhdpi目录下，图片的显示宽高更接近于图片实际大小。</p>
+<p>这部分的验证大家可以自己测试一下，基本规律是没有问题的。</p>
 </li>
 </ul>
-<h1 id="&#x6700;&#x540E;&#x5B9A;&#x5207;&#x56FE;"><a href="#&#x6700;&#x540E;&#x5B9A;&#x5207;&#x56FE;" class="headerlink" title="&#x6700;&#x540E;&#x5B9A;&#x5207;&#x56FE;"></a>&#x6700;&#x540E;&#x5B9A;&#x5207;&#x56FE;</h1><p>&#x5230;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#x4E86;Android&#x4F1A;&#x6309;&#x7167;&#x7279;&#x5B9A;&#x89C4;&#x5219;&#x5BF9;&#x56FE;&#x7247;&#x8FDB;&#x884C;&#x7F29;&#x653E;&#xFF0C;&#x4EE5;&#x66F4;&#x597D;&#x5730;&#x9002;&#x914D;&#x5404;&#x79CD;&#x914D;&#x7F6E;&#x7684;&#x5C4F;&#x5E55;&#x3002;&#x90A3;&#x4E48;&#x5728;&#x6211;&#x4EEC;&#x5173;&#x6CE8;&#x5207;&#x56FE;&#x4E4B;&#x524D;&#xFF0C;&#x9996;&#x5148;&#x8003;&#x8651;&#x4E00;&#x4E0B;&#x56FE;&#x7247;&#x7F29;&#x653E;&#x5E26;&#x6765;&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
-<p>&#x55EF;&#xFF0C;&#x6BD4;&#x5982;&#x5BB9;&#x6613;&#x60F3;&#x5230;&#x7684;&#x4E00;&#x70B9;&#x5C31;&#x662F;&#x4F1A;&#x5F15;&#x8D77;&#x5185;&#x5B58;&#x7684;&#x53D8;&#x5316;&#x3002;&#x5F53;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x88AB;&#x653E;&#x5927;&#x65F6;&#xFF0C;&#x50CF;&#x7D20;&#x589E;&#x52A0;&#xFF0C;&#x5FC5;&#x7136;&#x4F1A;&#x5F15;&#x8D77;&#x5185;&#x5B58;&#x5360;&#x7528;&#x91CF;&#x589E;&#x52A0;&#xFF1B;&#x56FE;&#x7247;&#x88AB;&#x7F29;&#x5C0F;&#x65F6;&#xFF0C;&#x50CF;&#x7D20;&#x51CF;&#x5C11;&#xFF0C;&#x5185;&#x5B58;&#x5360;&#x7528;&#x91CF;&#x5C31;&#x4F1A;&#x964D;&#x4F4E;&#x3002;&#x5185;&#x5B58;&#x7684;&#x4F7F;&#x7528;&#x91CF;&#x53EF;&#x901A;&#x8FC7;Android Monitor&#x6765;&#x67E5;&#x770B;&#x3002;&#x5BF9;&#x4E8E;&#x4E0A;&#x8FF0;Android logo&#x90A3;&#x5F20;&#x56FE;&#x7247;&#xFF0C;&#x540C;&#x6837;&#x5728;420dpi&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#xFF0C;&#x5206;&#x522B;&#x5C06;&#x56FE;&#x7247;&#x653E;&#x7F6E;&#x4E8E;drawable-mdpi&#x548C;drawable-xxhdpi&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x5185;&#x5B58;&#x5360;&#x7528;&#x60C5;&#x51B5;&#x5982;&#x4E0B;</p>
-<div align="center"><br><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fp4nu4u9lvj311w08cmz0.jpg" alt="&#x7279;&#x5B9A;&#x56FE;&#x7247;&#x5728;drawable-mdpi&#x548C;drawable-xxhdpi&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x5185;&#x5B58;&#x5360;&#x7528;" width="100px"><br><br></div>
+<h1 id="最后定切图"><a href="#最后定切图" class="headerlink" title="最后定切图"></a>最后定切图</h1><p>到此，我们已经知道了Android会按照特定规则对图片进行缩放，以更好地适配各种配置的屏幕。那么在我们关注切图之前，首先考虑一下图片缩放带来的影响。</p>
+<p>嗯，比如容易想到的一点就是会引起内存的变化。当一张图片被放大时，像素增加，必然会引起内存占用量增加；图片被缩小时，像素减少，内存占用量就会降低。内存的使用量可通过Android Monitor来查看。对于上述Android logo那张图片，同样在420dpi的设备上，分别将图片放置于drawable-mdpi和drawable-xxhdpi目录下，内存占用情况如下</p>
+<div align="center"><br><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fp4nu4u9lvj311w08cmz0.jpg" alt="特定图片在drawable-mdpi和drawable-xxhdpi目录下的内存占用" width="100px"><br><br></div>
 
-<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x4EC5;&#x4EC5;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#x7684;&#x5185;&#x5B58;&#x5360;&#x7528;&#x5DEE;&#x522B;&#x5C31;&#x5DF2;&#x7ECF;&#x5728;MB&#x7EA7;&#x522B;&#x4E86;&#x3002;&#x56FE;&#x7247;&#x653E;&#x5927;&#x7684;&#x5185;&#x5B58;&#x6210;&#x672C;&#x5C06;&#x662F;&#x4E0D;&#x5F97;&#x4E0D;&#x8003;&#x8651;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x56E0;&#x7D20;&#x4E86;&#x3002;</p>
+<p>可以看到，仅仅一张图片的内存占用差别就已经在MB级别了。图片放大的内存成本将是不得不考虑的一个重要因素了。</p>
 <hr>
-<p>&#x5173;&#x4E8E;&#x5207;&#x56FE;&#x7684;&#x9009;&#x53D6;&#xFF0C;Android&#x5B98;&#x65B9;&#x7ED9;&#x7684;&#x5EFA;&#x8BAE;&#xFF0C;&#x5404;&#x79CD;&#x5BC6;&#x5EA6;&#x90FD;&#x7ED9;&#x51FA;&#x4E00;&#x5957;&#x56FE;&#xFF0C;&#x5206;&#x522B;&#x653E;&#x7F6E;&#x5728;&#x5BF9;&#x5E94;&#x7684;drawable&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x8FD9;&#x79CD;&#x9002;&#x914D;&#x662F;&#x6700;&#x597D;&#x7684;&#x3002;&#x4F46;&#x4E5F;&#x5B58;&#x5728;&#x95EE;&#x9898;&#xFF0C;&#x4E00;&#x662F;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4F1A;&#x589E;&#x5927;&#x5B89;&#x88C5;&#x5305;&#x7684;&#x5927;&#x5C0F;&#xFF1B;&#x4E8C;&#x662F;&#x5F88;&#x591A;&#x516C;&#x53F8;UI&#x5728;&#x51FA;&#x56FE;&#x65F6;&#x53EA;&#x4F1A;&#x51FA;&#x4E00;&#x5957;&#x3002;</p>
-<p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x597D;&#x8FD9;&#x4E00;&#x5957;&#x5207;&#x56FE;&#x5462;&#xFF1F;&#x7531;&#x4E8E;&#x76EE;&#x524D;&#x7684;Android&#x667A;&#x80FD;&#x624B;&#x673A;&#x7684;&#x5C4F;&#x5E55;&#x57FA;&#x672C;&#x90FD;&#x5728;1080p&#x4E86;&#xFF0C;&#x5C4F;&#x5E55;&#x7684;dpi&#x591A;&#x6570;&#x90FD;&#x5904;&#x4E8E;320~480&#xFF0C;&#x4E3A;&#x4E86;&#x66F4;&#x597D;&#x5730;&#x9002;&#x914D;&#xFF0C;&#x540C;&#x65F6;&#x4E3A;&#x4E86;&#x8282;&#x7701;&#x5185;&#x5B58;&#x6210;&#x672C;&#xFF0C;&#x5EFA;&#x8BAE;&#x5C06;&#x5207;&#x56FE;&#x653E;&#x7F6E;&#x5728;drawable-xxhdpi&#x76EE;&#x5F55;&#xFF0C;&#x540C;&#x65F6;&#x5EFA;&#x8BAE;UI&#x9488;&#x5BF9;&#x8BE5;&#x5BC6;&#x5EA6;&#x7684;&#x8BBE;&#x5907;&#x8BBE;&#x8BA1;&#x5207;&#x56FE;&#x3002;&#x5982;&#x679C;UI&#x7684;&#x5207;&#x56FE;&#x57FA;&#x4E8E;&#x4E0D;&#x540C;&#x5C3A;&#x5BF8;&#x8BBE;&#x8BA1;&#xFF0C;Sketch&#x5BFC;&#x51FA;&#x5207;&#x56FE;&#x65F6;&#x987B;&#x8C03;&#x6574;&#x76F8;&#x5E94;&#x7684;&#x500D;&#x6570;&#x3002;</p>
-<p>&#x4F8B;&#x5982;&#xFF0C;&#x5047;&#x8BBE;&#x5207;&#x56FE;&#x57FA;&#x4E8E;376&#xD7;667&#x7684;&#x4E00;&#x500D;&#x5C4F;&#x5E55;&#x8BBE;&#x8BA1;&#xFF0C;&#x800C;&#x8981;&#x9002;&#x914D;1080&#xD7;1920&#x7684;&#x5C4F;&#x5E55;&#xFF0C;&#x5BFC;&#x51FA;&#x4E09;&#x500D;&#x56FE;&#x5B58;&#x653E;&#x4E8E;drawable-xxhdpi&#x76EE;&#x5F55;&#x662F;&#x9002;&#x914D;&#x6700;&#x597D;&#x7684;&#x3002;</p>
-<p>&#x597D;&#x4E86;&#xFF0C;&#x5173;&#x4E8E;drawable&#x56FE;&#x7247;&#x9002;&#x914D;&#x65B9;&#x9762;&#x5C31;&#x6682;&#x65F6;&#x4ECB;&#x7ECD;&#x5230;&#x8FD9;&#xFF0C;&#x76F8;&#x4FE1;&#x770B;&#x4E86;&#x540E;&#x4F1A;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x8BA4;&#x8BC6;&#xFF0C;&#x5728;&#x5904;&#x7406;&#x5E73;&#x65F6;&#x9879;&#x76EE;&#x76F8;&#x5173;&#x95EE;&#x9898;&#x65F6;&#xFF0C;&#x4E5F;&#x4F1A;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x60F3;&#x6CD5;&#x4E86;&#x3002;</p>
-<h1 id="&#x53C2;&#x8003;"><a href="#&#x53C2;&#x8003;" class="headerlink" title="&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h1><ol>
-<li><a href="https://developer.android.com/guide/practices/screens_support.html" target="_blank" rel="external">&#x652F;&#x6301;&#x591A;&#x79CD;&#x5C4F;&#x5E55;</a></li>
-<li><a href="https://developer.android.com/guide/topics/resources/providing-resources.html#BestMatch" target="_blank" rel="external">Android &#x5982;&#x4F55;&#x67E5;&#x627E;&#x6700;&#x4F73;&#x5339;&#x914D;&#x8D44;&#x6E90;</a></li>
+<p>关于切图的选取，Android官方给的建议，各种密度都给出一套图，分别放置在对应的drawable目录下，这种适配是最好的。但也存在问题，一是这种方式会增大安装包的大小；二是很多公司UI在出图时只会出一套。</p>
+<p>在这种情况下，怎么使用好这一套切图呢？由于目前的Android智能手机的屏幕基本都在1080p了，屏幕的dpi多数都处于320~480，为了更好地适配，同时为了节省内存成本，建议将切图放置在drawable-xxhdpi目录，同时建议UI针对该密度的设备设计切图。如果UI的切图基于不同尺寸设计，Sketch导出切图时须调整相应的倍数。</p>
+<p>例如，假设切图基于376×667的一倍屏幕设计，而要适配1080×1920的屏幕，导出三倍图存放于drawable-xxhdpi目录是适配最好的。</p>
+<p>好了，关于drawable图片适配方面就暂时介绍到这，相信看了后会有一定的认识，在处理平时项目相关问题时，也会有一定的想法了。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a href="https://developer.android.com/guide/practices/screens_support.html" target="_blank" rel="external">支持多种屏幕</a></li>
+<li><a href="https://developer.android.com/guide/topics/resources/providing-resources.html#BestMatch" target="_blank" rel="external">Android 如何查找最佳匹配资源</a></li>
 </ol>
 
             
@@ -665,7 +665,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x5199;&#x5728;&#x5EFA;&#x7AD9;&#x4E4B;&#x65F6;<br></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>写在建站之时<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -690,7 +690,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x505A;&#x9879;&#x76EE;&#xFF0C;&#x5728;&#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x5C0F;bug&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x78B0;&#x5230;&#x4E00;&#x4E2A;&#x5751;&#xFF0C;&#x82B1;&#x8D39;&#x4E86;&#x4E00;&#x5927;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x6765;&#x586B;&#x5751;&#xFF0C;&#x7EC8;&#x4E8E;&#x6392;&#x67E5;&#x51FA;&#x4E86;&#x539F;&#x56E0;&#xFF1A;&#x7531;&#x4E8E;&#x67D0;&#x4E2A;Edit Text&#x8C03;&#x7528;&#x4E86;requestFocusFromTouch()&#x65B9;&#x6CD5;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x5C06;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x7684;&#x65B9;&#x6CD5;&#x6362;&#x6210;requestFocus()&#xFF0C;&#x5219;&#x95EE;&#x9898;&#x4E0D;&#x518D;&#x590D;&#x73B0;&#x3002;&#x8FD9;&#x5C31;&#x6FC0;&#x53D1;&#x4E86;&#x6211;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x597D;&#x5947;&#xFF0C;&#x51C6;&#x5907;&#x770B;&#x770B;&#x5B83;&#x4EEC;&#x846B;&#x82A6;&#x91CC;&#x5230;&#x5E95;&#x88C5;&#x7684;&#x4EC0;&#x4E48;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>这段时间做项目，在解决一个小bug的过程中，碰到一个坑，花费了一大天的时间来填坑，终于排查出了原因：由于某个Edit Text调用了requestFocusFromTouch()方法导致的，将获取焦点的方法换成requestFocus()，则问题不再复现。这就激发了我对这两个方法的好奇，准备看看它们葫芦里到底装的什么。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -715,7 +715,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;Android&#x673A;&#x578B;&#x4F17;&#x591A;&#xFF0C;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x3001;&#x5206;&#x8FA8;&#x7387;&#x5404;&#x6709;&#x4E0D;&#x540C;&#x3002;&#x5BF9;&#x4E8E;Android&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x4F55;&#x63D0;&#x9AD8;APP&#x4E2D;&#x56FE;&#x7247;&#x5BF9;&#x5404;&#x79CD;&#x673A;&#x578B;&#x7684;&#x9002;&#x914D;&#x662F;&#x57FA;&#x672C;&#x6280;&#x80FD;&#x4E4B;&#x4E00;&#x3002;&#x501F;&#x7740;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x56FE;&#x7247;&#x9002;&#x914D;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x603B;&#x7ED3;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x5C31;&#x60F3;&#x7740;&#x987A;&#x5E26;&#x628A;&#x8FD9;&#x90E8;&#x5206;&#x597D;&#x597D;&#x634B;&#x4E00;&#x634B;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x4E3A;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x4EBA;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x3002;<br></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>众所周知，Android机型众多，屏幕尺寸、分辨率各有不同。对于Android开发人员来说，如何提高APP中图片对各种机型的适配是基本技能之一。借着项目中遇到的图片适配问题，在总结项目时，就想着顺带把这部分好好捋一捋，作为一个记录，也为不是很清楚这部分的人提供一个参考。<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -740,7 +740,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>Android &#x667A;&#x80FD;&#x624B;&#x673A;&#x5728;&#x5168;&#x7403;&#x5E02;&#x573A;&#x6709;&#x7740;&#x6781;&#x9AD8;&#x7684;&#x5E02;&#x573A;&#x5360;&#x6709;&#x7387;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x53D7;&#x5230;&#x5E7F;&#x5927;&#x6D88;&#x8D39;&#x8005;&#x7684;&#x9752;&#x7750;&#x3002;&#x4F46; Android &#x4F5C;&#x4E3A;&#x5F00;&#x6E90;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E14;&#x5F88;&#x5BB9;&#x6613;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x7CFB;&#x7EDF; root &#x6743;&#x9650;&#xFF0C;Android &#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x4E5F;&#x662F;&#x7528;&#x6237;&#x548C;&#x5F00;&#x53D1;&#x8005;&#x6700;&#x5173;&#x5FC3;&#x7684;&#x95EE;&#x9898;&#x4E4B;&#x4E00;&#x3002;<br></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>Android 智能手机在全球市场有着极高的市场占有率，越来越受到广大消费者的青睐。但 Android 作为开源操作系统，且很容易可以获得系统 root 权限，Android 系统的安全问题也是用户和开发者最关心的问题之一。<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -765,7 +765,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B; Android &#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x63D0;&#x5347; Android &#x5F00;&#x53D1;&#x7684;&#x6548;&#x7387;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x589E;&#x52A0;&#x4E00;&#x4E9B;&#x4E50;&#x8DA3;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>本文主要介绍一些 Android 开发过程中使用到的一些工具，用于提升 Android 开发的效率，同时也增加一些乐趣。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -784,7 +784,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>LeetCode &#x5F88;&#x7ECF;&#x5178;&#x7684;&#x4E00;&#x9053;&#x7B97;&#x6CD5;&#x9898;&#xFF0C;&#x6C42;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x4E2D;&#x4F4D;&#x6570;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>LeetCode 很经典的一道算法题，求两个有序数组的中位数。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -809,8 +809,8 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x672C;&#x6587;&#x9996;&#x53D1;&#x4E8E;&#x533A;&#x5757;&#x94FE;&#x516C;&#x4F17;&#x53F7;&#x300C;&#x94FE;&#x7AD9;&#x300D;&#xFF0C;ID&#xFF1A;ChainStation&#x3002;</p>
-<font size="3"><strong>&#x201C;</strong> &#x76F8;&#x4FE1;&#x770B;&#x5230;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x90FD;&#x662F;&#x542C;&#x8BF4;&#x8FC7;&#x6216;&#x4E86;&#x89E3;&#x6BD4;&#x7279;&#x5E01;&#x548C;&#x533A;&#x5757;&#x94FE;&#x7684;&#x4EBA;&#xFF0C;&#x90A3;&#x5230;&#x5E95;&#x4EC0;&#x4E48;&#x662F;&#x6BD4;&#x7279;&#x5E01;&#x548C;&#x533A;&#x5757;&#x94FE;&#x5462;&#xFF1F;&#x8FD9;&#x91CC;&#x51C6;&#x5907;&#x5199;&#x4E2A;&#x7B80;&#x6613;&#x533A;&#x5757;&#x94FE;&#x7CFB;&#x5217;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x9488;&#x5BF9;&#x4E00;&#x4E9B;&#x5165;&#x95E8;&#x7EA7;&#x522B;&#x7684;&#x4EBA;&#x3002;&#x6587;&#x7AE0;&#x5C3D;&#x53EF;&#x80FD;&#x629B;&#x5F00;&#x4E00;&#x4E9B;&#x592A;&#x4E13;&#x4E1A;&#x7684;&#x672F;&#x8BED;&#xFF0C;&#x7528;&#x5927;&#x5BB6;&#x90FD;&#x80FD;&#x7406;&#x89E3;&#x7684;&#x5F62;&#x5F0F;&#x8BB2;&#x89E3;&#x7ED3;&#x3002;<strong>&#x201D;</strong></font></div>
+                        <div class="media-content hide-xs font-merryweather"><p>本文首发于区块链公众号「链站」，ID：ChainStation。</p>
+<font size=3><strong>“</strong> 相信看到这篇文章的都是听说过或了解比特币和区块链的人，那到底什么是比特币和区块链呢？这里准备写个简易区块链系列简单介绍一下，主要是针对一些入门级别的人。文章尽可能抛开一些太专业的术语，用大家都能理解的形式讲解结。<strong>”</strong></font></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -835,7 +835,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x8BB2;&#x4E00;&#x4E0B;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x53D1;&#x884C;&#x548C;&#x6D41;&#x901A;&#x673A;&#x5236;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>本篇主要讲一下比特币的发行和流通机制。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>

@@ -15,20 +15,20 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;&amp;#x4E00;&amp;#x4E0B;&amp;#x6BD4;&amp;#x7279;&amp;#x5E01;&amp;#x7684;&amp;#x53D1;&amp;#x884C;&amp;#x548C;&amp;#x6D41;&amp;#x901A;&amp;#x673A;&amp;#x5236;&amp;#x3002;">
+    <meta name="description" content="本篇主要讲一下比特币的发行和流通机制。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="简易区块链（2）：比特币的发行与流通">
 <meta property="og:url" content="http://youngmeng.org/简易区块链（2）：比特币的发行与流通/index.html">
 <meta property="og:site_name" content="youngmeng">
-<meta property="og:description" content="&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;&amp;#x4E00;&amp;#x4E0B;&amp;#x6BD4;&amp;#x7279;&amp;#x5E01;&amp;#x7684;&amp;#x53D1;&amp;#x884C;&amp;#x548C;&amp;#x6D41;&amp;#x901A;&amp;#x673A;&amp;#x5236;&amp;#x3002;">
+<meta property="og:description" content="本篇主要讲一下比特币的发行和流通机制。">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp45q144dgj30xu07o3yz.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp45rgx1oej30nw03ajrk.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fp45s531qzj30gp0gpq4b.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fosv3ip8ljj30by0byaaw.jpg">
-<meta property="og:updated_time" content="2018-03-07T15:29:39.492Z">
+<meta property="og:updated_time" content="2018-03-07T15:34:03.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简易区块链（2）：比特币的发行与流通">
-<meta name="twitter:description" content="&amp;#x672C;&amp;#x7BC7;&amp;#x4E3B;&amp;#x8981;&amp;#x8BB2;&amp;#x4E00;&amp;#x4E0B;&amp;#x6BD4;&amp;#x7279;&amp;#x5E01;&amp;#x7684;&amp;#x53D1;&amp;#x884C;&amp;#x548C;&amp;#x6D41;&amp;#x901A;&amp;#x673A;&amp;#x5236;&amp;#x3002;">
+<meta name="twitter:description" content="本篇主要讲一下比特币的发行和流通机制。">
 <meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp45q144dgj30xu07o3yz.jpg">
     
     
@@ -245,48 +245,47 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x8BB2;&#x4E00;&#x4E0B;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x53D1;&#x884C;&#x548C;&#x6D41;&#x901A;&#x673A;&#x5236;&#x3002;</p>
+            <p>本篇主要讲一下比特币的发行和流通机制。</p>
 <a id="more"></a>
-<p>&#x5728;&#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x300A;<a href="http://youngmeng.org/%E7%AE%80%E6%98%93%E5%8C%BA%E5%9D%97%E9%93%BE%EF%BC%881%EF%BC%89%EF%BC%9A%E8%B4%A7%E5%B8%81%E5%92%8C%E6%AF%94%E7%89%B9%E5%B8%81/">&#x7B80;&#x6613;&#x533A;&#x5757;&#x94FE;&#xFF08;1&#xFF09;&#xFF1A;&#x8D27;&#x5E01;&#x548C;&#x6BD4;&#x7279;&#x5E01;</a>&#x300B;&#x4E2D;&#xFF0C;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E86;&#x4E0B;&#x8D27;&#x5E01;&#x53CA;&#x6BD4;&#x7279;&#x5E01;&#xFF0C;&#x76F8;&#x4FE1;&#x5927;&#x5BB6;&#x5BF9;&#x8D27;&#x5E01;&#x6709;&#x4E86;&#x7406;&#x89E3;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x4E86;&#x89E3;&#x4E86;&#x6BD4;&#x7279;&#x5E01;&#x4EA7;&#x751F;&#x7684;&#x7F18;&#x7531;&#xFF0C;&#x8BA4;&#x8BC6;&#x5230;&#x6BD4;&#x7279;&#x5E01;&#x4E0E;&#x73B0;&#x6709;&#x6CD5;&#x5E01;&#x7684;&#x4E0D;&#x540C;&#x3002;</p>
-<p>&#x4E0D;&#x77E5;&#x9053;&#x8BFB;&#x8005;&#x662F;&#x5426;&#x770B;&#x4E86;&#x6587;&#x672B;&#x7ED9;&#x51FA;&#x7684;&#x6BD4;&#x7279;&#x5E01;&#x767D;&#x76AE;&#x4E66;&#xFF1F;&#x5982;&#x679C;&#x6CA1;&#x770B;&#x4E5F;&#x6CA1;&#x5173;&#x7CFB;&#xFF0C;&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x5C06;&#x5E26;&#x4F60;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4E86;&#x89E3;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x4E5F;&#x5C06;&#x653E;&#x5728;&#x540E;&#x7EED;&#x7684;&#x6587;&#x7AE0;&#x4E2D;&#x3002;</p>
+<p>在上一篇文章《<a href="http://youngmeng.org/%E7%AE%80%E6%98%93%E5%8C%BA%E5%9D%97%E9%93%BE%EF%BC%881%EF%BC%89%EF%BC%9A%E8%B4%A7%E5%B8%81%E5%92%8C%E6%AF%94%E7%89%B9%E5%B8%81/">简易区块链（1）：货币和比特币</a>》中，简单介绍了下货币及比特币，相信大家对货币有了理解，同时也了解了比特币产生的缘由，认识到比特币与现有法币的不同。</p>
+<p>不知道读者是否看了文末给出的比特币白皮书？如果没看也没关系，本篇文章将带你更详细的了解比特币的原理，比特币的技术实现也将放在后续的文章中。</p>
 <p><br></p>
-<h1 id="&#x53D1;&#x884C;"><a href="#&#x53D1;&#x884C;" class="headerlink" title="&#x53D1;&#x884C;"></a>&#x53D1;&#x884C;</h1><p>&#x6BD4;&#x7279;&#x5E01;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x4EFB;&#x4F55;&#x4E2D;&#x5FC3;&#x673A;&#x6784;&#x6765;&#x53D1;&#x884C;&#xFF0C;&#x800C;&#x662F;&#x4F9D;&#x9760;&#x4E00;&#x5957;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;&#x7684;&#x53D1;&#x884C;&#x673A;&#x5236;&#xFF0C;&#x968F;&#x7740;&#x65F6;&#x95F4;&#x9010;&#x6B65;&#x53D1;&#x884C;&#x4E00;&#x5B9A;&#x91CF;&#x7684;&#x6BD4;&#x7279;&#x5E01;&#x3002;</p>
-<p>&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x5E95;&#x5C42;&#x6280;&#x672F;&#x662F;&#x533A;&#x5757;&#x94FE;&#xFF0C;&#x662F;&#x5C06;&#x4E00;&#x4E2A;&#x4E2A;&#x533A;&#x5757;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x5F62;&#x6210;&#x7684;&#x94FE;&#x3002;&#x6BD4;&#x7279;&#x5E01;&#x7CFB;&#x7EDF;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;&#x7684;&#x5927;&#x8D26;&#x672C;&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x533A;&#x5757;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x8D26;&#x672C;&#x4E2D;&#x7684;&#x4E00;&#x9875;&#xFF0C;&#x6BCF;&#x4E2A;&#x533A;&#x5757;&#x4E2D;&#x7684;&#x4EA4;&#x6613;&#x4FE1;&#x606F;&#x662F;&#x7531;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;&#x7684;&#x8282;&#x70B9;&#x300C;&#x6316;&#x77FF;&#x300D;&#x6765;&#x5B8C;&#x6210;&#x7684;&#x3002;</p>
-<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp45q144dgj30xu07o3yz.jpg" alt="&#x533A;&#x5757;&#x94FE;&#x793A;&#x610F;&#x56FE;" width="100px"><br><br></div>
+<h1 id="发行"><a href="#发行" class="headerlink" title="发行"></a>发行</h1><p>比特币不依赖于任何中心机构来发行，而是依靠一套去中心化的发行机制，随着时间逐步发行一定量的比特币。</p>
+<p>比特币的底层技术是区块链，是将一个个区块连接起来形成的链。比特币系统相当于一个去中心化的大账本，其中的每个区块就相当于账本中的一页，每个区块中的交易信息是由去中心化的节点「挖矿」来完成的。</p>
+<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp45q144dgj30xu07o3yz.jpg" alt="区块链示意图" width="100px"><br><br></div>
 
+<p>不同于现实世界的挖矿，在比特币虚拟世界中，全球的任何一个人都能在这个分布式账本上记录交易信息，并通过竞争机制将自己记录的信息写进区块。这个过程就是「挖矿」，进行挖矿工作的人就是矿工。挖矿不需要矿工手动实际去挖，只需要购买一台专业的计算设备，下载挖矿软件，由计算设备计算特定的运行（哈希碰撞）就可以了。</p>
+<p>比特币的挖矿，每十分钟全网矿工一起计算一道算术题，谁先算出答案，就相当于挖到了这个区块，同时矿工会获得系统新生的比特币奖励。中本聪在设计比特币时，为保证比特币不会那么快被挖完并稳定在大约 10 分钟挖出一个区块，设计挖矿难度每过 2016 个区块（约 2 周）动态调整一次，使得调整后的难度每生成一个区块的预计时间约为 10 分钟。</p>
+<p>同时，规定每产生 21 万个区块，比特币奖励减半一次，直至比特币奖励不能再被细分（比特币的最小单位是小数点后 8 位）。由于比特币约每 10 分钟产生一个区块，21 万个区块大约是 4 年的时间。截止到目前，比特币产量已经减半两次，当前每挖出一个区块奖励 12.5 个比特币。按此计算，到 2140 年，比特币将无法再细分，至此比特币将全部发行完毕，总量约 2100 万枚。</p>
+<p>从本质上，挖矿是将比特币的发行和结算进行了分布式，用全球化的算力竞争来取代中央发行机构。</p>
 <p><br></p>
-<p>&#x4E0D;&#x540C;&#x4E8E;&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x6316;&#x77FF;&#xFF0C;&#x5728;&#x6BD4;&#x7279;&#x5E01;&#x865A;&#x62DF;&#x4E16;&#x754C;&#x4E2D;&#xFF0C;&#x5168;&#x7403;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x4EBA;&#x90FD;&#x80FD;&#x5728;&#x8FD9;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x8D26;&#x672C;&#x4E0A;&#x8BB0;&#x5F55;&#x4EA4;&#x6613;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x7ADE;&#x4E89;&#x673A;&#x5236;&#x5C06;&#x81EA;&#x5DF1;&#x8BB0;&#x5F55;&#x7684;&#x4FE1;&#x606F;&#x5199;&#x8FDB;&#x533A;&#x5757;&#x3002;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x5C31;&#x662F;&#x300C;&#x6316;&#x77FF;&#x300D;&#xFF0C;&#x8FDB;&#x884C;&#x6316;&#x77FF;&#x5DE5;&#x4F5C;&#x7684;&#x4EBA;&#x5C31;&#x662F;&#x77FF;&#x5DE5;&#x3002;&#x6316;&#x77FF;&#x4E0D;&#x9700;&#x8981;&#x77FF;&#x5DE5;&#x624B;&#x52A8;&#x5B9E;&#x9645;&#x53BB;&#x6316;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x8D2D;&#x4E70;&#x4E00;&#x53F0;&#x4E13;&#x4E1A;&#x7684;&#x8BA1;&#x7B97;&#x8BBE;&#x5907;&#xFF0C;&#x4E0B;&#x8F7D;&#x6316;&#x77FF;&#x8F6F;&#x4EF6;&#xFF0C;&#x7531;&#x8BA1;&#x7B97;&#x8BBE;&#x5907;&#x8BA1;&#x7B97;&#x7279;&#x5B9A;&#x7684;&#x8FD0;&#x884C;&#xFF08;&#x54C8;&#x5E0C;&#x78B0;&#x649E;&#xFF09;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
-<p>&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x6316;&#x77FF;&#xFF0C;&#x6BCF;&#x5341;&#x5206;&#x949F;&#x5168;&#x7F51;&#x77FF;&#x5DE5;&#x4E00;&#x8D77;&#x8BA1;&#x7B97;&#x4E00;&#x9053;&#x7B97;&#x672F;&#x9898;&#xFF0C;&#x8C01;&#x5148;&#x7B97;&#x51FA;&#x7B54;&#x6848;&#xFF0C;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x6316;&#x5230;&#x4E86;&#x8FD9;&#x4E2A;&#x533A;&#x5757;&#xFF0C;&#x540C;&#x65F6;&#x77FF;&#x5DE5;&#x4F1A;&#x83B7;&#x5F97;&#x7CFB;&#x7EDF;&#x65B0;&#x751F;&#x7684;&#x6BD4;&#x7279;&#x5E01;&#x5956;&#x52B1;&#x3002;&#x4E2D;&#x672C;&#x806A;&#x5728;&#x8BBE;&#x8BA1;&#x6BD4;&#x7279;&#x5E01;&#x65F6;&#xFF0C;&#x4E3A;&#x4FDD;&#x8BC1;&#x6BD4;&#x7279;&#x5E01;&#x4E0D;&#x4F1A;&#x90A3;&#x4E48;&#x5FEB;&#x88AB;&#x6316;&#x5B8C;&#x5E76;&#x7A33;&#x5B9A;&#x5728;&#x5927;&#x7EA6; 10 &#x5206;&#x949F;&#x6316;&#x51FA;&#x4E00;&#x4E2A;&#x533A;&#x5757;&#xFF0C;&#x8BBE;&#x8BA1;&#x6316;&#x77FF;&#x96BE;&#x5EA6;&#x6BCF;&#x8FC7; 2016 &#x4E2A;&#x533A;&#x5757;&#xFF08;&#x7EA6; 2 &#x5468;&#xFF09;&#x52A8;&#x6001;&#x8C03;&#x6574;&#x4E00;&#x6B21;&#xFF0C;&#x4F7F;&#x5F97;&#x8C03;&#x6574;&#x540E;&#x7684;&#x96BE;&#x5EA6;&#x6BCF;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x533A;&#x5757;&#x7684;&#x9884;&#x8BA1;&#x65F6;&#x95F4;&#x7EA6;&#x4E3A; 10 &#x5206;&#x949F;&#x3002;</p>
-<p>&#x540C;&#x65F6;&#xFF0C;&#x89C4;&#x5B9A;&#x6BCF;&#x4EA7;&#x751F; 21 &#x4E07;&#x4E2A;&#x533A;&#x5757;&#xFF0C;&#x6BD4;&#x7279;&#x5E01;&#x5956;&#x52B1;&#x51CF;&#x534A;&#x4E00;&#x6B21;&#xFF0C;&#x76F4;&#x81F3;&#x6BD4;&#x7279;&#x5E01;&#x5956;&#x52B1;&#x4E0D;&#x80FD;&#x518D;&#x88AB;&#x7EC6;&#x5206;&#xFF08;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x6700;&#x5C0F;&#x5355;&#x4F4D;&#x662F;&#x5C0F;&#x6570;&#x70B9;&#x540E; 8 &#x4F4D;&#xFF09;&#x3002;&#x7531;&#x4E8E;&#x6BD4;&#x7279;&#x5E01;&#x7EA6;&#x6BCF; 10 &#x5206;&#x949F;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x533A;&#x5757;&#xFF0C;21 &#x4E07;&#x4E2A;&#x533A;&#x5757;&#x5927;&#x7EA6;&#x662F; 4 &#x5E74;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x622A;&#x6B62;&#x5230;&#x76EE;&#x524D;&#xFF0C;&#x6BD4;&#x7279;&#x5E01;&#x4EA7;&#x91CF;&#x5DF2;&#x7ECF;&#x51CF;&#x534A;&#x4E24;&#x6B21;&#xFF0C;&#x5F53;&#x524D;&#x6BCF;&#x6316;&#x51FA;&#x4E00;&#x4E2A;&#x533A;&#x5757;&#x5956;&#x52B1; 12.5 &#x4E2A;&#x6BD4;&#x7279;&#x5E01;&#x3002;&#x6309;&#x6B64;&#x8BA1;&#x7B97;&#xFF0C;&#x5230; 2140 &#x5E74;&#xFF0C;&#x6BD4;&#x7279;&#x5E01;&#x5C06;&#x65E0;&#x6CD5;&#x518D;&#x7EC6;&#x5206;&#xFF0C;&#x81F3;&#x6B64;&#x6BD4;&#x7279;&#x5E01;&#x5C06;&#x5168;&#x90E8;&#x53D1;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x603B;&#x91CF;&#x7EA6; 2100 &#x4E07;&#x679A;&#x3002;</p>
-<p>&#x4ECE;&#x672C;&#x8D28;&#x4E0A;&#xFF0C;&#x6316;&#x77FF;&#x662F;&#x5C06;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x53D1;&#x884C;&#x548C;&#x7ED3;&#x7B97;&#x8FDB;&#x884C;&#x4E86;&#x5206;&#x5E03;&#x5F0F;&#xFF0C;&#x7528;&#x5168;&#x7403;&#x5316;&#x7684;&#x7B97;&#x529B;&#x7ADE;&#x4E89;&#x6765;&#x53D6;&#x4EE3;&#x4E2D;&#x592E;&#x53D1;&#x884C;&#x673A;&#x6784;&#x3002;</p>
-<p><br></p>
-<h1 id="&#x6D41;&#x901A;"><a href="#&#x6D41;&#x901A;" class="headerlink" title="&#x6D41;&#x901A;"></a>&#x6D41;&#x901A;</h1><p>&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x6D41;&#x901A;&#x5C31;&#x662F;&#x6BD4;&#x7279;&#x5E01;&#x4EA4;&#x6613;&#x6216;&#x8F6C;&#x8D26;&#xFF0C;&#x5C06;&#x6BD4;&#x7279;&#x5E01;&#x4ECE;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x8F6C;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x3002;</p>
-<p>&#x8F6C;&#x8D26;&#x9700;&#x8981;&#x5728;&#x6BD4;&#x7279;&#x5E01;&#x94B1;&#x5305;&#x6216;&#x6BD4;&#x7279;&#x5E01;&#x5BA2;&#x6237;&#x7AEF;&#x4E2D;&#x8FDB;&#x884C;&#xFF0C;&#x8F93;&#x5165;&#x8F6C;&#x8D26;&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x6BD4;&#x5982;&#x63A5;&#x6536;&#x65B9;&#x5730;&#x5740;&#x3001;&#x8F6C;&#x8D26;&#x91D1;&#x989D;&#x3001;&#x624B;&#x7EED;&#x8D39;&#x91D1;&#x989D;&#x7B49;&#x3002;&#x548C;&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x7C7B;&#x4F3C;&#xFF0C;&#x5E38;&#x89C1;&#x7684;&#x6BD4;&#x7279;&#x5E01;&#x4EA4;&#x6613;&#x6709;&#x4E09;&#x79CD;&#xFF1A;</p>
+<h1 id="流通"><a href="#流通" class="headerlink" title="流通"></a>流通</h1><p>比特币的流通就是比特币交易或转账，将比特币从一个地址转到另一个地址。</p>
+<p>转账需要在比特币钱包或比特币客户端中进行，输入转账相关的信息，比如接收方地址、转账金额、手续费金额等。和现实世界类似，常见的比特币交易有三种：</p>
 <ul>
-<li>&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x4E24;&#x4E2A;&#x8F93;&#x51FA;&#x3002;&#x4E00;&#x4E2A;&#x8F93;&#x51FA;&#x662F;&#x5BF9;&#x5E94;&#x7ED9;&#x522B;&#x4EBA;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;&#x8F93;&#x51FA;&#x7ED9;&#x81EA;&#x5DF1;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x627E;&#x96F6;&#x3002;&#x5C31;&#x597D;&#x6BD4;&#x4E70;&#x4E1C;&#x897F;&#x65F6;&#x9700;&#x8981;&#x652F;&#x4ED8; 17 &#x5143;&#xFF0C;&#x800C;&#x4F60;&#x53EA;&#x6709;&#x4E00;&#x5F20; 20 &#x5143;&#x7684;&#x7EB8;&#x5E01;&#xFF0C;&#x5728;&#x8FD9;&#x6B21;&#x4EA4;&#x6613;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A; 20 &#x7684;&#x8F93;&#x5165;&#xFF0C;&#x5C31;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A; 17 &#x5143;&#x7684;&#x8F93;&#x51FA;&#x7ED9;&#x5356;&#x65B9;&#xFF0C;&#x4E00;&#x4E2A; 3 &#x5143;&#x7684;&#x8F93;&#x51FA;&#x7ED9;&#x81EA;&#x5DF1;&#xFF08;&#x627E;&#x96F6;&#xFF09;&#x3002;</li>
-<li>&#x591A;&#x4E2A;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x8F93;&#x51FA;&#x3002;&#x96C6;&#x5408;&#x4E86;&#x591A;&#x4E2A;&#x96F6;&#x6563;&#x7684;&#x94B1;&#x7528;&#x4E8E;&#x652F;&#x4ED8;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x91D1;&#x989D;&#xFF0C;&#x6BD4;&#x5982;&#x5C06;&#x4E00;&#x4E9B;&#x5C0F;&#x989D;&#x7684;&#x786C;&#x5E01;&#x548C;&#x7EB8;&#x5E01;&#x51D1;&#x6210;&#x4E00;&#x5B9A;&#x91D1;&#x989D;&#x7528;&#x6765;&#x4ED8;&#x6B3E;&#x3002;</li>
-<li>&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x591A;&#x4E2A;&#x8F93;&#x51FA;&#x3002;&#x8FD9;&#x79CD;&#x4EA4;&#x6613;&#x591A;&#x7528;&#x4E8E;&#x5546;&#x4E1A;&#x5B9E;&#x4F53;&#x5206;&#x914D;&#x4E2D;&#xFF0C;&#x6BD4;&#x5982;&#x516C;&#x53F8;&#x7ED9;&#x5458;&#x5DE5;&#x53D1;&#x5DE5;&#x8D44;&#x3002;</li>
+<li>一个输入两个输出。一个输出是对应给别人，另一个输出给自己，相当于找零。就好比买东西时需要支付 17 元，而你只有一张 20 元的纸币，在这次交易中，这个 20 的输入，就会产生一个 17 元的输出给卖方，一个 3 元的输出给自己（找零）。</li>
+<li>多个输入一个输出。集合了多个零散的钱用于支付一个比较大的金额，比如将一些小额的硬币和纸币凑成一定金额用来付款。</li>
+<li>一个输入多个输出。这种交易多用于商业实体分配中，比如公司给员工发工资。</li>
 </ul>
-<p>&#x6BD4;&#x7279;&#x5E01;&#x4EA4;&#x6613;&#x7684;&#x57FA;&#x672C;&#x5355;&#x4F4D;&#x662F;&#x672A;&#x82B1;&#x8D39;&#x7684;&#x4E00;&#x4E2A;&#x4EA4;&#x6613;&#x8F93;&#x51FA;&#xFF0C;&#x7B80;&#x79F0; UTXO&#xFF08;Unspent Transaction Output&#xFF09;&#x3002;&#x6BD4;&#x7279;&#x5E01;&#x7F51;&#x7EDC;&#x4E2D;&#x6CA1;&#x6709;&#x8D26;&#x6237;&#x548C;&#x4F59;&#x989D;&#xFF0C;&#x53EA;&#x6709;&#x5206;&#x6563;&#x5728;&#x533A;&#x5757;&#x94FE;&#x91CC;&#x7684;&#x6570;&#x4EE5;&#x767E;&#x4E07;&#x5343;&#x4E07;&#x8BB0;&#x7684; UTXO&#x3002;&#x6240;&#x8C13;&#x7684;&#x300C;&#x4F59;&#x989D;&#x300D;&#x662F;&#x6BD4;&#x7279;&#x5E01;&#x94B1;&#x5305;&#x91CC;&#x5F15;&#x7533;&#x51FA;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x94B1;&#x5305;&#x626B;&#x63CF;&#x533A;&#x5757;&#x94FE;&#x5E76;&#x67E5;&#x627E;&#x5230;&#x6240;&#x6709;&#x5C5E;&#x4E8E;&#x8BE5;&#x5730;&#x5740;&#x7684; UTXO &#x6765;&#x8BA1;&#x7B97;&#x8BE5;&#x5730;&#x5740;&#x7684;&#x4F59;&#x989D;&#x3002;</p>
-<p>&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x6700;&#x5C0F;&#x5355;&#x4F4D;&#x662F;&#x5C0F;&#x6570;&#x70B9;&#x540E;&#x516B;&#x4F4D;&#xFF0C;&#x5373;&#x300C;&#x4E00;&#x806A;&#x300D;&#x3002;&#x867D;&#x7136; UTXO &#x4E2D;&#x5305;&#x542B;&#x7684;&#x6BD4;&#x7279;&#x5E01;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x806A;&#x7684;&#x4EFB;&#x610F;&#x500D;&#xFF0C;&#x4F46; UTXO &#x662F;&#x4E0D;&#x53EF;&#x5206;&#x5272;&#x7684;&#xFF0C;&#x53EA;&#x80FD;&#x88AB;&#x521B;&#x5EFA;&#x548C;&#x6D88;&#x8017;&#x3002;&#x5728;&#x8FDB;&#x884C;&#x6BD4;&#x7279;&#x5E01;&#x8F6C;&#x8D26;&#x65F6;&#xFF0C;&#x94B1;&#x5305;&#x4F1A;&#x4ECE;&#x8BE5;&#x5730;&#x5740;&#x53EF;&#x7528;&#x7684; UTXO &#x4E2D;&#x9009;&#x53D6;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6765;&#x51D1;&#x51FA;&#x5927;&#x4E8E;&#x6216;&#x7B49;&#x4E8E;&#x5F85;&#x4ED8;&#x6B3E;&#x7684;&#x6BD4;&#x7279;&#x5E01;&#x91CF;&#x3002;&#x53E6;&#x5916;&#x8FD8;&#x9700;&#x8981;&#x652F;&#x4ED8;&#x4E00;&#x5B9A;&#x7684;&#x624B;&#x7EED;&#x8D39;&#xFF0C;&#x624B;&#x7EED;&#x8D39;&#x662F;&#x6240;&#x6709;&#x7684;&#x4EA4;&#x6613;&#x8F93;&#x5165;&#x51CF;&#x53BB;&#x6240;&#x6709;&#x7684;&#x4EA4;&#x6613;&#x8F93;&#x51FA;&#x3002;</p>
-<p>&#x88AB;&#x7B5B;&#x9009;&#x51FA;&#x7684;&#x8FD9;&#x4E9B; UTXO &#x79F0;&#x4E3A;&#x4EA4;&#x6613;&#x8F93;&#x5165;&#xFF0C;&#x7531;&#x4EA4;&#x6613;&#x521B;&#x5EFA;&#x7684; UTXO &#x4E3A;&#x4EA4;&#x6613;&#x8F93;&#x51FA;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4EA4;&#x6613;&#x8F93;&#x5165;&#x7684; UTXO &#x7531;&#x6240;&#x6709;&#x8005;&#x7684;&#x7B7E;&#x540D;&#x6765;&#x89E3;&#x9501;&#x5E76;&#x88AB;&#x6D88;&#x8017;&#xFF0C;&#x4EA4;&#x6613;&#x8F93;&#x51FA;&#x521B;&#x5EFA;&#x65B0;&#x7684; UTXO&#xFF0C;&#x5E76;&#x7531;&#x63A5;&#x6536;&#x8005;&#x7684;&#x6BD4;&#x7279;&#x5E01;&#x5730;&#x5740;&#x6765;&#x9501;&#x5B9A;&#x3002;</p>
-<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684; Api &#x67E5;&#x770B;&#x5BF9;&#x5E94;&#x5730;&#x5740;&#x7684;&#x6240;&#x6709; UTXO&#xFF1A;</p>
-<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp45rgx1oej30nw03ajrk.jpg" alt="&#x67E5;&#x8BE2;UTXO Api" width="100px"><br><br></div>
-
-<p>&#x4F46;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x4EA4;&#x6613;&#x2014;&#x2014;&#x6BCF;&#x4E2A;&#x533A;&#x5757;&#x7684;&#x9996;&#x4E2A;&#x4EA4;&#x6613;&#x2014;&#x2014;&#x79F0;&#x4E3A; Coinbase &#x4EA4;&#x6613;&#xFF0C;&#x8BE5;&#x4EA4;&#x6613;&#x7528;&#x4E8E;&#x4EA7;&#x751F;&#x65B0;&#x7684;&#x6BD4;&#x7279;&#x5E01;&#x7528;&#x4E8E;&#x4F5C;&#x4E3A;&#x6316;&#x77FF;&#x7684;&#x5956;&#x52B1;&#xFF0C;&#x56E0;&#x6B64;&#x8BE5;&#x4EA4;&#x6613;&#x6CA1;&#x6709;&#x8F93;&#x5165;&#x3002;</p>
-<p>&#x4EA4;&#x6613;&#x88AB;&#x521B;&#x5EFA;&#x540E;&#xFF0C;&#x4F1A;&#x88AB;&#x8D44;&#x91D1;&#x6240;&#x6709;&#x8005;&#xFF08;&#x53D1;&#x51FA;&#x65B9;&#xFF09;&#x7B7E;&#x540D;&#xFF0C;&#x5E76;&#x5E7F;&#x64AD;&#x81F3;&#x6BD4;&#x7279;&#x5E01;&#x7F51;&#x7EDC;&#x3002;&#x4E00;&#x65E6;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x7F51;&#x7EDC;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x4EA4;&#x6613;&#x5C06;&#x4F1A;&#x88AB;&#x9A8C;&#x8BC1;&#x3002;&#x5982;&#x679C;&#x9A8C;&#x8BC1;&#x6709;&#x6548;&#xFF0C;&#x4EA4;&#x6613;&#x5C06;&#x4F1A;&#x7EE7;&#x7EED;&#x4F20;&#x64AD;&#x5E76;&#x8FD4;&#x56DE;&#x63A5;&#x6536;&#x4FE1;&#x606F;&#xFF1B;&#x5982;&#x679C;&#x65E0;&#x6548;&#xFF0C;&#x4EA4;&#x6613;&#x505C;&#x6B62;&#x4F20;&#x64AD;&#x5E76;&#x8FD4;&#x56DE;&#x62D2;&#x7EDD;&#x4FE1;&#x606F;&#x3002;&#x4EA4;&#x6613;&#x88AB;&#x9A8C;&#x8BC1;&#x540E;&#xFF0C;&#x4F1A;&#x88AB;&#x77FF;&#x5DE5;&#x6253;&#x5305;&#x8FDB;&#x533A;&#x5757;&#x3002;</p>
-<p>&#x9700;&#x8981;&#x8BF4;&#x660E;&#x4E00;&#x4E0B;&#x7684;&#x662F;&#xFF0C;&#x4EA4;&#x6613;&#x771F;&#x6B63;&#x6709;&#x6548;&#x9700;&#x8981;&#x6253;&#x5305;&#x8BE5;&#x4EA4;&#x6613;&#x7684;&#x533A;&#x5757;&#x4E4B;&#x540E;&#x6709; 6 &#x4E2A;&#x533A;&#x5757;&#x7684;&#x786E;&#x8BA4;&#xFF0C;&#x8FD9;&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x300C;&#x53CC;&#x82B1;&#x300D;&#x95EE;&#x9898;&#xFF0C;&#x540E;&#x9762;&#x518D;&#x8BE6;&#x7EC6;&#x8BA8;&#x8BBA;&#x3002;</p>
+<p>比特币交易的基本单位是未花费的一个交易输出，简称 UTXO（Unspent Transaction Output）。比特币网络中没有账户和余额，只有分散在区块链里的数以百万千万记的 UTXO。所谓的「余额」是比特币钱包里引申出的概念，钱包扫描区块链并查找到所有属于该地址的 UTXO 来计算该地址的余额。</p>
+<p>比特币的最小单位是小数点后八位，即「一聪」。虽然 UTXO 中包含的比特币可以是一聪的任意倍，但 UTXO 是不可分割的，只能被创建和消耗。在进行比特币转账时，钱包会从该地址可用的 UTXO 中选取一个或多个来凑出大于或等于待付款的比特币量。另外还需要支付一定的手续费，手续费是所有的交易输入减去所有的交易输出。</p>
+<p>被筛选出的这些 UTXO 称为交易输入，由交易创建的 UTXO 为交易输出。在这个过程中，交易输入的 UTXO 由所有者的签名来解锁并被消耗，交易输出创建新的 UTXO，并由接收者的比特币地址来锁定。</p>
+<p>可以通过下面的 Api 查看对应地址的所有 UTXO：<div align="center"></div></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp45rgx1oej30nw03ajrk.jpg" alt="查询UTXO Api" width="100px"></p>
+<p></p>
+<p>但有一个特殊交易——每个区块的首个交易——称为 Coinbase 交易，该交易用于产生新的比特币用于作为挖矿的奖励，因此该交易没有输入。</p>
+<p>交易被创建后，会被资金所有者（发出方）签名，并广播至比特币网络。一旦被发送到网络中的任意一个节点，交易将会被验证。如果验证有效，交易将会继续传播并返回接收信息；如果无效，交易停止传播并返回拒绝信息。交易被验证后，会被矿工打包进区块。</p>
+<p>需要说明一下的是，交易真正有效需要打包该交易的区块之后有 6 个区块的确认，这是为了防止「双花」问题，后面再详细讨论。</p>
 <p><br></p>
-<table><tr><td bgcolor="#D3D3D3"> &#x7B80;&#x5355;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#xFF1A;<br><br>1. &#x6BD4;&#x7279;&#x5E01;&#x662F;&#x901A;&#x8FC7;&#x6316;&#x77FF;&#x6765;&#x53D1;&#x884C;&#x7684;&#xFF0C;&#x6BCF;&#x6316;&#x51FA;&#x4E00;&#x4E2A;&#x533A;&#x5757;&#xFF0C;&#x5C31;&#x4F1A;&#x83B7;&#x5F97;&#x4E00;&#x5B9A;&#x6570;&#x91CF;&#x7684;&#x6BD4;&#x7279;&#x5E01;&#x5956;&#x52B1;&#xFF0C;&#x76F4;&#x5230;&#x6BD4;&#x7279;&#x5E01;&#x88AB;&#x5168;&#x90E8;&#x6316;&#x51FA;&#x3002;<br><br>2. &#x4F7F;&#x7528;&#x6BD4;&#x7279;&#x5E01;&#x94B1;&#x5305;&#x8FDB;&#x884C;&#x6BD4;&#x7279;&#x5E01;&#x8F6C;&#x8D26;&#x65F6;&#xFF0C;&#x53D1;&#x51FA;&#x65B9;&#x7684; UTXO &#x4F1A;&#x88AB;&#x89E3;&#x9501;&#x5E76;&#x9500;&#x6BC1;&#xFF0C;&#x4F1A;&#x7528;&#x63A5;&#x6536;&#x65B9;&#x7684;&#x5730;&#x5740;&#x521B;&#x5EFA;&#x65B0;&#x7684; UTXO&#x3002;&#x4EA4;&#x6613;&#x4F1A;&#x88AB;&#x5E7F;&#x64AD;&#x81F3;&#x6BD4;&#x7279;&#x5E01;&#x7F51;&#x7EDC;&#xFF0C;&#x88AB;&#x8282;&#x70B9;&#x9A8C;&#x8BC1;&#x901A;&#x8FC7;&#x540E;&#xFF0C;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x6D41;&#x901A;&#x3002;<br><br>   </td></tr></table>
+<table><tr><td bgcolor="#D3D3D3"> 简单总结一下：<br><br>1. 比特币是通过挖矿来发行的，每挖出一个区块，就会获得一定数量的比特币奖励，直到比特币被全部挖出。<br><br>2. 使用比特币钱包进行比特币转账时，发出方的 UTXO 会被解锁并销毁，会用接收方的地址创建新的 UTXO。交易会被广播至比特币网络，被节点验证通过后，就完成了比特币的流通。<br><br>   </td></tr></table>
 
 <p><br></p>
-<p>&#x6700;&#x540E;&#xFF0C;&#x65E2;&#x7136;&#x4E86;&#x89E3;&#x4E86;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x8F6C;&#x8D26;&#xFF0C;&#x90A3;&#x5C31;&#x7559;&#x4E2A;&#x5730;&#x5740;&#x5C1D;&#x8BD5;&#x4E0B;&#x5427;&#xFF0C;&#x5F53;&#x505A;&#x6253;&#x8D4F;&#x4E86;~</p>
-<p><strong>BTC</strong>&#xFF1A;1DXLx1RjmFhfcCjtUsZiGcFRnRz6WGj8ZN</p>
-<p>&#x6216;&#x8005;&#x626B;&#x7801;&#x4E0B;&#x65B9;&#x5730;&#x5740;&#x4E8C;&#x7EF4;&#x7801;&#xFF1A;</p>
-<div align="center"><br><br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fp45s531qzj30gp0gpq4b.jpg" alt="&#x6BD4;&#x7279;&#x5E01;&#x5730;&#x5740;" width="100px"><br><br></div>
+<p>最后，既然了解了比特币的转账，那就留个地址尝试下吧，当做打赏了~</p>
+<p><strong>BTC</strong>：1DXLx1RjmFhfcCjtUsZiGcFRnRz6WGj8ZN</p>
+<p>或者扫码下方地址二维码：</p>
+<div align="center"><br><br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fp45s531qzj30gp0gpq4b.jpg" alt="比特币地址" width="100px"><br><br></div>
 
-<p>&#x5982;&#x679C;&#x4F60;&#x89C9;&#x5F97;&#x6709;&#x8FDB;&#x6B65;&#xFF0C;&#x6B22;&#x8FCE;&#x5173;&#x6CE8;&#x533A;&#x5757;&#x94FE;&#x5FAE;&#x4FE1;&#x516C;&#x4F17;&#x53F7;&#xFF1A;&#x94FE;&#x7AD9;&#xFF08;ID&#xFF1A;ChainStation&#xFF09;</p>
-<div align="center"><br><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fosv3ip8ljj30by0byaaw.jpg" alt="&#x6BD4;&#x7279;&#x5E01;&#x5730;&#x5740;" width="100px"><br><br></div>
+<p>如果你觉得有进步，欢迎关注区块链微信公众号：链站（ID：ChainStation）</p>
+<div align="center"><br><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fosv3ip8ljj30by0byaaw.jpg" alt="比特币地址" width="100px"><br><br></div>
             
         </div>
     </div>
@@ -508,7 +507,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x5199;&#x5728;&#x5EFA;&#x7AD9;&#x4E4B;&#x65F6;<br></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>写在建站之时<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -533,7 +532,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x8FD9;&#x6BB5;&#x65F6;&#x95F4;&#x505A;&#x9879;&#x76EE;&#xFF0C;&#x5728;&#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x5C0F;bug&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x78B0;&#x5230;&#x4E00;&#x4E2A;&#x5751;&#xFF0C;&#x82B1;&#x8D39;&#x4E86;&#x4E00;&#x5927;&#x5929;&#x7684;&#x65F6;&#x95F4;&#x6765;&#x586B;&#x5751;&#xFF0C;&#x7EC8;&#x4E8E;&#x6392;&#x67E5;&#x51FA;&#x4E86;&#x539F;&#x56E0;&#xFF1A;&#x7531;&#x4E8E;&#x67D0;&#x4E2A;Edit Text&#x8C03;&#x7528;&#x4E86;requestFocusFromTouch()&#x65B9;&#x6CD5;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x5C06;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x7684;&#x65B9;&#x6CD5;&#x6362;&#x6210;requestFocus()&#xFF0C;&#x5219;&#x95EE;&#x9898;&#x4E0D;&#x518D;&#x590D;&#x73B0;&#x3002;&#x8FD9;&#x5C31;&#x6FC0;&#x53D1;&#x4E86;&#x6211;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x597D;&#x5947;&#xFF0C;&#x51C6;&#x5907;&#x770B;&#x770B;&#x5B83;&#x4EEC;&#x846B;&#x82A6;&#x91CC;&#x5230;&#x5E95;&#x88C5;&#x7684;&#x4EC0;&#x4E48;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>这段时间做项目，在解决一个小bug的过程中，碰到一个坑，花费了一大天的时间来填坑，终于排查出了原因：由于某个Edit Text调用了requestFocusFromTouch()方法导致的，将获取焦点的方法换成requestFocus()，则问题不再复现。这就激发了我对这两个方法的好奇，准备看看它们葫芦里到底装的什么。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -558,7 +557,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;Android&#x673A;&#x578B;&#x4F17;&#x591A;&#xFF0C;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x3001;&#x5206;&#x8FA8;&#x7387;&#x5404;&#x6709;&#x4E0D;&#x540C;&#x3002;&#x5BF9;&#x4E8E;Android&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x4F55;&#x63D0;&#x9AD8;APP&#x4E2D;&#x56FE;&#x7247;&#x5BF9;&#x5404;&#x79CD;&#x673A;&#x578B;&#x7684;&#x9002;&#x914D;&#x662F;&#x57FA;&#x672C;&#x6280;&#x80FD;&#x4E4B;&#x4E00;&#x3002;&#x501F;&#x7740;&#x9879;&#x76EE;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x56FE;&#x7247;&#x9002;&#x914D;&#x95EE;&#x9898;&#xFF0C;&#x5728;&#x603B;&#x7ED3;&#x9879;&#x76EE;&#x65F6;&#xFF0C;&#x5C31;&#x60F3;&#x7740;&#x987A;&#x5E26;&#x628A;&#x8FD9;&#x90E8;&#x5206;&#x597D;&#x597D;&#x634B;&#x4E00;&#x634B;&#xFF0C;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#xFF0C;&#x4E5F;&#x4E3A;&#x4E0D;&#x662F;&#x5F88;&#x6E05;&#x695A;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x4EBA;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53C2;&#x8003;&#x3002;<br></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>众所周知，Android机型众多，屏幕尺寸、分辨率各有不同。对于Android开发人员来说，如何提高APP中图片对各种机型的适配是基本技能之一。借着项目中遇到的图片适配问题，在总结项目时，就想着顺带把这部分好好捋一捋，作为一个记录，也为不是很清楚这部分的人提供一个参考。<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -583,7 +582,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>Android &#x667A;&#x80FD;&#x624B;&#x673A;&#x5728;&#x5168;&#x7403;&#x5E02;&#x573A;&#x6709;&#x7740;&#x6781;&#x9AD8;&#x7684;&#x5E02;&#x573A;&#x5360;&#x6709;&#x7387;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x53D7;&#x5230;&#x5E7F;&#x5927;&#x6D88;&#x8D39;&#x8005;&#x7684;&#x9752;&#x7750;&#x3002;&#x4F46; Android &#x4F5C;&#x4E3A;&#x5F00;&#x6E90;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x4E14;&#x5F88;&#x5BB9;&#x6613;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x7CFB;&#x7EDF; root &#x6743;&#x9650;&#xFF0C;Android &#x7CFB;&#x7EDF;&#x7684;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x4E5F;&#x662F;&#x7528;&#x6237;&#x548C;&#x5F00;&#x53D1;&#x8005;&#x6700;&#x5173;&#x5FC3;&#x7684;&#x95EE;&#x9898;&#x4E4B;&#x4E00;&#x3002;<br></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>Android 智能手机在全球市场有着极高的市场占有率，越来越受到广大消费者的青睐。但 Android 作为开源操作系统，且很容易可以获得系统 root 权限，Android 系统的安全问题也是用户和开发者最关心的问题之一。<br></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -608,7 +607,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;&#x4E00;&#x4E9B; Android &#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x63D0;&#x5347; Android &#x5F00;&#x53D1;&#x7684;&#x6548;&#x7387;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x589E;&#x52A0;&#x4E00;&#x4E9B;&#x4E50;&#x8DA3;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>本文主要介绍一些 Android 开发过程中使用到的一些工具，用于提升 Android 开发的效率，同时也增加一些乐趣。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -627,7 +626,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>LeetCode &#x5F88;&#x7ECF;&#x5178;&#x7684;&#x4E00;&#x9053;&#x7B97;&#x6CD5;&#x9898;&#xFF0C;&#x6C42;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#x7684;&#x4E2D;&#x4F4D;&#x6570;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>LeetCode 很经典的一道算法题，求两个有序数组的中位数。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -652,8 +651,8 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x672C;&#x6587;&#x9996;&#x53D1;&#x4E8E;&#x533A;&#x5757;&#x94FE;&#x516C;&#x4F17;&#x53F7;&#x300C;&#x94FE;&#x7AD9;&#x300D;&#xFF0C;ID&#xFF1A;ChainStation&#x3002;</p>
-<font size="3"><strong>&#x201C;</strong> &#x76F8;&#x4FE1;&#x770B;&#x5230;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x90FD;&#x662F;&#x542C;&#x8BF4;&#x8FC7;&#x6216;&#x4E86;&#x89E3;&#x6BD4;&#x7279;&#x5E01;&#x548C;&#x533A;&#x5757;&#x94FE;&#x7684;&#x4EBA;&#xFF0C;&#x90A3;&#x5230;&#x5E95;&#x4EC0;&#x4E48;&#x662F;&#x6BD4;&#x7279;&#x5E01;&#x548C;&#x533A;&#x5757;&#x94FE;&#x5462;&#xFF1F;&#x8FD9;&#x91CC;&#x51C6;&#x5907;&#x5199;&#x4E2A;&#x7B80;&#x6613;&#x533A;&#x5757;&#x94FE;&#x7CFB;&#x5217;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x9488;&#x5BF9;&#x4E00;&#x4E9B;&#x5165;&#x95E8;&#x7EA7;&#x522B;&#x7684;&#x4EBA;&#x3002;&#x6587;&#x7AE0;&#x5C3D;&#x53EF;&#x80FD;&#x629B;&#x5F00;&#x4E00;&#x4E9B;&#x592A;&#x4E13;&#x4E1A;&#x7684;&#x672F;&#x8BED;&#xFF0C;&#x7528;&#x5927;&#x5BB6;&#x90FD;&#x80FD;&#x7406;&#x89E3;&#x7684;&#x5F62;&#x5F0F;&#x8BB2;&#x89E3;&#x7ED3;&#x3002;<strong>&#x201D;</strong></font></div>
+                        <div class="media-content hide-xs font-merryweather"><p>本文首发于区块链公众号「链站」，ID：ChainStation。</p>
+<font size=3><strong>“</strong> 相信看到这篇文章的都是听说过或了解比特币和区块链的人，那到底什么是比特币和区块链呢？这里准备写个简易区块链系列简单介绍一下，主要是针对一些入门级别的人。文章尽可能抛开一些太专业的术语，用大家都能理解的形式讲解结。<strong>”</strong></font></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -678,7 +677,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x8BB2;&#x4E00;&#x4E0B;&#x6BD4;&#x7279;&#x5E01;&#x7684;&#x53D1;&#x884C;&#x548C;&#x6D41;&#x901A;&#x673A;&#x5236;&#x3002;</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p>本篇主要讲一下比特币的发行和流通机制。</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
