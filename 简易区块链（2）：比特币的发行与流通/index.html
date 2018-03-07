@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp45rgx1oej30nw03ajrk.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fp45s531qzj30gp0gpq4b.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fosv3ip8ljj30by0byaaw.jpg">
-<meta property="og:updated_time" content="2018-03-07T15:34:03.476Z">
+<meta property="og:updated_time" content="2018-03-07T15:43:40.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简易区块链（2）：比特币的发行与流通">
 <meta name="twitter:description" content="本篇主要讲一下比特币的发行和流通机制。">
@@ -269,9 +269,9 @@
 <p>比特币交易的基本单位是未花费的一个交易输出，简称 UTXO（Unspent Transaction Output）。比特币网络中没有账户和余额，只有分散在区块链里的数以百万千万记的 UTXO。所谓的「余额」是比特币钱包里引申出的概念，钱包扫描区块链并查找到所有属于该地址的 UTXO 来计算该地址的余额。</p>
 <p>比特币的最小单位是小数点后八位，即「一聪」。虽然 UTXO 中包含的比特币可以是一聪的任意倍，但 UTXO 是不可分割的，只能被创建和消耗。在进行比特币转账时，钱包会从该地址可用的 UTXO 中选取一个或多个来凑出大于或等于待付款的比特币量。另外还需要支付一定的手续费，手续费是所有的交易输入减去所有的交易输出。</p>
 <p>被筛选出的这些 UTXO 称为交易输入，由交易创建的 UTXO 为交易输出。在这个过程中，交易输入的 UTXO 由所有者的签名来解锁并被消耗，交易输出创建新的 UTXO，并由接收者的比特币地址来锁定。</p>
-<p>可以通过下面的 Api 查看对应地址的所有 UTXO：<div align="center"></div></p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp45rgx1oej30nw03ajrk.jpg" alt="查询UTXO Api" width="100px"></p>
-<p></p>
+<p>可以通过下面的 Api 查看对应地址的所有 UTXO：</p>
+<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp45rgx1oej30nw03ajrk.jpg" alt="查询UTXO Api" width="100px"><br><br></div>
+
 <p>但有一个特殊交易——每个区块的首个交易——称为 Coinbase 交易，该交易用于产生新的比特币用于作为挖矿的奖励，因此该交易没有输入。</p>
 <p>交易被创建后，会被资金所有者（发出方）签名，并广播至比特币网络。一旦被发送到网络中的任意一个节点，交易将会被验证。如果验证有效，交易将会继续传播并返回接收信息；如果无效，交易停止传播并返回拒绝信息。交易被验证后，会被矿工打包进区块。</p>
 <p>需要说明一下的是，交易真正有效需要打包该交易的区块之后有 6 个区块的确认，这是为了防止「双花」问题，后面再详细讨论。</p>
@@ -282,10 +282,10 @@
 <p>最后，既然了解了比特币的转账，那就留个地址尝试下吧，当做打赏了~</p>
 <p><strong>BTC</strong>：1DXLx1RjmFhfcCjtUsZiGcFRnRz6WGj8ZN</p>
 <p>或者扫码下方地址二维码：</p>
-<div align="center"><br><br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fp45s531qzj30gp0gpq4b.jpg" alt="比特币地址" width="100px"><br><br></div>
+<div align="center"><br><br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fp45s531qzj30gp0gpq4b.jpg" alt="比特币地址" width="50%"><br><br></div>
 
 <p>如果你觉得有进步，欢迎关注区块链微信公众号：链站（ID：ChainStation）</p>
-<div align="center"><br><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fosv3ip8ljj30by0byaaw.jpg" alt="比特币地址" width="100px"><br><br></div>
+<div align="center"><br><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fosv3ip8ljj30by0byaaw.jpg" alt="公众号二维码" width="100px"><br><br></div>
             
         </div>
     </div>
