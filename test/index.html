@@ -264,7 +264,7 @@
         if (result === 'null'){
             $(".add_banner").addClass("hide");
             $(".result_success").addClass("hide");
-            $("#result_failed_name").text($("#add_wish").val())
+            $("#result_failed_name").text($("#search_value").val())
             $(".result_faile").removeClass("hide");
         } else{
             //if result is not null, then it should be "return value" or "error message"
@@ -275,7 +275,6 @@
             }
             if (!!result.name){      //"return value"
                 $(".result_success").empty();
-                var container = document.getElementsByClassName('.result_success')[0];
                 var wishes = result.wish;
                 for (var i = 0; i < wishes.length; i++) {
                     var temp = "<div class='search_banner'>" + wishes[i] + "</div>";
@@ -299,7 +298,7 @@
 
                 $(".add_banner").addClass("hide");
                 $(".result_success").addClass("hide");
-                $("#result_failed_name").text($("#add_wish").val())
+                $("#result_failed_name").text($("#search_value").val())
                 $(".result_faile").removeClass("hide");
             }
         }
