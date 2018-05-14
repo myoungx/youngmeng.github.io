@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="youngmeng">
+    <title>简易区块链（2）：比特币的发行与流通 - youngmeng</title>
+    <meta name="author" content="youngmeng">
+    
+    
+        <link rel="icon" href="http://youngmeng.org/assets/images/avatar.png">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="本篇主要讲一下比特币的发行和流通机制。">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="简易区块链（2）：比特币的发行与流通">
+<meta property="og:url" content="http://youngmeng.org/简易区块链（2）：比特币的发行与流通/index.html">
+<meta property="og:site_name" content="youngmeng">
+<meta property="og:description" content="本篇主要讲一下比特币的发行和流通机制。">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp45q144dgj30xu07o3yz.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp45rgx1oej30nw03ajrk.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fp45s531qzj30gp0gpq4b.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fosv3ip8ljj30by0byaaw.jpg">
+<meta property="og:updated_time" content="2018-03-07T16:30:06.607Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简易区块链（2）：比特币的发行与流通">
+<meta name="twitter:description" content="本篇主要讲一下比特币的发行和流通机制。">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp45q144dgj30xu07o3yz.jpg">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://youngmeng.org/assets/images/avatar.png"/>
+    
+    
+        <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fp48u07x3nj30hs0ckmyq.jpg"/>
+        <meta class="swiftype" name="image" data-type="enum" content="https://ws2.sinaimg.cn/large/006tNc79ly1fp48u07x3nj30hs0ckmyq.jpg" />
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-sxklfps8ywgfyyjcowvnb4gxdgt0zjts3hsguljmv9uqanxjbnitrovtbrek.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="5">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">youngmeng</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/avatar.png" alt="作者的图片"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="5">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/avatar.png" alt="作者的图片"/>
+                </a>
+                <h4 class="sidebar-profile-name">youngmeng</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>Android Developer &amp; Python Learner</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <span class="sidebar-button-desc">首页</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <span class="sidebar-button-desc">分类</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                        <span class="sidebar-button-desc">标签</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                        <span class="sidebar-button-desc">目录</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/about/"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-user"></i>
+                        <span class="sidebar-button-desc">关于</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-links"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-link"></i>
+                        <span class="sidebar-button-desc">链接</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/nas"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-link"></i>
+                        <span class="sidebar-button-desc">NAS</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/youngmeng" target="_blank" rel="noopener">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://www.zhihu.com/people/ymeng" target="_blank" rel="noopener">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-external-link"></i>
+                        <span class="sidebar-button-desc">知乎</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://twitter.com/myoungmeng" target="_blank" rel="noopener">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-twitter"></i>
+                        <span class="sidebar-button-desc">Twitter</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="5"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            简易区块链（2）：比特币的发行与流通
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time itemprop="datePublished" datetime="2018-03-07T12:41:33+08:00">
+	
+		    3月 07, 2018
+    	
+    </time>
+    
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/categories/区块链/">区块链</a>
+
+
+    
+</div>
+
+    
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <p>本篇主要讲一下比特币的发行和流通机制。</p>
+<a id="more"></a>
+<p>在上一篇文章《<a href="http://youngmeng.org/%E7%AE%80%E6%98%93%E5%8C%BA%E5%9D%97%E9%93%BE%EF%BC%881%EF%BC%89%EF%BC%9A%E8%B4%A7%E5%B8%81%E5%92%8C%E6%AF%94%E7%89%B9%E5%B8%81/">简易区块链（1）：货币和比特币</a>》中，简单介绍了下货币及比特币，相信大家对货币有了理解，同时也了解了比特币产生的缘由，认识到比特币与现有法币的不同。</p>
+<p>不知道读者是否看了文末给出的比特币白皮书？如果没看也没关系，本篇文章将带你更详细的了解比特币的原理，比特币的技术实现也将放在后续的文章中。</p>
+<p><br></p>
+<h1 id="发行"><a href="#发行" class="headerlink" title="发行"></a>发行</h1><p>比特币不依赖于任何中心机构来发行，而是依靠一套去中心化的发行机制，随着时间逐步发行一定量的比特币。</p>
+<p>比特币的底层技术是区块链，是将一个个区块连接起来形成的链。比特币系统相当于一个去中心化的大账本，其中的每个区块就相当于账本中的一页，每个区块中的交易信息是由去中心化的节点「挖矿」来完成的。</p>
+<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp45q144dgj30xu07o3yz.jpg" alt="区块链示意图" width="100px"><br><br></div>
+
+<p>不同于现实世界的挖矿，在比特币虚拟世界中，全球的任何一个人都能在这个分布式账本上记录交易信息，并通过竞争机制将自己记录的信息写进区块。这个过程就是「挖矿」，进行挖矿工作的人就是矿工。挖矿不需要矿工手动实际去挖，只需要购买一台专业的计算设备，下载挖矿软件，由计算设备计算特定的运行（哈希碰撞）就可以了。</p>
+<p>比特币的挖矿，每十分钟全网矿工一起计算一道算术题，谁先算出答案，就相当于挖到了这个区块，同时矿工会获得系统新生的比特币奖励。中本聪在设计比特币时，为保证比特币不会那么快被挖完并稳定在大约 10 分钟挖出一个区块，设计挖矿难度每过 2016 个区块（约 2 周）动态调整一次，使得调整后的难度每生成一个区块的预计时间约为 10 分钟。</p>
+<p>同时，规定每产生 21 万个区块，比特币奖励减半一次，直至比特币奖励不能再被细分（比特币的最小单位是小数点后 8 位）。由于比特币约每 10 分钟产生一个区块，21 万个区块大约是 4 年的时间。截止到目前，比特币产量已经减半两次，当前每挖出一个区块奖励 12.5 个比特币。按此计算，到 2140 年，比特币将无法再细分，至此比特币将全部发行完毕，总量约 2100 万枚。</p>
+<p>从本质上，挖矿是将比特币的发行和结算进行了分布式，用全球化的算力竞争来取代中央发行机构。</p>
+<p><br></p>
+<h1 id="流通"><a href="#流通" class="headerlink" title="流通"></a>流通</h1><p>比特币的流通就是比特币交易或转账，将比特币从一个地址转到另一个地址。</p>
+<p>转账需要在比特币钱包或比特币客户端中进行，输入转账相关的信息，比如接收方地址、转账金额、手续费金额等。和现实世界类似，常见的比特币交易有三种：</p>
+<ul>
+<li>一个输入两个输出。一个输出是对应给别人，另一个输出给自己，相当于找零。就好比买东西时需要支付 17 元，而你只有一张 20 元的纸币，在这次交易中，这个 20 的输入，就会产生一个 17 元的输出给卖方，一个 3 元的输出给自己（找零）。</li>
+<li>多个输入一个输出。集合了多个零散的钱用于支付一个比较大的金额，比如将一些小额的硬币和纸币凑成一定金额用来付款。</li>
+<li>一个输入多个输出。这种交易多用于商业实体分配中，比如公司给员工发工资。</li>
+</ul>
+<p>比特币交易的基本单位是未花费的一个交易输出，简称 UTXO（Unspent Transaction Output）。比特币网络中没有账户和余额，只有分散在区块链里的数以百万千万记的 UTXO。所谓的「余额」是比特币钱包里引申出的概念，钱包扫描区块链并查找到所有属于该地址的 UTXO 来计算该地址的余额。</p>
+<p>比特币的最小单位是小数点后八位，即「一聪」。虽然 UTXO 中包含的比特币可以是一聪的任意倍，但 UTXO 是不可分割的，只能被创建和消耗。在进行比特币转账时，钱包会从该地址可用的 UTXO 中选取一个或多个来凑出大于或等于待付款的比特币量。另外还需要支付一定的手续费，手续费是所有的交易输入减去所有的交易输出。</p>
+<p>被筛选出的这些 UTXO 称为交易输入，由交易创建的 UTXO 为交易输出。在这个过程中，交易输入的 UTXO 由所有者的签名来解锁并被消耗，交易输出创建新的 UTXO，并由接收者的比特币地址来锁定。</p>
+<p>可以通过下面的 Api 查看对应地址的所有 UTXO：</p>
+<div align="center"><br><br><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp45rgx1oej30nw03ajrk.jpg" alt="查询UTXO Api" width="100px"><br><br></div>
+
+<p>但有一个特殊交易——每个区块的首个交易——称为 Coinbase 交易，该交易用于产生新的比特币用于作为挖矿的奖励，因此该交易没有输入。</p>
+<p>交易被创建后，会被资金所有者（发出方）签名，并广播至比特币网络。一旦被发送到网络中的任意一个节点，交易将会被验证。如果验证有效，交易将会继续传播并返回接收信息；如果无效，交易停止传播并返回拒绝信息。交易被验证后，会被矿工打包进区块。</p>
+<p>需要说明一下的是，交易真正有效需要打包该交易的区块之后有 6 个区块的确认，这是为了防止「双花」问题，后面再详细讨论。</p>
+<p><br></p>
+<table><tr><td bgcolor="#D3D3D3"> 简单总结一下：<br><br>1. 比特币是通过挖矿来发行的，每挖出一个区块，就会获得一定数量的比特币奖励，直到比特币被全部挖出。<br><br>2. 使用比特币钱包进行比特币转账时，发出方的 UTXO 会被解锁并销毁，会用接收方的地址创建新的 UTXO。交易会被广播至比特币网络，被节点验证通过后，就完成了比特币的流通。<br><br>   </td></tr></table>
+
+<p><br></p>
+<p>最后，既然了解了比特币的转账，那就留个地址尝试下吧，当做打赏了~</p>
+<p><strong>BTC</strong>：1DXLx1RjmFhfcCjtUsZiGcFRnRz6WGj8ZN</p>
+<p>或者扫码下方地址二维码：</p>
+<div align="center"><br><br><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fp45s531qzj30gp0gpq4b.jpg" alt="比特币地址" width="100"><br><br></div>
+
+<p>如果你觉得有进步，欢迎关注区块链微信公众号：链站（ID：ChainStation）</p>
+<div align="center"><br><br><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fosv3ip8ljj30by0byaaw.jpg" alt="公众号二维码" width="100px"><br><br></div>
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/BlockChain/">BlockChain</a> <a class="tag tag--primary tag--small t-link" href="/tags/区块链/">区块链</a> <a class="tag tag--primary tag--small t-link" href="/tags/比特币/">比特币</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/简易区块链（1）：货币和比特币/" data-tooltip="简易区块链（1）：货币和比特币">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?&amp;title=http://youngmeng.org/简易区块链（2）：比特币的发行与流通/">
+                    <i class="fa fa-weibo"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 youngmeng. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/简易区块链（1）：货币和比特币/" data-tooltip="简易区块链（1）：货币和比特币">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?&amp;title=http://youngmeng.org/简易区块链（2）：比特币的发行与流通/">
+                    <i class="fa fa-weibo"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?&amp;title=http://youngmeng.org/简易区块链（2）：比特币的发行与流通/">
+                    <i class="fa fa-weibo"></i><span>分享到 Weibo</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/avatar.png" alt="作者的图片"/>
+        
+            <h4 id="about-card-name">youngmeng</h4>
+        
+            <div id="about-card-bio"><p>Android Developer &amp; Python Learner</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>美团点评</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                北京
+            </div>
+        
+    </div>
+</div>
+
+        <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    />
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">没有找到文章</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/建站/">
+                            <img class="media-image" src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4ngcjmrqj30hs0bu77t.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://youngmeng.org/建站/">
+                            <h3 class="media-heading">建站啦</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016年12月1日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>写在建站之时<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/说说Android中的touch-mode/">
+                            <img class="media-image" src="https://ws4.sinaimg.cn/large/006tNc79ly1fp4ninopz8j308w08wq3g.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://youngmeng.org/说说Android中的touch-mode/">
+                            <h3 class="media-heading">说说Android中的touch mode</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016年12月14日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>这段时间做项目，在解决一个小bug的过程中，碰到一个坑，花费了一大天的时间来填坑，终于排查出了原因：由于某个Edit Text调用了requestFocusFromTouch()方法导致的，将获取焦点的方法换成requestFocus()，则问题不再复现。这就激发了我对这两个方法的好奇，准备看看它们葫芦里到底装的什么。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/玩转Android-drawable图片适配/">
+                            <img class="media-image" src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4nlyymp1j30hs07xq52.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://youngmeng.org/玩转Android-drawable图片适配/">
+                            <h3 class="media-heading">玩转Android drawable图片适配</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2016年12月26日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>众所周知，Android机型众多，屏幕尺寸、分辨率各有不同。对于Android开发人员来说，如何提高APP中图片对各种机型的适配是基本技能之一。借着项目中遇到的图片适配问题，在总结项目时，就想着顺带把这部分好好捋一捋，作为一个记录，也为不是很清楚这部分的人提供一个参考。<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/Android手势密码探索/">
+                            <img class="media-image" src="https://ws2.sinaimg.cn/large/006tNc79ly1fp4nv8c636j30hs0buq68.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://youngmeng.org/Android手势密码探索/">
+                            <h3 class="media-heading">Android手势密码探索</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年3月16日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Android 智能手机在全球市场有着极高的市场占有率，越来越受到广大消费者的青睐。但 Android 作为开源操作系统，且很容易可以获得系统 root 权限，Android 系统的安全问题也是用户和开发者最关心的问题之一。<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/Android-开发工具集/">
+                            <img class="media-image" src="https://ws3.sinaimg.cn/large/006tNc79ly1fp4nwynj6gj30hs0gk42v.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://youngmeng.org/Android-开发工具集/">
+                            <h3 class="media-heading">Android 开发工具集</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年7月31日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>本文主要介绍一些 Android 开发过程中使用到的一些工具，用于提升 Android 开发的效率，同时也增加一些乐趣。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://youngmeng.org/求两个有序数组的中位数(Median-of-Two-Sorted-Arrays)/">
+                            <h3 class="media-heading">求两个有序数组的中位数(Median of Two Sorted Arrays)</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年10月27日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>LeetCode 很经典的一道算法题，求两个有序数组的中位数。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/简易区块链（1）：货币和比特币/">
+                            <img class="media-image" src="http://youngmeng.org/简易区块链（1）：货币和比特币/thumbnailImage.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://youngmeng.org/简易区块链（1）：货币和比特币/">
+                            <h3 class="media-heading">简易区块链（1）：货币和比特币</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2018年2月25日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>本文首发于区块链公众号「链站」，ID：ChainStation。</p>
+<p>相信看到这篇文章的都是听说过或了解比特币和区块链的人，那到底什么是比特币和区块链呢？这里准备写个简易区块链系列简单介绍一下，主要是针对一些入门级别的人。文章尽可能抛开一些太专业的术语，用大家都能理解的形式讲解结。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-left">
+                        <a class="link-unstyled" href="http://youngmeng.org/简易区块链（2）：比特币的发行与流通/">
+                            <img class="media-image" src="https://ws2.sinaimg.cn/large/006tNc79ly1fp48u07x3nj30hs0ckmyq.jpg" width="90" height="90"/>
+                        </a>
+                    </div>
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://youngmeng.org/简易区块链（2）：比特币的发行与流通/">
+                            <h3 class="media-heading">简易区块链（2）：比特币的发行与流通</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2018年3月7日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>本篇主要讲一下比特币的发行和流通机制。</p></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="没有找到文章"
+                data-message-one="找到 1 篇文章"
+                data-message-other="找到 {n} 篇文章">
+                找到 8 篇文章
+            </p>
+        </div>
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-ivwiy10zeb8fifc4swnhkwneuk64y53w2scmdmtp8thi9cqfxh31aowtroaz.min.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+    </body>
+</html>
