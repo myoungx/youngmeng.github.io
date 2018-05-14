@@ -307,15 +307,17 @@
         }
     }
     // 添加愿望功能
-    $("#add").click(function() {
-        $(".result_faile").addClass("hide");
-        $(".add_banner").removeClass("hide");
-        $("#add_value").val("")
-    })
+    // $("#add").click(function() {
+    //     $(".result_faile").addClass("hide");
+    //     // $(".add_banner").removeClass("hide");
+    //     // $("#add_value").val("")
+    // })
     var NebPay = require("nebpay");     //https://github.com/nebulasio/nebPay
     var nebPay = new NebPay();
     var serialNumber
-    $("#push").click(function() {
+    $("#add").click(function() {
+        $(".result_faile").addClass("hide");
+
         var to = dappAddress;
         var value = "0";
         var callFunction = "save"
