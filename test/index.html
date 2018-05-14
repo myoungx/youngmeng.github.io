@@ -163,7 +163,7 @@
     <div class="logo">
         <div class="name">链上之愿</div>
         <div class="img logo_rotate">
-            <img src="logo.jpg" alt="">
+            <img src="img/logo.jpg" alt="">
         </div>
     </div>
     <div class="noExtension hide" id="noExtension">
@@ -197,7 +197,7 @@
 
 
     <div class="result_success hide">
-        <div id=search_banner></div>
+        <!-- <div id=search_banner></div> -->
         <!-- <p id=search_result> wait for content </p> -->
         <!-- <div class="author">
             <i><p> Author:</p> <p id=search_result_author> dasdajkajksdhjasdkjahdkjad</p></i>
@@ -230,7 +230,7 @@
     //     $("#add_wish").attr("disabled",false)
     //     $("#search").attr("disabled",false)
     // }
-    var dappAddress = "n1krx162ik2mMLvWYpfg9XKqdeHiymJj1Jx";
+    var dappAddress = "n1u4xx9LetmQAd27XQmgdfXBtKm1oYrcvhh";
     //here we use neb.js to call the "get" function to search from the Dictionary
     var nebulas = require("nebulas"),
         Account = nebulas.Account,
@@ -278,10 +278,8 @@
                 var container = document.getElementsByClassName('.result_success')[0];
                 var wishes = result.wish;
                 for (var i = 0; i < wishes.length; i++) {
-                    var div = document.createElement('div');
-                    div.setAttribute('id', "result_wish" + i);
-                    div.text(wishes[i]);
-                    container.appendChild(div);
+                    var temp = "<div class='search_banner'>" + wishes[i] + "</div>";
+                    $(".result_success").append(temp);
                 }
 
                 // $(".add_banner").addClass("hide");
