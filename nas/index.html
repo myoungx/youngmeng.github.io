@@ -274,6 +274,7 @@
             $("#result_failed_name").text($("#search_value").val())
             $(".result_faile").removeClass("hide");
         } else{
+            console.log("result is not null")
             //if result is not null, then it should be "return value" or "error message"
             try{
                 result = JSON.parse(result)
