@@ -203,7 +203,7 @@
 
 
     <div class="result_success hide">
-        <!-- <div id=search_banner></div> -->
+        <div id=search_banner></div>
         <!-- <p id=search_result> wait for content </p> -->
         <!-- <div class="author">
             <i><p> Author:</p> <p id=search_result_author> dasdajkajksdhjasdkjahdkjad</p></i>
@@ -236,7 +236,7 @@
     //     $("#add_wish").attr("disabled",false)
     //     $("#search").attr("disabled",false)
     // }
-    var dappAddress = "n1k87sjknX7Bmxscto32Q845ZVVosio4XwE";
+    var dappAddress = "n1gy1QebWw1A1mDDmjzXde5THQAWeuTCXvd";
     //here we use neb.js to call the "get" function to search from the Dictionary
     var nebulas = require("nebulas"),
         Account = nebulas.Account,
@@ -284,21 +284,21 @@
             if (!!result.name){      //"return value"
                 $(".result_success").empty();
                 var wishes = result.wish;
-                for (var i = 0; i < wishes.length; i++) {
-                    var temp = "<div class='search_banner'>" + wishes[i] + "</div>";
-                    $(".result_success").append(temp);
-                }
+                // for (var i = 0; i < wishes.length; i++) {
+                //     var temp = "<div class='search_banner'>" + wishes[i] + "</div>";
+                //     $(".result_success").append(temp);
+                // }
 
                 // $(".add_banner").addClass("hide");
                 $(".result_faile").addClass("hide");
-                // $("#search_banner").text($("#add_wish").val())
+                $("#search_banner").text(wishes);
                 // $("#search_result").text(result.value)
                 // $("#search_result_author").text(result.author)
                 // $(".result_success").removeClass("hide");
             } else {        //"error message"
                 // $(".add_banner").addClass("hide");
                 // $(".result_faile").addClass("hide");
-                // $("#search_banner").text($("#add_wish").val())
+                $("#search_banner").text($("#add_wish").val())
                 // $("#search_result").text(result)
                 // $("#search_result_author").text("")
                 // $(".result_success").removeClass("hide");
